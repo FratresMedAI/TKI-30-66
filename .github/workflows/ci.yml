@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate baseline_systems.json
+        run: python -m json.tool data/baseline_systems.json > /dev/null
+
+      - name: Check required documentation tree
+        run: |
+          test -f README.md
+          test -f data/baseline_systems.json
+          for f in docs/01-concept-overview.md docs/02-operational-requirements.md \
+                   docs/03-design-constraints.md docs/04-conops-use-cases.md \
+                   docs/05-key-design-trades.md docs/06-system-description.md \
+                   docs/07-limitations-and-risks.md docs/08-layered-defense-integration.md; do
+            test -f "$f"
+          done
+          for f in annexes/A-baseline-comparison.md annexes/B-kpp-targets.md \
+                   annexes/C-trades-matrix.md annexes/D-projectile-stabilization.md \
+                   annexes/E-references-bibliography.md; do
+            test -f "$f"
+          done
+
+      - name: Check internal doc links resolve
+        run: |
+          python <<'PY'
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          md_files = list(root.glob("README.md")) + list(root.glob("docs/*.md")) + list(root.glob("annexes/*.md"))
+          link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+          missing = []
+
+          for md in md_files:
+              text = md.read_text(encoding="utf-8")
+              for target in link_re.findall(text):
+                  if target.startswith("http") or target.startswith("#"):
+                      continue
+                  path = (md.parent / target.split("#", 1)[0]).resolve()
+                  if not path.exists():
+                      missing.append(f"{md}: {target}")
+
+          if missing:
+              print("Broken links:")
+              print("\n".join(missing))
+              sys.exit(1)
+          print("All internal markdown links resolve.")
+          PY

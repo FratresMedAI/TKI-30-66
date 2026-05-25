@@ -51,7 +51,8 @@
 | Breech | **Gustav-style flip**; spring-loaded bolt; **positive lock** |
 | Triggers | Front = seeker + tone; rear = fire (front held) |
 | Retention stop | Mechanical bore stop; release only when breech closed + front held + ready tone |
-| Ergonomics | M1 Bazooka layout; integrated holo (no rail); grip battery; **no shoulder stock** |
+| Sight | Integrated holo **1.5×–4×** variable (no rail); grip battery |
+| Ergonomics | M1 Bazooka layout; 40 in OAL; **no shoulder stock** |
 | Backblast | **≤ 10 yards (30 ft)** rear |
 | Seating confirmation | Pressure + electrical contacts |
 | Post-fire | Empty tube drops on breech open |

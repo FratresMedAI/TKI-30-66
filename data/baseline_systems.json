@@ -190,7 +190,8 @@
       "forward_grip": "vertical_foregrip_aft_of_muzzle_before_sight",
       "rear_grip": "pistol_grip_with_fire_trigger",
       "padding": "rear_only_pistol_grip_to_breech",
-      "sight": "integrated_holographic_pod_no_rail",
+      "sight": "integrated_holographic_pod_variable_1.5x_to_4x_no_rail",
+      "sight_magnification": { "min": 1.5, "max": 4.0, "unit": "x" },
       "launcher_battery": "pistol_grip_cell_powers_sight_and_fire_control",
       "finish": "matte_tactical_camo",
       "concept_art": "visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png"

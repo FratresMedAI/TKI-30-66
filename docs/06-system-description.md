@@ -155,8 +155,8 @@ flowchart LR
 | Layout | Modernized **M1 Bazooka** — long slim tube; **no shoulder stock** |
 | Grips | Forward vertical foregrip (between muzzle and sight); rear pistol grip |
 | Padding | Rear section only (pistol grip → breech) |
-| Sight | **Integrated holographic** sight pod (molded to tube — **no rail**) |
-| Launcher power | Small **battery in pistol grip** — holo, dual-trigger electronics, lock tone |
+| Sight | **Integrated holo 1.5×–4×** (no rail) |
+| Launcher power | Grip battery — holo, mag select, fire-control |
 | Finish | Matte tactical camo (non-reflective) |
 | Round | Ravioli-can tube; soldier removes **manual pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
@@ -190,13 +190,29 @@ Full operating principle, components, and state machine: [Annex F § Breech Mech
 
 | Element | Baseline |
 |---------|----------|
-| **Sight** | Low-profile **holographic** housing **integrated** into the tube — not a bolt-on rail or aftermarket optic |
-| **Purpose** | **Rough optical aim** within the seeker envelope; reticle + lock-tone cue (not a full thermal weapon sight) |
-| **Battery** | Small rechargeable cell in the **pistol grip** (~ tens of gram-hours class, notional) powers holo, trigger electronics, and tone |
-| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when tube is seated — separate from launcher battery |
-| **Why split** | **KISS:** launcher handles aim cue + safety logic; round handles terminal IR. No launcher-to-seeker thermal video link (rejected — adds wiring, EMI, and complexity). |
+| **Sight** | Low-profile **variable-magnification holographic** pod (**1.5×–4×**) **integrated** into the tube — not a bolt-on rail |
+| **Purpose** | **Rough optical aim** — put the reticle on the target **airspace** so the onboard IR seeker can search and lock (audible tone) |
+| **Magnification** | **1.5×** default (wide FOV, close/fast targets) · **4×** for long bracket (~800–1000 m) where the target is a near-acuity-limit speck |
+| **Battery** | Small rechargeable cell in the **pistol grip** powers holo, mag select, trigger electronics, and tone |
+| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — **does** the terminal lock, not the holo |
 
-**Thought process:** A rail-mounted commercial optic adds height, snag points, and zeroing drift on a recoilless tube. Molding the holo pod into the launcher keeps the **M1 Bazooka** clean line. The grip battery avoids tapping the round for sight power before seating and keeps electronics alive for slung carry checks.
+#### Why variable 1.5×–4× (human eye vs. small UAS)
+
+The holo **does not replace the seeker** at 1000 m — it helps the gunner **point the tube** so the seeker can see the threat. Approximate angular size of a **0.4 m** quadcopter:
+
+| Range | Target angle (1×) | Apparent at **4×** | Gunner experience |
+|-------|-------------------|---------------------|-------------------|
+| 300 m | ~4.6 arcmin | ~18 arcmin | Clear blob; **1.5×** enough |
+| 600 m | ~2.3 arcmin | ~9 arcmin | Visible motion; **2–3×** helps |
+| 1000 m | ~1.4 arcmin | ~5.5 arcmin | Near **20/20 limit** at 1×; **4×** turns it into a trackable dot |
+
+Human **20/20** acuity is roughly **~1 arcminute** for high-contrast targets. A small drone at **1000 m** is **below or at the edge** of unaided detection at 1× — you might catch **movement or glint**, not rotor detail. **4×** makes the same target appear as if it were at **~250 m**, which is enough to **center the reticle** on the right piece of sky before holding the front trigger.
+
+**Employment:** Use **lower mag** for snap shots and crossing FPV inside ~400 m; dial **toward 4×** when engaging hover/orbit targets at extended range. **Lock tone** confirms the **IR seeker** — not the holo — has the target.
+
+**KISS boundary:** No seeker video piped to the holo; no continuous zoom beyond 4× (narrow FOV fights off-boresight discipline). The seeker acquisition envelope (notional **~2–4°**) is the hard limit — holo mag only helps **center** within that cone.
+
+**Thought process:** Rail optics add snag and drift. Integrated variable holo + grip battery keeps the clean **M1** line while matching **150–1000 m** engagement band to human vision.
 
 ---
 

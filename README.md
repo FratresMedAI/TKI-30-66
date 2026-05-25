@@ -53,7 +53,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | Seeker | 100 mm IR fire-and-forget | Locked |
 | Guidance | Low-maneuver; small movable canards near nose | Locked |
 | Fins | 4 swept spring-loaded at base; deploy on exit | Locked |
-| Sight / power | Integrated holo (no rail); launcher battery in grip for sight + fire-control | Locked |
+| Sight / power | Integrated holo **1.5×–4×** variable (no rail); grip battery | Locked |
 | Range goal | 1000 m effective | Locked |
 | Backblast | ≤ 10 yards (30 ft) | Locked |
 | Protective tube | Ravioli-can + manual pull-off cap (soldier removes on load) | Locked |

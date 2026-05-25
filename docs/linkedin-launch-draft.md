@@ -1,6 +1,6 @@
 # LinkedIn Launch — Draft Post
 
-Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png`
+Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png`
 
 ---
 
@@ -16,7 +16,7 @@ Squad and SOF need something between a machine gun and a Stinger for close-in dr
 - **Gustav-style flip breech** · dual-trigger safety · **mechanical rocket retention stop** for slung carry  
 
 **What it looks like**  
-Modernized **M1 Bazooka** — **40 in** tube, fold-out **~4 in** viewfinder (camcorder-style), holo-fed display, **+ / −** zoom on foregrip.
+Modernized **M1 Bazooka** — **40 in** tube, fold-out **~4 in** viewfinder (camcorder-style), holo-fed display, **pistol-style dual triggers** (front slightly smaller), **+ / −** zoom on **aft face** of foregrip.
 
 Open engineering repo (concept only — notional performance, not procurement):
 

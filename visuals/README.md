@@ -6,6 +6,7 @@ Concept art and reference imagery for the RADR program. Figures are **notional**
 
 | Asset | Role |
 |-------|------|
-| [`launcher/output/radr-bazooka-side-v8-viewfinder-flush.png`](launcher/output/radr-bazooka-side-v8-viewfinder-flush.png) | **Primary** side-profile launcher concept (locked layout) |
+| [`launcher/output/radr-bazooka-side-v11-foregrip-fix.png`](launcher/output/radr-bazooka-side-v11-foregrip-fix.png) | **Primary** side-profile launcher concept (locked layout) |
+| [`launcher/output/radr-bazooka-side-v8-viewfinder-flush.png`](launcher/output/radr-bazooka-side-v8-viewfinder-flush.png) | Prior — flush-stow viewfinder baseline |
 
-**v8 (locked):** Viewfinder **folds flush** — **bottom edge even with holo pod bottom**. ~4 in panel; **+ / −** on foregrip. **40 in OAL.**
+**v11 (locked):** v8 silhouette + **pistol-style foregrip trigger** on front + **+ / −** on **aft face** of foregrip. Viewfinder **folds flush** — **bottom edge even with holo pod bottom**. **40 in OAL.**

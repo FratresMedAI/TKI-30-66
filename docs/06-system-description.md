@@ -13,7 +13,7 @@ Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G
 **RADR** comprises:
 
 1. **Launcher** — 40 in reusable recoilless tube (≤ 5.5 kg empty), modernized M1 Bazooka ergonomics, Gustav flip breech, dual-trigger grips, **rocket retention stop**, no shoulder stock.  
-2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in ravioli-can protective tube: IR seeker, progressive motor, dense alloy cube flak warhead.
+2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in alloy protective tube: IR seeker, progressive motor, dense alloy cube flak warhead.
 
 ```mermaid
 flowchart LR
@@ -51,7 +51,7 @@ flowchart TB
     BreechBlock[FlipBreech_Closed]
     Vent[RecoillessVent_Rear]
   end
-  subgraph Tube [RavioliCan_Tube]
+  subgraph Tube [AlloyTube]
     CapOff[CapRemoved]
     subgraph Rocket [Rocket_18in]
       Seeker[Seeker_100mm]
@@ -66,7 +66,7 @@ flowchart TB
   Vent --> VentNote[10yd_DangerZone]
 ```
 
-- **Ravioli-can** is the factory shipping and launch container.  
+- **Alloy tube** is the factory shipping and launch container.  
 - **Rocket** rides inside the tube; tube rim mates **breech sealing face** and **rim contacts**.  
 - On fire, motor exhaust vents **rear** through launcher — not a closed-bore cannon.
 
@@ -119,14 +119,14 @@ flowchart TD
 
 ### Post-Fire Tube Ejection
 
-After motor burnout and safe interval, the gunner clears the rear arc, unlocks the breech, and the spent ravioli-can tube drops for the next reload cycle.
+After motor burnout and safe interval, the gunner clears the rear arc, unlocks the breech, and the spent alloy tube drops for the next reload cycle.
 
 ```mermaid
 flowchart LR
   Fired[MotorBurns_RocketLeaves] --> Vent[Backblast_10yd]
   Vent --> Open[GunnerOpensBreech]
   Open --> Drop[SpentTube_DropsOut]
-  Drop --> Reload[Next_RavioliCan]
+  Drop --> Reload[Next_AlloyTube]
 ```
 
 ---
@@ -145,7 +145,7 @@ flowchart LR
 
 ## Launcher
 
-![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png)
+![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png)
 
 | Parameter | Spec |
 |-----------|------|
@@ -153,15 +153,15 @@ flowchart LR
 | Mass (empty) | ≤ 5.5 kg (nominal **4.95 kg** — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
 | Bore | 60 mm smoothbore (baseline) |
 | Layout | Modernized **M1 Bazooka** — long slim tube; **no shoulder stock** |
-| Grips | Forward vertical foregrip (between muzzle and sight); rear pistol grip |
+| Grips | Forward vertical foregrip (between muzzle and sight) with **pistol-style seeker trigger**; rear pistol grip with fire trigger |
 | Padding | Rear section only (pistol grip → breech) |
 | Sight | Integrated holo **1.5×–4×** + fold-out **~4 in** viewer |
-| Zoom control | **+ / −** on foregrip side |
+| Zoom control | **+ / −** on **aft face** of foregrip (buttons face rear) |
 | Launcher power | Grip battery — holo, display, fire-control |
 | Finish | Matte tactical camo (non-reflective) |
-| Round | Ravioli-can tube; soldier removes **manual pull-off cap** before load |
+| Round | Alloy tube; soldier removes **manual pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
-| Triggers | **Front:** seeker + **audible lock tone** · **Rear:** fire (front held) |
+| Triggers | **Front:** same curved pistol trigger as rear, **slightly smaller** — seeker + **audible lock tone** · **Rear:** fire (front held) |
 | **Retention stop** | Mechanical bore stop — see below |
 | CoG | Slightly **rear-biased** (~248 mm rocket CG — Annex G) |
 | Backblast | ≤ **10 yards (30 ft)** rear |
@@ -194,7 +194,7 @@ Full operating principle, components, and state machine: [Annex F § Breech Mech
 | **Optics module** | Low-profile **variable holo/optics pod** (**1.5×–4×**) **integrated** on the tube — not a rail-mounted aftermarket sight |
 | **Fold-out viewer** | **~4 in (102 mm) wide** panel on a side hinge; **stowed:** folds **flush** against the tube — **bottom edge aligned with bottom of holo pod** (no step, no overhang) |
 | **Display** | Panel shows the holo/optics picture + reticle when **deployed** (~barrel-height swing out) |
-| **Zoom** | **+** and **−** buttons on the **side of the forward foregrip** — steps through **1.5× → 4×** (default **1.5×** on power-up) |
+| **Zoom** | **+** and **−** on the **aft-facing (rear) face** of the forward foregrip — buttons face rear; right-handed gunner uses **left index** on front trigger, **left thumb** on zoom — steps through **1.5× → 4×** (default **1.5×** on power-up) |
 | **Battery** | Rechargeable cell in the **pistol grip** powers holo, display, zoom logic, triggers, and tone |
 | **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — terminal lock, not the launcher camera |
 
@@ -210,7 +210,7 @@ Full operating principle, components, and state machine: [Annex F § Breech Mech
 
 - **4 in panel** gives a **stable view** at arm’s length — easier than squinting through a tiny optic at 1000 m.  
 - **1.5×–4×** stays inside **rough-aim + seeker FOV** discipline (~2–4° notional seeker cone).  
-- **Foregrip + / −** keeps zoom control on the **support hand** without breaking grip on the firing hand.  
+- **Foregrip + / −** on the **aft face** keeps zoom on the **support-hand thumb** while the **index finger** stays on the seeker trigger — no grip shift on the firing hand.  
 - **Not** the rocket IR feed on the screen pre-lock — launcher optics only. **Lock tone** = round seeker; avoids wiring/video from disposable round.
 
 #### Human eye vs. mag (unchanged rationale)

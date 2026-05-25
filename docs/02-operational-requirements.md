@@ -49,7 +49,7 @@ The system shall be designed to engage:
 | Motor | Evolution Space propellant; progressive burn (low 1–2 s, ramp) | Locked |
 | Range | ≥ 800 m | **1000 m** effective |
 | Backblast | ≤ 10 yd (30 ft) | Locked |
-| Tube | Ravioli-can, pull-off cap | Locked |
+| Tube | Alloy tube, pull-off cap | Locked |
 | Breech | Gustav flip + positive lock | Locked |
 | Controls | Dual-trigger + lock tone | Locked |
 | CoG | Rear-biased | Locked |

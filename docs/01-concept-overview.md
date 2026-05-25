@@ -37,7 +37,7 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 | **Speed-to-target** | Primary defense against evasion |
 | **Low-maneuver guidance** | Rough aim + lock + small nose-canard trim |
 | **Not high off-boresight** | No snap-shot outside seeker envelope |
-| **KISS + rugged** | Ravioli-can round; flip breech; dual-trigger |
+| **KISS + rugged** | Alloy tube round; flip breech; dual-trigger |
 | **Safety in depth** | Retention stop, breech lock, dual-trigger interlocks |
 | **Terminal flak** | Forward cone of rough-edged cubes; burster disperses only |
 | **Honest** | 1000 m and Pk are goals until live fire |
@@ -60,10 +60,10 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 | Motor | Solid rocket; Evolution Space propellant; progressive grain (low 1–2 s, ramp) |
 | Range goal | 1000 m effective |
 | Backblast | ≤ 10 yards (30 ft) |
-| Tube | Ravioli-can; pull-off cap on load |
+| Tube | Alloy tube; pull-off cap on load |
 | Breech | Gustav flip + spring bolt + positive lock |
 | Controls | Front = seeker/tone; rear = fire (front held) |
-| Sight | Integrated holo **1.5×–4×**; fold-out **~4 in** viewer; **+ / −** on foregrip |
+| Sight | Integrated holo **1.5×–4×**; fold-out **~4 in** viewer; **+ / −** on foregrip aft face |
 | CoG | Slightly rear-biased |
 | **Retention stop** | Bore stop when carried; releases with closed breech + front held + ready tone |
 
@@ -71,9 +71,9 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 
 ## Launcher Concept (Locked Silhouette)
 
-Modernized **M1 Bazooka** layout: long slim **40 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **integrated holo (1.5×–4×)** feeding a **fold-out ~4 in camcorder-style viewer**; **+ / −** zoom on the **foregrip**. Grip battery powers optics, display, and fire-control.
+Modernized **M1 Bazooka** layout: long slim **40 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight) with **pistol-style seeker trigger** (same form as rear, slightly smaller), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **integrated holo (1.5×–4×)** feeding a **fold-out ~4 in camcorder-style viewer**; **+ / −** zoom on the **aft face** of the foregrip (buttons face rear — left index on front trigger, left thumb on zoom). Grip battery powers optics, display, and fire-control.
 
-![Launcher concept](../visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png)
+![Launcher concept](../visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png)
 
 ---
 

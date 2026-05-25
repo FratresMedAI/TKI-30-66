@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.4.0",
+    "version": "1.4.2",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.4.0: Fold-out camcorder viewfinder (~4in), foregrip +/- zoom, holo feeds display."
+    "notes": "v1.4.2: v11 foregrip art (front trigger, aft-face zoom); alloy tube terminology."
   },
   "primary_threats": [
     {
@@ -82,7 +82,7 @@
       "ramp": "increasing_to_terminal_velocity"
     },
     "round_packaging": {
-      "type": "ravioli_can_protective_tube",
+      "type": "alloy_protective_tube",
       "cap": "manual_pull_off",
       "removed_by": "soldier_during_loading"
     },
@@ -201,17 +201,25 @@
         "deployed_height": "approx_barrel_od"
       },
       "zoom_controls": {
-        "location": "forward_foregrip_side",
-        "buttons": ["plus", "minus"]
+        "location": "forward_foregrip_aft_face",
+        "button_orientation": "faces_rear",
+        "buttons": ["plus", "minus"],
+        "support_hand_ergonomics": "right_handed_gunner_left_index_on_front_trigger_left_thumb_on_zoom"
       },
       "display_feed": "launcher_holo_optics_module",
       "launcher_battery": "pistol_grip_cell_powers_sight_and_fire_control",
       "finish": "matte_tactical_camo",
-      "concept_art": "visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png"
+      "concept_art": "visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png"
     },
     "launcher_controls": {
-      "front_trigger": "seeker_activation_and_lock_tone",
-      "rear_trigger": "launch_requires_front_held"
+      "front_trigger": {
+        "function": "seeker_activation_and_lock_tone",
+        "form": "pistol_style_curved_trigger_and_guard_scaled_slightly_smaller_than_rear"
+      },
+      "rear_trigger": {
+        "function": "launch_requires_front_held",
+        "form": "pistol_style_curved_trigger_and_guard"
+      }
     },
     "center_of_gravity": "slightly_rear_biased",
     "backblast": {
@@ -347,7 +355,7 @@
       "breech": "gustav_flip_spring_bolt_positive_lock",
       "rocket_retention_stop": true,
       "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",
-      "round_packaging": "ravioli_can_pull_off_cap",
+      "round_packaging": "alloy_tube_pull_off_cap",
       "primary_role": "squad_sof_terminal_c_uas",
       "typical_targets": [
         "fpv_kamikaze_drone",

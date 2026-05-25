@@ -5,7 +5,7 @@
 **RADR** is a lightweight, reusable **60 mm** shoulder-fired rocket system designed as a **squad and SOF terminal-layer** weapon. It fires an **18-inch** rocket with a **300 × 7 mm dense alloy cube flak** warhead, **onboard IR fire-and-forget** seeker, and **progressive-burn** motor optimized for **speed-to-target** rather than high off-boresight maneuvering.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.0.0
+**Version:** 1.1.0
 
 ![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v5.png)
 
@@ -87,7 +87,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 
 **Carry:** Launcher + one round ≤ **9.0 kg** — one person can reload. Retention stop **engaged** whenever front trigger is not held (safe carry/sling).
 
-**Detail:** [Annex F — Employment & breech](annexes/F-employment-and-breech.md) · **Diagrams:** [DOC-06](docs/06-system-description.md#diagrams)
+**Mechanical detail:** [Annex F — Breech](annexes/F-employment-and-breech.md#breech-mechanism) · [Retention stop](annexes/F-employment-and-breech.md#rocket-retention-stop) · [Gunner sequence](annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) · **Diagrams:** [DOC-06](docs/06-system-description.md#diagrams)
 
 ---
 

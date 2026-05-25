@@ -1,7 +1,7 @@
 # Annex D — Projectile Stabilization & Ballistics
 
 **Document ID:** RADR / ANX-D  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Status:** Conceptual
 
 ---

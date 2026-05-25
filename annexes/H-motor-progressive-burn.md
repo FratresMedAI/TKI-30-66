@@ -1,7 +1,7 @@
 # Annex H — Motor Progressive Burn Profile
 
 **Document ID:** RADR / ANX-H  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Status:** Conceptual — notional ballistics
 
 *Thrust, impulse, and range figures are analytic placeholders — not live-fire data.*

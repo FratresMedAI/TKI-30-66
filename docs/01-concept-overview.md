@@ -1,7 +1,7 @@
 # 01 — Concept Overview
 
 **Document ID:** RADR / DOC-01  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Status:** Conceptual
 
 ---
@@ -80,7 +80,7 @@ Modernized **M1 Bazooka** layout: long slim **36 in** tube, **matte multicam**, 
 
 Open breech → Remove cap from tube → Load tube → Close breech (locks) → Hold front trigger (seeker + tone; retention stop releases) → Pull rear trigger while holding front → Fire → Open breech → Empty tube drops out.
 
-**Engineering annexes:** [F — Employment](../annexes/F-employment-and-breech.md) · [G — Mass/CG](../annexes/G-mass-and-center-of-gravity.md) · [H — Motor](../annexes/H-motor-progressive-burn.md)
+**Engineering annexes:** [F — Employment & breech](../annexes/F-employment-and-breech.md) ([sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) · [retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop) · [breech](../annexes/F-employment-and-breech.md#breech-mechanism)) · [G — Mass/CG](../annexes/G-mass-and-center-of-gravity.md) · [H — Motor](../annexes/H-motor-progressive-burn.md)
 
 ---
 

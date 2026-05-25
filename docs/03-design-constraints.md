@@ -1,7 +1,7 @@
 # 03 — Design Constraints
 
 **Document ID:** RADR / DOC-03  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Status:** Conceptual
 
 ---
@@ -55,6 +55,8 @@
 | Backblast | **≤ 10 yards (30 ft)** rear |
 | Seating confirmation | Pressure + electrical contacts |
 | Post-fire | Empty tube drops on breech open |
+
+Mechanical baseline: [Annex F](../annexes/F-employment-and-breech.md#breech-mechanism) · [Retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop)
 
 ---
 

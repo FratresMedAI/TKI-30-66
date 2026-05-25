@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.0.0: Refined vision — rocket retention stop, launcher concept (M1 Bazooka layout), safety interlocks, selected concept art v5."
+    "notes": "v1.1.0: Phase 1 mechanical docs — breech operating principle, retention stop baseline, gunner 7-phase sequence, interlock flow."
   },
   "primary_threats": [
     {
@@ -87,10 +87,19 @@
       "style": "gustav_flip",
       "bolt": "spring_loaded",
       "lock_type": "positive_deadbolt",
+      "unlock_action": "pull_bolt_handle_rearward_15_to_25_mm_against_spring",
+      "unlock_cam": "lifts_deadbolt_detent_off_block",
+      "open_angle_deg": 90,
+      "lock_feedback": "deadbolt_snap_audible_tactile",
+      "seating_sensors": [
+        "pressure_transducer_port",
+        "rim_electrical_contacts"
+      ],
       "components": [
         "flip_breech_block",
         "hinge_axis",
         "spring_return_bolt_handle",
+        "unlock_cam",
         "deadbolt_detent_cam",
         "bore_sealing_face",
         "rim_electrical_contacts",
@@ -109,7 +118,10 @@
     },
     "rocket_retention_stop": {
       "type": "mechanical_bore_stop",
-      "default": "engaged",
+      "mechanism": "spring_biased_radial_bore_finger_on_tube_aft_shoulder",
+      "default_state": "engaged",
+      "retract_driver": "release_cam_from_fire_control_interlock",
+      "rear_trigger_retracts_stop": false,
       "disengage_requires": [
         "breech_fully_closed_and_locked",
         "front_trigger_held",
@@ -118,6 +130,57 @@
       "reengage_on": "front_trigger_released",
       "purpose": "prevent_rocket_forward_slide_when_slung_or_carried"
     },
+    "operational_sequence_soldier": [
+      {
+        "phase": 1,
+        "name": "CLEAR",
+        "action": "Pull bolt handle; swing breech open; clear bore",
+        "feedback": "Spring resistance; hinge swing; open detent",
+        "interlock": "Rear disabled; seeker off; retention engaged"
+      },
+      {
+        "phase": 2,
+        "name": "PREP",
+        "action": "Remove pull-off cap; inspect seeker dome",
+        "feedback": "Cap separates cleanly",
+        "interlock": null
+      },
+      {
+        "phase": 3,
+        "name": "LOAD",
+        "action": "Slide protective tube into bore until seated",
+        "feedback": "Light alignment detent",
+        "interlock": "Seeker off; retention engaged"
+      },
+      {
+        "phase": 4,
+        "name": "SEAT",
+        "action": "Close breech; release bolt handle for deadbolt snap",
+        "feedback": "Audible deadbolt snap; seat confirm",
+        "interlock": "Rear blocked until lock tone"
+      },
+      {
+        "phase": 5,
+        "name": "ARM",
+        "action": "Hold front trigger; rough aim",
+        "feedback": "Seeker search; stop engaged until tone",
+        "interlock": "Rear blocked"
+      },
+      {
+        "phase": 6,
+        "name": "FIRE",
+        "action": "Maintain tone; pull rear while holding front",
+        "feedback": "Steady tone; stop disengages; launch and rear vent",
+        "interlock": "Front must stay held"
+      },
+      {
+        "phase": 7,
+        "name": "POST",
+        "action": "Clear 10 yd rear; open breech; tube drops",
+        "feedback": "Tube falls free",
+        "interlock": "Retention engaged; ready for reload"
+      }
+    ],
     "launcher_ergonomics": {
       "heritage": "modernized_m1_bazooka",
       "shoulder_stock": false,

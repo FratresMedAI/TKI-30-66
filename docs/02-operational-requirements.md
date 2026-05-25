@@ -1,7 +1,7 @@
 # 02 — Operational Requirements
 
 **Document ID:** RADR / DOC-02  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Status:** Conceptual
 
 Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
@@ -84,7 +84,7 @@ The system shall be designed to engage:
 | 6 | Pull rear trigger (front held) | Launch |
 | 7 | Open breech after safe interval | Empty tube drops |
 
-**Authoritative interlocks:** [Annex F](../annexes/F-employment-and-breech.md)
+**Authoritative interlocks:** [Annex F](../annexes/F-employment-and-breech.md) — [Gunner sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) · [Retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop) · [Breech](../annexes/F-employment-and-breech.md#breech-mechanism)
 
 ---
 

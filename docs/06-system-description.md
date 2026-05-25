@@ -1,7 +1,7 @@
 # 06 — System Description
 
 **Document ID:** RADR / DOC-06  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Status:** Conceptual
 
 Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G](../annexes/G-mass-and-center-of-gravity.md) · [Annex H](../annexes/H-motor-progressive-burn.md)
@@ -38,9 +38,11 @@ flowchart LR
 
 ## Diagrams
 
+Mechanical and employment detail: [Annex F — Breech](../annexes/F-employment-and-breech.md#breech-mechanism) · [Retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop) · [Gunner sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence)
+
 ### Physical Assembly (Conceptual)
 
-How the protective tube, rocket, and launcher relate at **LOCKED_SEATED**:
+At **LOCKED_SEATED**, the protective tube is fully inside the 60 mm smoothbore; the flip breech block is deadbolt-locked against the tube rim; the retention stop finger bears on the tube aft shoulder until the gunner arms the seeker and receives lock tone. Exhaust vents rearward through the recoilless path (10 yd danger zone).
 
 ```mermaid
 flowchart TB
@@ -70,28 +72,54 @@ flowchart TB
 
 ### Employment Sequence (States)
 
-See [Annex F](../annexes/F-employment-and-breech.md) for full interlocks. Summary:
+Time-ordered interaction between gunner, breech, retention stop, seeker, and fire logic. The retention stop stays engaged until lock tone; the rear trigger is inert until then. Full step-by-step narrative: [Annex F § Gunner’s Sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence).
 
 ```mermaid
 sequenceDiagram
   participant G as Gunner
   participant B as Breech
+  participant RS as RetentionStop
   participant S as Seeker
   participant FL as FireLogic
 
   G->>B: Open breech CLEAR
+  RS->>RS: Engaged
   G->>G: Pop cap PREP
   G->>B: Load tube LOAD
   B->>FL: Close deadbolt SEAT
+  RS->>RS: Engaged
   G->>S: Front trigger ARM
   S->>G: Lock tone
-  Note over FL: Retention stop disengaged
+  S->>RS: Disengage
   G->>FL: Rear trigger FIRE
   G->>B: Open breech POST
   B-->>G: Empty tube drops
+  RS->>RS: Engaged
+```
+
+### Safety Interlock Flow
+
+Logical gates for carry-safe operation. All three conditions (closed locked breech, front held, lock tone) are required before the retention stop retracts and the rear trigger enables. Diagram matches [Annex F § Safety Interlock Flow](../annexes/F-employment-and-breech.md#safety-interlock-flow).
+
+```mermaid
+flowchart TD
+  Start[BreechOpen_or_Unseated] --> Engaged[RetentionStop_Engaged]
+  Engaged --> Closed{BreechClosed_and_DeadboltLocked}
+  Closed -->|No| Engaged
+  Closed -->|Yes| Seated{TubeSeated_OK}
+  Seated -->|No| Engaged
+  Seated -->|Yes| Front{FrontTriggerHeld}
+  Front -->|No| Engaged
+  Front -->|Yes| Tone{LockToneActive}
+  Tone -->|No| Engaged
+  Tone -->|Yes| Ready[Stop_Disengaged_RearEnabled]
+  Ready --> Fire[RearTrigger_Launch]
+  FrontRelease[FrontReleased] --> Engaged
 ```
 
 ### Post-Fire Tube Ejection
+
+After motor burnout and safe interval, the gunner clears the rear arc, unlocks the breech, and the spent ravioli-can tube drops for the next reload cycle.
 
 ```mermaid
 flowchart LR
@@ -139,26 +167,23 @@ flowchart LR
 
 ### Rocket Retention Stop
 
-A **mechanical stop** inside the bore physically prevents the rocket (in its protective tube) from sliding **forward** when the launcher is **slung or carried**.
+A **spring-biased radial bore finger** bears on the protective tube aft shoulder and blocks forward slide during sling carry and movement. The stop **disengages** only when the breech is deadbolt-locked, the gunner holds the **front trigger**, and the seeker outputs **steady lock tone**. Releasing the front trigger **re-engages** the stop immediately. The **rear trigger never** retracts the stop.
 
 | State | Retention stop |
 |-------|----------------|
 | Breech open / not seated | **Engaged** |
 | Breech closed, front trigger not held | **Engaged** |
-| Breech closed, front held, no ready tone | **Engaged** (seeker may be acquiring) |
-| Breech closed, front held, **ready tone** | **Disengaged** — rocket may move forward on launch |
+| Breech closed, front held, no ready tone | **Engaged** |
+| Breech closed, front held, **ready tone** | **Disengaged** |
 | Front trigger released | **Re-engages** immediately |
 
-This is independent of the rear trigger and provides a **carry-safe** default.
+Full mechanism and causality table: [Annex F § Rocket Retention Stop](../annexes/F-employment-and-breech.md#rocket-retention-stop).
 
 ### Breech (Summary)
 
-- **Flip breech block** on rear hinge (~90° open).  
-- **Spring-return bolt handle** — pull to unlock, swing breech, release to lock.  
-- **Deadbolt cam** — positive mechanical lock when closed.  
-- **Rim contacts + pressure port** — assert `SEATED` before seeker.  
+**Gustav-style flip block** on a rear hinge (~90° open). Pull the **spring-return bolt handle** to clear a **deadbolt**; swing open; insert tube; close; **release** handle for **deadbolt snap** and `SEATED` confirm. Positive mechanical lock — bolt-action feel — before seeker or retention release.
 
-Full mechanism and state machine: [Annex F § Breech](../annexes/F-employment-and-breech.md#breech-mechanism-locked-baseline).
+Full operating principle, components, and state machine: [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
 
 ---
 

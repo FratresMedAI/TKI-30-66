@@ -64,7 +64,7 @@ When trades conflict, **simplicity and low mass** take priority over peak range,
 |--------------|------------|------|-------|
 | **Onboard IR fire-and-forget ★** | **Gunner lock-and-fire** | **~$200–400/rd** | **Baby MANPADS class** |
 | Laser beam-riding | Designator required | Lower seeker | **Rejected** |
-| Launcher-tracked LOBL | 2-step cue | Launcher complexity | **Removed** |
+| Launcher-tracked guidance | 2-step cue | Launcher complexity | **Removed** |
 | Unguided | Cheap | Low Pk | Insufficient |
 
 **Recommendation:** **Onboard IR seeker, fire-and-forget**, drone-optimized (simplified vs. full Stinger).
@@ -104,7 +104,7 @@ When trades conflict, **simplicity and low mass** take priority over peak range,
 | Rocket length | ≤ 457 mm (18 in max) | Set |
 | Payload | Ti BB flak | Set |
 | Guidance | Onboard IR F&F | Set |
-| Beam-riding / LOBL / BIT | Removed | — |
+| Beam-riding / launcher-tracked / BIT | Removed | — |
 | Kinetic rod | Removed | — |
 | Launcher | Reusable tube, simple sight | Set |
 | Team | Gunner + ammo bearer | Set |

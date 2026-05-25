@@ -92,7 +92,7 @@ Single-stage; hybrid backblast mitigation; ~650 m/s muzzle velocity (notional).
 | Parameter | Notional |
 |-----------|----------|
 | Type | Simplified IR homing — baby Stinger / Igla class; drone-optimized |
-| Lock | Gunner-cued LOBL at launch; then autonomous |
+| Lock | Seeker lock before fire; then autonomous |
 | Post-launch | No human track required |
 | Mass (seeker section) | ~200–350 g |
 | Cost contribution | Dominates round cost |

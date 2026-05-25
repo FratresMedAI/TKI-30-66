@@ -14,7 +14,7 @@ See [05 — Key Design Trades](../docs/05-key-design-trades.md).
 |-------|----------|----------|----------|-------------|
 | **Philosophy** | Cost-first | Performance | **KISS / lightweight ★** | **KISS / lightweight** |
 | **Payload** | Kinetic rod | HE-frag | **Ti BB flak ★** | **Ti BB flak** |
-| **Guidance** | Beam-riding | Launcher LOBL | **Onboard IR F&F ★** | **Onboard IR F&F** |
+| **Guidance** | Beam-riding | Launcher-tracked | **Onboard IR F&F ★** | **Onboard IR F&F** |
 | **Rocket length** | 12 in | **≤ 18 in ★** | > 18 in | **≤ 18 in max** |
 | **Caliber** | 40 mm | **50 mm ★** | 66 mm | **50 mm** |
 | **Dispersal** | Timed | **Proximity IR ★** | Seeker-gated | **Proximity IR (TBD)** |
@@ -27,7 +27,7 @@ See [05 — Key Design Trades](../docs/05-key-design-trades.md).
 | Item | Status |
 |------|--------|
 | Laser beam-riding | Rejected |
-| Launcher tracker + LOBL | Removed |
+| Launcher tracker guidance | Removed |
 | Pre-fire BIT | Removed |
 | Kinetic rod | Removed |
 | FMCW radar seeker | Not baseline |

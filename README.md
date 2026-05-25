@@ -83,7 +83,7 @@ Structured comparison data: [`data/baseline_systems.json`](data/baseline_systems
 | Guidance | **Onboard IR, fire-and-forget** | Baby Stinger/Igla class; drone-optimized; no laser |
 | Warhead | **Ti BB flak dispersal** | Rocket-delivered flak cloud; not rod/penetrator |
 | Beam-riding / laser | **Rejected** | Not in concept |
-| Launcher-tracked LOBL / BIT | **Removed** | Superseded by onboard F&F seeker |
+| Launcher-tracked guidance / BIT | **Removed** | Superseded by onboard F&F seeker |
 | Kinetic rod / flechette | **Rejected** | Superseded by Ti BB flak |
 | Stabilization | Fin-stabilized rocket (smoothbore baseline) | Conventional rocket architecture |
 | Backblast priority | Low–moderate (≤ 30 m goal) | Squad-safe employment |

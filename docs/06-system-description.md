@@ -12,7 +12,7 @@ Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G
 
 **RADR** comprises:
 
-1. **Launcher** — 36 in reusable recoilless tube (≤ 5.5 kg empty), modernized M1 Bazooka ergonomics, Gustav flip breech, dual-trigger grips, **rocket retention stop**, no shoulder stock.  
+1. **Launcher** — 40 in reusable recoilless tube (≤ 5.5 kg empty), modernized M1 Bazooka ergonomics, Gustav flip breech, dual-trigger grips, **rocket retention stop**, no shoulder stock.  
 2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in ravioli-can protective tube: IR seeker, progressive motor, dense alloy cube flak warhead.
 
 ```mermaid
@@ -46,7 +46,7 @@ At **LOCKED_SEATED**, the protective tube is fully inside the 60 mm smoothbore; 
 
 ```mermaid
 flowchart TB
-  subgraph Launcher [Launcher_36in]
+  subgraph Launcher [Launcher_40in]
     Bore[Smoothbore_60mm]
     BreechBlock[FlipBreech_Closed]
     Vent[RecoillessVent_Rear]
@@ -145,17 +145,18 @@ flowchart LR
 
 ## Launcher
 
-![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v5.png)
+![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png)
 
 | Parameter | Spec |
 |-----------|------|
-| Length | 36 in (914 mm) |
-| Mass (empty) | ≤ 5.5 kg (nominal **4.8 kg** — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
+| Length | 40 in (1016 mm) |
+| Mass (empty) | ≤ 5.5 kg (nominal **4.95 kg** — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
 | Bore | 60 mm smoothbore (baseline) |
 | Layout | Modernized **M1 Bazooka** — long slim tube; **no shoulder stock** |
 | Grips | Forward vertical foregrip (between muzzle and sight); rear pistol grip |
 | Padding | Rear section only (pistol grip → breech) |
-| Sight | Short rail + **modern holographic** sight |
+| Sight | **Integrated holographic** sight pod (molded to tube — **no rail**) |
+| Launcher power | Small **battery in pistol grip** — holo, dual-trigger electronics, lock tone |
 | Finish | Matte tactical camo (non-reflective) |
 | Round | Ravioli-can tube; soldier removes **manual pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
@@ -184,6 +185,18 @@ Full mechanism and causality table: [Annex F § Rocket Retention Stop](../annexe
 **Gustav-style flip block** on a rear hinge (~90° open). Pull the **spring-return bolt handle** to clear a **deadbolt**; swing open; insert tube; close; **release** handle for **deadbolt snap** and `SEATED` confirm. Positive mechanical lock — bolt-action feel — before seeker or retention release.
 
 Full operating principle, components, and state machine: [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
+
+### Integrated Sight and Launcher Power
+
+| Element | Baseline |
+|---------|----------|
+| **Sight** | Low-profile **holographic** housing **integrated** into the tube — not a bolt-on rail or aftermarket optic |
+| **Purpose** | **Rough optical aim** within the seeker envelope; reticle + lock-tone cue (not a full thermal weapon sight) |
+| **Battery** | Small rechargeable cell in the **pistol grip** (~ tens of gram-hours class, notional) powers holo, trigger electronics, and tone |
+| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when tube is seated — separate from launcher battery |
+| **Why split** | **KISS:** launcher handles aim cue + safety logic; round handles terminal IR. No launcher-to-seeker thermal video link (rejected — adds wiring, EMI, and complexity). |
+
+**Thought process:** A rail-mounted commercial optic adds height, snag points, and zeroing drift on a recoilless tube. Molding the holo pod into the launcher keeps the **M1 Bazooka** clean line. The grip battery avoids tapping the round for sight power before seating and keeps electronics alive for slung carry checks.
 
 ---
 
@@ -262,7 +275,7 @@ Detail: [Annex H — Motor](../annexes/H-motor-progressive-burn.md) · [Annex F 
 
 ## Employment
 
-**Team:** Gunner + ammo bearer. **Single carry:** ≤ 9.0 kg (nominal **7.9 kg** loaded — Annex G).
+**Team:** Gunner + ammo bearer. **Single carry:** ≤ 9.0 kg (nominal **8.05 kg** loaded — Annex G).
 
 ---
 

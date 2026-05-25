@@ -6,6 +6,6 @@ Concept art and reference imagery for the RADR program. Figures are **notional**
 
 | Asset | Role |
 |-------|------|
-| [`launcher/output/radr-bazooka-side-v5.png`](launcher/output/radr-bazooka-side-v5.png) | **Primary** side-profile launcher concept (locked layout) |
+| [`launcher/output/radr-bazooka-side-v6-integrated-sight.png`](launcher/output/radr-bazooka-side-v6-integrated-sight.png) | **Primary** side-profile launcher concept (locked layout) |
 
-Earlier iterations remain in `launcher/output/` for history; **v5** is the authoritative silhouette for documentation.
+**v6 (locked):** Integrated holographic sight pod (no Picatinny rail). **40 in OAL** validated by shoulder/tape check — concept art proportions match locked layout.

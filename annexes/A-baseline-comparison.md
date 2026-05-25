@@ -12,7 +12,7 @@ Data: [`data/baseline_systems.json`](../data/baseline_systems.json)
 
 | System | Status | Launcher | Round | Guidance | Warhead | Range | Squad/SOF |
 |--------|--------|----------|-------|----------|---------|-------|-----------|
-| **RADR** | Concept | ≤ 5.5 kg, 36 in | ≤ 3.5 kg, 60×18 in | IR F&F, low-maneuver | Alloy cube cone | 150–1000 m goal | Yes |
+| **RADR** | Concept | ≤ 5.5 kg, 40 in | ≤ 3.5 kg, 60×18 in | IR F&F, low-maneuver | Alloy cube cone | 150–1000 m goal | Yes |
 | FIM-92 Stinger | Fielded | ~15 kg | ~10 kg | High-agility IR | Blast-frag | 500–4800 m | Marginal |
 | Carl Gustaf M4 | Fielded | ~6.6 kg | ~3.2 kg | Unguided | Multi | 100–1000 m | Yes |
 | C-UAS rifle | Fielded | ~4 kg | ~12 g | Unguided | Bullet | 50–400 m | Yes |

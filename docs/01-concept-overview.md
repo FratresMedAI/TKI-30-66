@@ -50,7 +50,7 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 |------|--------|
 | Caliber | 60 mm |
 | Rocket | 18 in (457 mm); ≤ 3.5 kg |
-| Launcher | 36 in; ≤ 5.5 kg empty |
+| Launcher | 40 in; ≤ 5.5 kg empty |
 | Warhead | 300 × 7 mm dense alloy rough-edged cubes |
 | Pattern | Forward cone ~10–12 ft @ ~20 ft |
 | Fuze | Radar or mm-wave proximity (primary) + timed backup |
@@ -70,9 +70,9 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 
 ## Launcher Concept (Locked Silhouette)
 
-Modernized **M1 Bazooka** layout: long slim **36 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **modern holographic sight** on short rail.
+Modernized **M1 Bazooka** layout: long slim **40 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **integrated holographic sight** (no rail). Small **launcher battery** in the grip powers the holo and fire-control electronics.
 
-![Launcher concept](../visuals/launcher/output/radr-bazooka-side-v5.png)
+![Launcher concept](../visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png)
 
 ---
 

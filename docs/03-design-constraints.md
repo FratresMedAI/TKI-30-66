@@ -13,7 +13,7 @@
 | Caliber | **60 mm** |
 | Rocket OAL | **457 mm (18 in)** |
 | Rocket mass | **≤ 3.5 kg** |
-| Launcher OAL | **914 mm (36 in)** |
+| Launcher OAL | **1016 mm (40 in)** |
 | Launcher mass (empty) | **≤ 5.5 kg** |
 | System (launcher + 1 round) | **≤ 9.0 kg** |
 | CoG | **Slightly rear-biased** |
@@ -51,7 +51,7 @@
 | Breech | **Gustav-style flip**; spring-loaded bolt; **positive lock** |
 | Triggers | Front = seeker + tone; rear = fire (front held) |
 | Retention stop | Mechanical bore stop; release only when breech closed + front held + ready tone |
-| Ergonomics | M1 Bazooka layout; foregrip forward of sight; pistol grip aft; **no shoulder stock** |
+| Ergonomics | M1 Bazooka layout; integrated holo (no rail); grip battery; **no shoulder stock** |
 | Backblast | **≤ 10 yards (30 ft)** rear |
 | Seating confirmation | Pressure + electrical contacts |
 | Post-fire | Empty tube drops on breech open |

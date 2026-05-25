@@ -19,7 +19,7 @@
 | Fuze | **Radar or mm-wave proximity + timed backup** | Standoff kill at ~20 ft without impact fuze |
 | Motor | **Evolution Space propellant; progressive grain** | Low signature goal; recoil/backblast then range |
 | Caliber | **60 mm** | Payload + motor + seeker balance |
-| Launcher | **36 in M1 Bazooka layout + Gustav breech** | Familiar silhouette; reload; 10 yd backblast |
+| Launcher | **40 in M1 Bazooka layout + Gustav breech** | Familiar silhouette; reload; 10 yd backblast |
 | Round | **Ravioli-can + pull cap** | Rugged field handling |
 | Controls | **Dual-trigger + tone** | Safe seeker/arm sequence |
 | Carry safety | **Rocket retention stop** | Mechanical anti-slide when slung; releases only when armed |

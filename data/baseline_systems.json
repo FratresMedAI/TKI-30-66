@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.2.0: Locked radar/mm-wave proximity fuze, Evolution Space propellant baseline, KISS terminal-layer vision alignment."
+    "notes": "v1.3.0: Launcher OAL 40 in (1016 mm); integrated holo + grip battery; v6 concept art; launch prep."
   },
   "primary_threats": [
     {
@@ -38,8 +38,8 @@
     "caliber_mm": 60,
     "rocket_length_mm": 457,
     "rocket_length_in": 18,
-    "launcher_length_mm": 914,
-    "launcher_length_in": 36,
+    "launcher_length_mm": 1016,
+    "launcher_length_in": 40,
     "seeker_section_mm": 100,
     "warhead": {
       "type": "forward_cone_flak",
@@ -190,9 +190,10 @@
       "forward_grip": "vertical_foregrip_aft_of_muzzle_before_sight",
       "rear_grip": "pistol_grip_with_fire_trigger",
       "padding": "rear_only_pistol_grip_to_breech",
-      "sight": "holographic_on_short_rail",
+      "sight": "integrated_holographic_pod_no_rail",
+      "launcher_battery": "pistol_grip_cell_powers_sight_and_fire_control",
       "finish": "matte_tactical_camo",
-      "concept_art": "visuals/launcher/output/radr-bazooka-side-v5.png"
+      "concept_art": "visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png"
     },
     "launcher_controls": {
       "front_trigger": "seeker_activation_and_lock_tone",
@@ -268,8 +269,8 @@
     "mass_budget": {
       "rocket_nominal_kg": 3.1,
       "rocket_cg_mm_from_nose": 248,
-      "launcher_nominal_kg": 4.8,
-      "system_loaded_nominal_kg": 7.9,
+      "launcher_nominal_kg": 4.95,
+      "system_loaded_nominal_kg": 8.05,
       "sections": {
         "seeker_kg": 0.5,
         "warhead_kg": 1.05,
@@ -317,7 +318,7 @@
       "status": "conceptual",
       "caliber_mm": 60,
       "launcher_mass_kg_max": 5.5,
-      "launcher_length_mm": 914,
+      "launcher_length_mm": 1016,
       "round_mass_kg_max": 3.5,
       "round_length_mm": 457,
       "reusable": true,

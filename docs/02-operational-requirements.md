@@ -37,7 +37,7 @@ The system shall be designed to engage:
 | Caliber | 60 mm | Locked |
 | Rocket OAL | 457 mm (18 in) | Locked |
 | Rocket mass | ≤ 3.5 kg | Locked |
-| Launcher OAL | 914 mm (36 in) | Locked |
+| Launcher OAL | 1016 mm (40 in) | Locked |
 | Launcher mass (empty) | ≤ 5.5 kg | Locked |
 | System mass (launcher + 1 round) | ≤ 9.0 kg | Locked |
 | Warhead | 300 × 7 mm dense alloy cubes | Locked |

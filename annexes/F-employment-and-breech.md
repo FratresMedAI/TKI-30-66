@@ -244,7 +244,7 @@ The breech cannot return to open until the gunner performs another deliberate **
 
 ### Heritage: M1 Bazooka and Carl-Gustaf
 
-RADR keeps the **long-tube, rear-load** operator model familiar from the **M1 Bazooka**, but replaces the WWII **wire rear cage** with a **compact flip block** and **deadbolt**. Loading follows the **Carl-Gustaf** pattern (open rear, insert round container, close, fire), but RADR uses a **sealed ravioli-can tube** at **60 mm / 36 in** scale — not a bare HEAT round and not an 84 mm crew-served mass class.
+RADR keeps the **long-tube, rear-load** operator model familiar from the **M1 Bazooka**, but replaces the WWII **wire rear cage** with a **compact flip block** and **deadbolt**. Loading follows the **Carl-Gustaf** pattern (open rear, insert round container, close, fire), but RADR uses a **sealed ravioli-can tube** at **60 mm / 40 in** scale — not a bare HEAT round and not an 84 mm crew-served mass class.
 
 ### Breech state machine
 

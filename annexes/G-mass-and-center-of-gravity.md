@@ -58,16 +58,16 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 
 ## Launcher Mass Budget (≤ 5.5 kg empty cap)
 
-**OAL:** 914 mm (36 in) · **Nominal total:** ~4.80 kg · **Cap:** 5.5 kg · **Margin:** ~0.70 kg
+**OAL:** 1016 mm (40 in) · **Nominal total:** ~4.95 kg · **Cap:** 5.5 kg · **Margin:** ~0.55 kg
 
 | Component | Mass (kg) | Notes |
 |-----------|-----------|-------|
-| Main tube (60 mm bore, 36 in) | 2.40 | Aluminum / composite mix |
+| Main tube (60 mm bore, 40 in) | 2.55 | Aluminum / composite mix |
 | Breech block + hinge + deadbolt | 0.90 | Gustav-class steel |
 | Triggers, contacts, pressure sensor | 0.30 | Grip electronics |
-| Grips, rear pad, sight rail, retention stop | 1.00 | Foregrip + pistol grip; pad grip→breech; no shoulder stock |
+| Grips, integrated sight, rear pad, retention stop, grip battery | 1.00 | Foregrip + pistol grip + holo pod; pad grip→breech; no shoulder stock |
 | Misc hardware (slings, pins) | 0.20 | — |
-| **Nominal total** | **4.80** | — |
+| **Nominal total** | **4.95** | — |
 
 ### Launcher CG (Notional)
 
@@ -86,10 +86,10 @@ Reference point: **rear pistol grip** on tube.
 
 | Configuration | Mass (kg) | Cap |
 |---------------|-----------|-----|
-| Launcher empty | 4.80 | ≤ 5.5 |
+| Launcher empty | 4.95 | ≤ 5.5 |
 | One rocket (in tube) | 3.10 | ≤ 3.5 |
-| **Loaded system** | **7.90** | ≤ 9.0 |
-| Margin to cap | 1.10 | One-person carry goal |
+| **Loaded system** | **8.05** | ≤ 9.0 |
+| Margin to cap | 0.95 | One-person carry goal |
 
 ### Loaded System CG (Rough)
 
@@ -105,8 +105,8 @@ Combining launcher (4.8 kg, CG ~550 mm from pistol grip) and round (3.1 kg, CG ~
 | Check | Result |
 |-------|--------|
 | Rocket ≤ 3.5 kg | Pass (nominal 3.10) |
-| Launcher ≤ 5.5 kg | Pass (nominal 4.80) |
-| System ≤ 9.0 kg | Pass (nominal 7.90) |
+| Launcher ≤ 5.5 kg | Pass (nominal 4.95) |
+| System ≤ 9.0 kg | Pass (nominal 8.05) |
 | Rocket CG rear of mid-body | Pass (~248 mm vs 229 mm mid) |
 
 ---

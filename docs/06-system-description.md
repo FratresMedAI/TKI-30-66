@@ -145,7 +145,7 @@ flowchart LR
 
 ## Launcher
 
-![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png)
+![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-goodmk60.png)
 
 | Parameter | Spec |
 |-----------|------|

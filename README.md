@@ -7,7 +7,7 @@
 **Status:** Phase 0 — Conceptual  
 **Version:** 1.4.2
 
-![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png)
+![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-goodmk60.png)
 
 ---
 

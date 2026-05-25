@@ -73,7 +73,7 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 
 Modernized **M1 Bazooka** layout: long slim **40 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight) with **pistol-style seeker trigger** (same form as rear, slightly smaller), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **integrated holo (1.5×–4×)** feeding a **fold-out ~4 in camcorder-style viewer**; **+ / −** zoom on the **aft face** of the foregrip (buttons face rear — left index on front trigger, left thumb on zoom). Grip battery powers optics, display, and fire-control.
 
-![Launcher concept](../visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png)
+![Launcher concept](../visuals/launcher/output/radr-bazooka-goodmk60.png)
 
 ---
 

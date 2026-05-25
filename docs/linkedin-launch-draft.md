@@ -1,6 +1,6 @@
 # LinkedIn Launch — Draft Post
 
-Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-side-v11-foregrip-fix.png`
+Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-goodmk60.png`
 
 ---
 

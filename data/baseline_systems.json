@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.3.0: Launcher OAL 40 in (1016 mm); integrated holo + grip battery; v6 concept art; launch prep."
+    "notes": "v1.4.0: Fold-out camcorder viewfinder (~4in), foregrip +/- zoom, holo feeds display."
   },
   "primary_threats": [
     {
@@ -196,9 +196,9 @@
         "type": "fold_out_lcd_panel",
         "width_in": 4,
         "width_mm": 102,
-        "height": "approx_barrel_od",
-        "style": "camcorder_hinge",
-        "stowed": "flat_against_tube"
+        "stowed": "flush_against_tube",
+        "stowed_alignment": "panel_bottom_edge_even_with_holo_pod_bottom",
+        "deployed_height": "approx_barrel_od"
       },
       "zoom_controls": {
         "location": "forward_foregrip_side",
@@ -207,7 +207,7 @@
       "display_feed": "launcher_holo_optics_module",
       "launcher_battery": "pistol_grip_cell_powers_sight_and_fire_control",
       "finish": "matte_tactical_camo",
-      "concept_art": "visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png"
+      "concept_art": "visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png"
     },
     "launcher_controls": {
       "front_trigger": "seeker_activation_and_lock_tone",

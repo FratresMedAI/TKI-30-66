@@ -145,7 +145,7 @@ flowchart LR
 
 ## Launcher
 
-![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png)
+![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png)
 
 | Parameter | Spec |
 |-----------|------|
@@ -192,8 +192,8 @@ Full operating principle, components, and state machine: [Annex F § Breech Mech
 | Element | Baseline |
 |---------|----------|
 | **Optics module** | Low-profile **variable holo/optics pod** (**1.5×–4×**) **integrated** on the tube — not a rail-mounted aftermarket sight |
-| **Fold-out viewer** | **Camcorder-style** hinged flat panel, **~4 in (102 mm) wide**, roughly **barrel height** when deployed; **folds flush** against the tube for carry |
-| **Display** | Panel shows the **same picture the holo/optics module sees** (reticle overlay, mag level) — gunner **looks at the screen** to aim instead of a narrow eyebox |
+| **Fold-out viewer** | **~4 in (102 mm) wide** panel on a side hinge; **stowed:** folds **flush** against the tube — **bottom edge aligned with bottom of holo pod** (no step, no overhang) |
+| **Display** | Panel shows the holo/optics picture + reticle when **deployed** (~barrel-height swing out) |
 | **Zoom** | **+** and **−** buttons on the **side of the forward foregrip** — steps through **1.5× → 4×** (default **1.5×** on power-up) |
 | **Battery** | Rechargeable cell in the **pistol grip** powers holo, display, zoom logic, triggers, and tone |
 | **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — terminal lock, not the launcher camera |
@@ -202,8 +202,8 @@ Full operating principle, components, and state machine: [Annex F § Breech Mech
 
 | State | Configuration |
 |-------|----------------|
-| **Carry / sling** | Viewer **folded flat** against tube; holo pod protected; retention stop **engaged** |
-| **Engage** | Flip viewer out (one hand); verify picture + reticle; adjust mag with **+ / −** on foregrip |
+| **Carry / sling** | Viewer **folded flush** — panel face against tube; **lower edge coplanar with holo housing lower edge** |
+| **Engage** | Flip viewer out on hinge; bottom was flush with holo baseline — panel swings out to viewing angle |
 | **Fire** | Hold front trigger for seeker tone while keeping threat in view on panel; rear trigger when tone steady |
 
 #### Why fold-out + foregrip zoom (not 40×, not rail scope)

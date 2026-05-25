@@ -7,7 +7,7 @@
 **Status:** Phase 0 — Conceptual  
 **Version:** 1.4.0
 
-![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png)
+![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png)
 
 ---
 
@@ -19,7 +19,7 @@ Dismounted teams get a **fast, reliable, reloadable** answer when machine guns a
 
 **Philosophy:** Speed is the primary defense · KISS + rugged · One-person reload · Honest capability ceiling.
 
-**Launcher look:** Modernized **M1 Bazooka** — **40 in** tube, matte camo, compact Gustav breech, dual triggers, no shoulder stock. **Fold-out viewfinder** (~4 in wide, camcorder-style) shows the **integrated holo** picture; **+ / −** zoom on the **foregrip**. Grip battery powers sight + display. See [visuals](visuals/README.md).
+**Launcher look:** Modernized **M1 Bazooka** — **40 in** tube, matte camo, compact Gustav breech, dual triggers, no shoulder stock. **Fold-out viewfinder** (~4 in wide) — **stows flush** against the tube with its **bottom edge even with the holo pod bottom**; holo feeds the panel; **+ / −** zoom on foregrip.
 
 ---
 

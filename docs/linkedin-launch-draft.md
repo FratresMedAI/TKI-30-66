@@ -1,6 +1,6 @@
 # LinkedIn Launch — Draft Post
 
-Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png`
+Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-side-v8-viewfinder-flush.png`
 
 ---
 

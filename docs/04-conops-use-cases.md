@@ -1,64 +1,66 @@
-# 04 — CONOPS / Use Cases
+﻿# 04 — CONOPS / Use Cases
 
 **Document ID:** RADR / DOC-04  
-**Version:** 0.7.0  
+**Version:** 0.8.0  
 **Status:** Conceptual
 
-**Team:** Gunner + ammo bearer (2). **Single carry:** launcher + one round ≤ 9.0 kg.
+**Team:** Gunner + ammo bearer. **Single carry:** ≤ 9.0 kg (launcher + one round).
 
 ---
 
-## Standard Engagement Sequence
+## Standard Engagement
 
-1. Open breech (spring bolt, swing open).  
-2. Pop cap off ravioli-can tube.  
-3. Load tube; close breech (deadbolt locks).  
-4. Rough aim via holographic sight (square reticle).  
-5. Front trigger → IR seeker → **lock tone**.  
-6. Rear trigger (front held) → launch.  
-7. Fast flight; small nose-canard trim; fins deployed.  
-8. Proximity fuze @ ~20 ft (timed backup) → forward cube cone.  
-9. Open breech; tube drops; reload.
+Open breech → Pop cap → Load tube → Close breech → Front trigger (lock tone) → Rear trigger (front held) → Fire → Open breech → Tube drops → Reload.
 
 ---
 
-## Use Case 1: Trench Clear — Drone Counter-Attack
+## Use Case 1: FPV Kamikaze — Trench / Assault
 
-**Situation:** Post-assault trench; hostile ISR/FPV at **200–800 m**.  
-**Action:** Gunner engages from cover; speed limits drone reaction; cube cone defeats airframe.  
-**Why RADR:** MG short; SAM not called; seconds matter.
-
----
-
-## Use Case 2: Convoy / Logistics
-
-**Situation:** Loitering drone **400–1000 m** during movement.  
-**Action:** Halt, clear **10 yd** backblast, engage once, resume.  
-**Note:** Vehicle mount = future concept only.
+**Threat:** FPV terminal attack after position seizure (**150–600 m**).  
+**Action:** Gunner engages from cover; speed limits reaction time; cube cone defeats airframe.  
+**Why RADR:** MG cannot track/commit; SAM not called in time.
 
 ---
 
-## Use Case 3: LP/OP
+## Use Case 2: Quadcopter ISR / Spotter
 
-**Situation:** Orbit **500–1000 m** beyond comfortable MG.  
-**Action:** Prepared position; holographic aim; single F&F shot.
+**Threat:** Small-to-medium quadcopter orbiting at **300–800 m**.  
+**Action:** Lock tone, single shot, forward cone dispersal.  
+**Why RADR:** Extends squad organic reach beyond MG effective range.
 
 ---
 
-## Use Case 4: SOF Exfil
+## Use Case 3: Loitering Munition
 
-**Situation:** Chase drone **150–600 m**.  
-**Action:** One engagement; tube out; move.
+**Threat:** Loitering munition commits from **400–1000 m**.  
+**Action:** Halt, clear 10 yd backblast, engage before terminal dive completes.  
+**Why RADR:** Terminal-layer weapon sized for dismount teams.
+
+---
+
+## Use Case 4: Glide Profile (GPS-Denied / Low Signature)
+
+**Threat:** Terrain-matching or GPS-denied glider (Hornet / “Martian” class) at **500–1000 m**.  
+**Action:** Rough aim on glide path; IR lock; speed-first intercept.  
+**Why RADR:** Passive IR on round; no designator dependency.
+
+---
+
+## Use Case 5: Swarm / Interdiction Leakthrough
+
+**Threat:** Multiple Group 1–2 UAS in close fight; one threat prioritized.  
+**Action:** Rapid reload cycle (tube out, next round); 2-man sustained rate.  
+**Why RADR:** Reusable launcher + sealed rounds.
 
 ---
 
 ## Employment Rules
 
-- **Rough aim** required — weapon is not high off-boresight  
-- Do not fire without **lock tone**  
+- Rough aim required — not high off-boresight  
+- No fire without **lock tone**  
 - Hold **front trigger** through rear trigger pull  
-- Clear **10 yards (30 ft)** rear before every shot  
-- Specialist distribution — trained teams  
+- Clear **10 yards (30 ft)** rear arc every shot  
+- Specialist teams only  
 
 ---
 

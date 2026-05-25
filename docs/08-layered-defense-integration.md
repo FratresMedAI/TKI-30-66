@@ -1,24 +1,21 @@
 # 08 — Layered Defense Integration
 
 **Document ID:** RADR / DOC-08  
-**Version:** 0.7.0  
+**Version:** 0.8.0  
 **Status:** Conceptual
 
 ---
 
-RADR provides **squad/SOF terminal guided flak** at **150–1000 m** — a fast, reloadable layer when EW fails or SAM is unavailable.
+RADR is the **dismounted squad/SOF terminal layer** for **Group 1–2 UAS** at **150–1000 m**.
 
 | Layer | Role |
 |-------|------|
 | EW / RF defeat | First against linked drones |
-| Mid-tier interceptors | When allocated (Coyote-class) |
-| **RADR** | Dismounted **speed-first** cube flak |
-| Small arms / MG | Inside MG comfort zone |
+| Mid-tier (Coyote-class) | When allocated |
+| **RADR** | FPV · quads · loiter · glide · swarm leakthrough |
+| MG / small arms | Inside organic bullet envelope |
 
-**Integration notes:**
-- Passive **IR on round** — no laser deconfliction with friendly designators  
-- **10 yd** backblast must be reflected in unit SOP near walls, vehicles, and trenches  
-- Specialist teams — complements, not replaces, organic MG and higher-tier C-UAS  
+**Integration:** Passive IR on round — no laser deconfliction. **10 yd** backblast in SOP for trenches, vehicles, and urban fringe.
 
 ---
 

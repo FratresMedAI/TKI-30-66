@@ -1,48 +1,36 @@
-# Annex E — References and Bibliography
+﻿# Annex E — References and Bibliography
 
 **Document ID:** RADR / ANX-E  
-**Version:** 0.7.0  
+**Version:** 0.8.0  
 **Status:** Conceptual
 
 ---
 
-## Shoulder Launchers / Recoilless
+## Shoulder Launchers
 
-1. **Saab.** *Carl-Gustaf M4 Product Overview.* — Flip breech and reusable launcher reference.  
-2. **U.S. Army.** *FM 3-23.25: Shoulder-Launched Munitions.* — Backblast safety and employment.
-
----
-
-## IR Guidance (Fire-and-Forget Reference)
-
-3. **Raytheon.** *FIM-92 Stinger System Description.* — Onboard IR homing analog (different scale and agility).  
-4. **Hutchinson, J.** IR seeker design for short-range missiles. — Seeker trade space.
+1. **Saab.** *Carl-Gustaf M4 Product Overview.*  
+2. **U.S. Army.** *FM 3-23.25: Shoulder-Launched Munitions.*
 
 ---
 
-## Flak / Proximity Fuze / Dispersion
+## IR Guidance
 
-5. **U.S. Army Research Laboratory.** Airburst and fragment dispersion studies.  
-6. **Jane's.** *Jane's Air-Launched Weapons.* — Warhead and fuze context.
-
----
-
-## Propulsion
-
-7. **Sutton, G. P.** *Rocket Propulsion Elements.* — Progressive grain design.
+3. **Raytheon.** *FIM-92 Stinger System Description.* (reference scale)  
+4. **Hutchinson, J.** IR seeker design for short-range missiles.
 
 ---
 
-## Counter-UAS
+## C-UAS / Threat Context
 
-8. **U.S. DoD.** *Counter-Small UAS Strategy.*  
-9. **RAND.** *Countering Small UAS.*
+5. **U.S. DoD.** *Counter-Small UAS Strategy.*  
+6. **RAND.** *Countering Small UAS.*  
+7. Open-source reporting on **FPV**, **loitering munitions**, and **GPS-denied glide** UAS threats.
 
 ---
 
-## Concept History (Superseded)
+## Superseded Concepts
 
-Early program concept documents explored **laser beam-riding**, **launcher-tracked guidance**, and **kinetic rod** payloads. These are **not** part of the v0.7 refined baseline.
+Early program drafts included **laser beam-riding**, **launcher tracking**, and **kinetic rod** payloads. None are part of the **RADR v0.8** baseline.
 
 ---
 

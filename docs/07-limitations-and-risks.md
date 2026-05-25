@@ -1,7 +1,7 @@
 # 07 — Limitations and Risks
 
 **Document ID:** RADR / DOC-07  
-**Version:** 0.7.0  
+**Version:** 0.8.0  
 **Status:** Conceptual
 
 ---
@@ -10,16 +10,14 @@
 
 | Limit | Detail |
 |-------|--------|
-| **Not high off-boresight** | Gunner must point roughly at target |
-| **Low-maneuver** | Large initial aim errors may not be recoverable |
-| **1000 m range** | **Goal** — motor trajectory not yet proven |
-| **Fuze geometry** | Early/late actuation degrades **~20 ft** cone |
-| **IR environment** | Smoke, rain, decoys affect lock tone reliability |
-| **Crossing targets** | Lower Pk than hover |
-| **Backblast** | **10 yd (30 ft)** still lethal if ignored |
-| **Collateral** | Cubes continue downrange — ROE required |
-| **Not Stinger** | Shorter envelope, simpler seeker |
-| **Concept only** | No fielded hardware |
+| Threat ceiling | **Group 1–2 UAS** — not Group 3+ or aircraft |
+| Not high OBA | Gunner must rough-aim into seeker FOV |
+| 1000 m range | **Goal** — not yet demonstrated |
+| Glide targets | Low-signature gliders may reduce lock Pk |
+| Swarm | One round per engagement; not area weapon |
+| Fuze timing | Early/late actuation breaks cone at ~20 ft |
+| Backblast | 10 yd (30 ft) still lethal if ignored |
+| Concept only | No fielded hardware |
 
 ---
 
@@ -27,14 +25,13 @@
 
 | ID | Risk | Mitigation |
 |----|------|------------|
-| R-01 | Motor underperforms vs. 1000 m | Ballistic test; grain iteration |
-| R-02 | Progressive grain / backblast coupling | Thrust-time test in 10 yd SOP |
-| R-03 | Proximity fuze failure | **Timed backup**; factory QA |
-| R-04 | Seeker lock failures | Training; holographic aim cues |
-| R-05 | Spring fin fail-to-deploy | Mechanical QA |
-| R-06 | Breech lock / seating false state | Deadbolt QC; gunner drills |
-| R-07 | Cube lethality unproven at range | Live fire vs. representative UAS |
-| R-08 | Sight/thermal cost overrun | Phased sight roadmap |
+| R-01 | Motor underperforms vs. 1000 m | Ballistic test |
+| R-02 | FPV crossing Pk lower than hover | Training; threat prioritization |
+| R-03 | Glide target IR lock difficulty | Drone-tuned seeker; aim discipline |
+| R-04 | Proximity miss | Timed backup fuze |
+| R-05 | Fin deploy failure | Factory QA |
+| R-06 | Breech / seating fault | Deadbolt QC; drills |
+| R-07 | Swarm saturation | Layer with EW; multiple teams |
 
 ---
 

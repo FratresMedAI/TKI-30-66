@@ -1,12 +1,39 @@
 {
   "metadata": {
-    "project": "RADR — Lightweight Recoilless Anti-Drone System",
+    "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "status": "conceptual",
     "last_updated": "2026-05-24",
-    "notes": "v0.7.0: RADR (Lightweight Recoilless Anti-Drone System). Renamed from legacy program ID. Squad/SOF speed-first Ti/steel cube flak, proximity+timed fuze, Gustav deadbolt breech, ravioli-can round."
+    "notes": "v0.8.0: Full name Recoilless Anti-Drone Rocket; primary threat set (FPV, quads, loiter, glide, Group 1-2); locked specs and operational flow aligned."
   },
+  "primary_threats": [
+    {
+      "id": "fpv_kamikaze",
+      "label": "FPV kamikaze drones",
+      "priority": "high"
+    },
+    {
+      "id": "quadcopter_s_m",
+      "label": "Small-to-medium quadcopters",
+      "priority": "high"
+    },
+    {
+      "id": "loitering_munition",
+      "label": "Loitering munitions",
+      "priority": "high"
+    },
+    {
+      "id": "gps_denied_glide",
+      "label": "Terrain-matching / GPS-denied gliding drones (e.g. Hornet / Martian class)",
+      "priority": "high"
+    },
+    {
+      "id": "group_1_2_uas",
+      "label": "Other Group 1-2 UAS in close-in swarm and interdiction attacks",
+      "priority": "high"
+    }
+  ],
   "locked_specs": {
     "caliber_mm": 60,
     "rocket_length_mm": 457,
@@ -18,7 +45,7 @@
       "type": "forward_cone_flak",
       "cube_count": 300,
       "cube_size_mm": 7,
-      "cube_material": "ti_steel_alloy",
+      "cube_material": "dense_alloy",
       "cube_edge_finish": "rough_edged",
       "includes_small_burster": true,
       "burster_role": "disperser_only",
@@ -28,8 +55,7 @@
     "fuze": {
       "status": "locked",
       "primary": "proximity",
-      "backup": "timed",
-      "requirement": "high_reliability"
+      "backup": "timed"
     },
     "guidance": {
       "type": "onboard_ir_fire_and_forget",
@@ -59,15 +85,11 @@
     "breech": {
       "style": "gustav_flip",
       "bolt": "spring_loaded",
-      "lock": "deadbolt_positive"
+      "lock": "positive_deadbolt_style"
     },
     "launcher_controls": {
-      "front_trigger": "seeker_power_and_lock_tone",
-      "rear_trigger": "fire_requires_front_held"
-    },
-    "sights": {
-      "primary": "holographic_square_reticle",
-      "thermal_overlay": "under_evaluation"
+      "front_trigger": "seeker_activation_and_lock_tone",
+      "rear_trigger": "launch_requires_front_held"
     },
     "center_of_gravity": "slightly_rear_biased",
     "backblast": {
@@ -76,20 +98,20 @@
       "status": "locked"
     },
     "operational_flow": [
-      "open_breech_pull_spring_bolt_swing_open",
-      "pop_top_off_protective_tube",
-      "load_tube_into_launcher",
-      "close_breech_auto_locks",
-      "hold_front_trigger_seeker_tone_at_lock",
+      "open_breech",
+      "pop_cap_off_tube",
+      "load_tube",
+      "close_breech",
+      "hold_front_trigger_seeker_tone",
       "pull_rear_trigger_while_holding_front",
-      "open_breech_empty_tube_drops_repeat"
+      "fire",
+      "open_breech_empty_tube_drops_out"
     ],
     "philosophy": {
-      "echelon": "squad_sof",
+      "echelon": "squad_sof_terminal_layer",
       "primary_defense": "speed_to_target",
       "kiss_rugged": true,
-      "one_person_reload": true,
-      "terminal_flak": true
+      "one_person_reload": true
     },
     "mass_kg": {
       "rocket_max": 3.5,
@@ -100,29 +122,19 @@
       "effective_goal": 1000,
       "min_engagement": 150
     },
-    "motor_notional": {
-      "grain_length_mm": 260,
-      "propellant_mass_kg": 1.2,
-      "burn_time_s": 3.2,
-      "low_thrust_initial_s": 2,
-      "terminal_velocity_at_1000m_mps": { "min": 330, "max": 370 },
-      "time_of_flight_1000m_s": { "min": 4.5, "max": 5.0 }
-    },
     "rejected_concepts": [
       "laser_beam_riding",
       "launcher_tracked_guidance",
       "kinetic_penetrator_rod",
-      "high_off_boresight_autopilot",
-      "fmcw_radar_seeker"
+      "high_off_boresight_autopilot"
     ]
   },
   "systems": [
     {
       "id": "radr",
       "name": "RADR",
-      "full_name": "Lightweight Recoilless Anti-Drone System",
+      "full_name": "Recoilless Anti-Drone Rocket",
       "status": "conceptual",
-      "manufacturer": "Notional",
       "caliber_mm": 60,
       "launcher_mass_kg_max": 5.5,
       "launcher_length_mm": 914,
@@ -130,26 +142,26 @@
       "round_length_mm": 457,
       "reusable": true,
       "guidance": "onboard_ir_fire_and_forget_low_maneuver",
-      "payload": "300x7mm_ti_steel_forward_cone_flak",
+      "payload": "300x7mm_dense_alloy_forward_cone_flak",
       "seeker_section_mm": 100,
-      "effective_range_m": {
-        "min": 150,
-        "goal": 1000
-      },
+      "effective_range_m": { "min": 150, "goal": 1000 },
       "backblast_danger_zone_yards": 10,
       "backblast_danger_zone_ft": 30,
       "fuze": "proximity_primary_timed_backup",
-      "breech": "gustav_flip_spring_bolt_deadbolt",
+      "breech": "gustav_flip_spring_bolt_positive_lock",
       "round_packaging": "ravioli_can_pull_off_cap",
-      "sights": "holographic_square_reticle",
-      "rate_of_fire_rpm": 3,
-      "cost_per_shot_usd": { "goal": 300, "range_low": 200, "range_high": 400 },
-      "primary_role": "squad_sof_terminal_c_uas_flak",
-      "typical_targets": ["small_uas", "medium_uas", "fpv_drone", "loitering_munition_class"],
+      "primary_role": "squad_sof_terminal_c_uas",
+      "typical_targets": [
+        "fpv_kamikaze_drone",
+        "small_medium_quadcopter",
+        "loitering_munition",
+        "gps_denied_gliding_uas",
+        "group_1_2_uas_swarm_interdiction"
+      ],
       "squad_suitable": true,
       "team_size": 2,
       "team_roles": ["gunner", "ammo_bearer"],
-      "notes": "Speed-first 60 mm system. Progressive motor. Ti/steel cube forward cone. Proximity+timed fuze. Gustav deadbolt breech. Ravioli-can round. 1000 m goal."
+      "notes": "Recoilless Anti-Drone Rocket. Speed-first terminal layer for Group 1-2 UAS. 1000 m goal."
     },
     {
       "id": "fim-92-stinger",
@@ -158,36 +170,9 @@
       "caliber_mm": 70,
       "launcher_mass_kg": 15.2,
       "round_mass_kg": 10.1,
-      "round_length_mm": 1520,
-      "reusable": false,
       "guidance": "infrared_homing",
-      "payload": "blast_fragmentation",
-      "effective_range_m": { "min": 500, "nominal": 4000, "max": 4800 },
       "primary_role": "manpads_sam",
       "squad_suitable": false
-    },
-    {
-      "id": "9k38-igla",
-      "name": "9K38 Igla (Igla-1 class)",
-      "status": "fielded",
-      "caliber_mm": 72,
-      "launcher_mass_kg": 16.0,
-      "round_mass_kg": 10.8,
-      "guidance": "infrared_homing",
-      "payload": "blast_fragmentation",
-      "primary_role": "manpads_sam",
-      "squad_suitable": false
-    },
-    {
-      "id": "m72-law",
-      "name": "M72 LAW",
-      "status": "fielded",
-      "caliber_mm": 66,
-      "launcher_mass_kg": 3.2,
-      "round_mass_kg": 3.2,
-      "effective_range_m": { "min": 50, "max": 350 },
-      "primary_role": "anti_armor_disposable",
-      "squad_suitable": true
     },
     {
       "id": "carl-gustaf-m4",
@@ -196,12 +181,10 @@
       "caliber_mm": 84,
       "launcher_mass_kg": 6.6,
       "round_mass_kg": 3.2,
-      "round_length_mm": 460,
       "reusable": true,
       "guidance": "unguided",
-      "effective_range_m": { "max": 1000 },
       "backblast_danger_zone_m": 60,
-      "primary_role": "multi_role_anti_armor",
+      "primary_role": "multi_role",
       "squad_suitable": true,
       "notes": "Breech heritage reference."
     },
@@ -209,7 +192,6 @@
       "id": "c-uas-rifle-direct-fire",
       "name": "Generic C-UAS Rifle / MG",
       "status": "fielded",
-      "caliber_mm": 5.56,
       "effective_range_m": { "max": 400 },
       "primary_role": "direct_fire_c_uas",
       "squad_suitable": true
@@ -219,9 +201,6 @@
       "name": "Coyote Block 2",
       "status": "fielded",
       "round_mass_kg": 5.9,
-      "guidance": "rf_datalink_active_radar",
-      "effective_range_m": { "max": 5000 },
-      "cost_per_shot_usd": { "approximate": 150000 },
       "primary_role": "interceptor_missile",
       "squad_suitable": false
     }

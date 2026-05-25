@@ -145,7 +145,7 @@ flowchart LR
 
 ## Launcher
 
-![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png)
+![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png)
 
 | Parameter | Spec |
 |-----------|------|
@@ -155,8 +155,9 @@ flowchart LR
 | Layout | Modernized **M1 Bazooka** — long slim tube; **no shoulder stock** |
 | Grips | Forward vertical foregrip (between muzzle and sight); rear pistol grip |
 | Padding | Rear section only (pistol grip → breech) |
-| Sight | **Integrated holo 1.5×–4×** (no rail) |
-| Launcher power | Grip battery — holo, mag select, fire-control |
+| Sight | Integrated holo **1.5×–4×** + fold-out **~4 in** viewer |
+| Zoom control | **+ / −** on foregrip side |
+| Launcher power | Grip battery — holo, display, fire-control |
 | Finish | Matte tactical camo (non-reflective) |
 | Round | Ravioli-can tube; soldier removes **manual pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
@@ -186,33 +187,37 @@ Full mechanism and causality table: [Annex F § Rocket Retention Stop](../annexe
 
 Full operating principle, components, and state machine: [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
 
-### Integrated Sight and Launcher Power
+### Integrated Sight, Fold-Out Viewer, and Controls
 
 | Element | Baseline |
 |---------|----------|
-| **Sight** | Low-profile **variable-magnification holographic** pod (**1.5×–4×**) **integrated** into the tube — not a bolt-on rail |
-| **Purpose** | **Rough optical aim** — put the reticle on the target **airspace** so the onboard IR seeker can search and lock (audible tone) |
-| **Magnification** | **1.5×** default (wide FOV, close/fast targets) · **4×** for long bracket (~800–1000 m) where the target is a near-acuity-limit speck |
-| **Battery** | Small rechargeable cell in the **pistol grip** powers holo, mag select, trigger electronics, and tone |
-| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — **does** the terminal lock, not the holo |
+| **Optics module** | Low-profile **variable holo/optics pod** (**1.5×–4×**) **integrated** on the tube — not a rail-mounted aftermarket sight |
+| **Fold-out viewer** | **Camcorder-style** hinged flat panel, **~4 in (102 mm) wide**, roughly **barrel height** when deployed; **folds flush** against the tube for carry |
+| **Display** | Panel shows the **same picture the holo/optics module sees** (reticle overlay, mag level) — gunner **looks at the screen** to aim instead of a narrow eyebox |
+| **Zoom** | **+** and **−** buttons on the **side of the forward foregrip** — steps through **1.5× → 4×** (default **1.5×** on power-up) |
+| **Battery** | Rechargeable cell in the **pistol grip** powers holo, display, zoom logic, triggers, and tone |
+| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — terminal lock, not the launcher camera |
 
-#### Why variable 1.5×–4× (human eye vs. small UAS)
+#### Stowed vs. deployed
 
-The holo **does not replace the seeker** at 1000 m — it helps the gunner **point the tube** so the seeker can see the threat. Approximate angular size of a **0.4 m** quadcopter:
+| State | Configuration |
+|-------|----------------|
+| **Carry / sling** | Viewer **folded flat** against tube; holo pod protected; retention stop **engaged** |
+| **Engage** | Flip viewer out (one hand); verify picture + reticle; adjust mag with **+ / −** on foregrip |
+| **Fire** | Hold front trigger for seeker tone while keeping threat in view on panel; rear trigger when tone steady |
 
-| Range | Target angle (1×) | Apparent at **4×** | Gunner experience |
-|-------|-------------------|---------------------|-------------------|
-| 300 m | ~4.6 arcmin | ~18 arcmin | Clear blob; **1.5×** enough |
-| 600 m | ~2.3 arcmin | ~9 arcmin | Visible motion; **2–3×** helps |
-| 1000 m | ~1.4 arcmin | ~5.5 arcmin | Near **20/20 limit** at 1×; **4×** turns it into a trackable dot |
+#### Why fold-out + foregrip zoom (not 40×, not rail scope)
 
-Human **20/20** acuity is roughly **~1 arcminute** for high-contrast targets. A small drone at **1000 m** is **below or at the edge** of unaided detection at 1× — you might catch **movement or glint**, not rotor detail. **4×** makes the same target appear as if it were at **~250 m**, which is enough to **center the reticle** on the right piece of sky before holding the front trigger.
+- **4 in panel** gives a **stable view** at arm’s length — easier than squinting through a tiny optic at 1000 m.  
+- **1.5×–4×** stays inside **rough-aim + seeker FOV** discipline (~2–4° notional seeker cone).  
+- **Foregrip + / −** keeps zoom control on the **support hand** without breaking grip on the firing hand.  
+- **Not** the rocket IR feed on the screen pre-lock — launcher optics only. **Lock tone** = round seeker; avoids wiring/video from disposable round.
 
-**Employment:** Use **lower mag** for snap shots and crossing FPV inside ~400 m; dial **toward 4×** when engaging hover/orbit targets at extended range. **Lock tone** confirms the **IR seeker** — not the holo — has the target.
+#### Human eye vs. mag (unchanged rationale)
 
-**KISS boundary:** No seeker video piped to the holo; no continuous zoom beyond 4× (narrow FOV fights off-boresight discipline). The seeker acquisition envelope (notional **~2–4°**) is the hard limit — holo mag only helps **center** within that cone.
+At **1000 m**, a **~0.4 m** drone is ~**1.4 arcmin** at 1× — edge of vision. **4×** on the panel ≈ **5.5 arcmin** — enough to **center the reticle** before seeker search. Rotor detail still comes from **IR seeker**, not the holo.
 
-**Thought process:** Rail optics add snag and drift. Integrated variable holo + grip battery keeps the clean **M1** line while matching **150–1000 m** engagement band to human vision.
+**KISS boundary:** No 40× optical stack; no seeker video on launcher display until a future variant. Panel + holo + grip battery stay one integrated launcher subsystem.
 
 ---
 

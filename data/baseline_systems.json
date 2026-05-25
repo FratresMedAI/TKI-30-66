@@ -190,11 +190,24 @@
       "forward_grip": "vertical_foregrip_aft_of_muzzle_before_sight",
       "rear_grip": "pistol_grip_with_fire_trigger",
       "padding": "rear_only_pistol_grip_to_breech",
-      "sight": "integrated_holographic_pod_variable_1.5x_to_4x_no_rail",
+      "sight": "integrated_holographic_pod_1.5x_to_4x",
       "sight_magnification": { "min": 1.5, "max": 4.0, "unit": "x" },
+      "viewfinder": {
+        "type": "fold_out_lcd_panel",
+        "width_in": 4,
+        "width_mm": 102,
+        "height": "approx_barrel_od",
+        "style": "camcorder_hinge",
+        "stowed": "flat_against_tube"
+      },
+      "zoom_controls": {
+        "location": "forward_foregrip_side",
+        "buttons": ["plus", "minus"]
+      },
+      "display_feed": "launcher_holo_optics_module",
       "launcher_battery": "pistol_grip_cell_powers_sight_and_fire_control",
       "finish": "matte_tactical_camo",
-      "concept_art": "visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png"
+      "concept_art": "visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png"
     },
     "launcher_controls": {
       "front_trigger": "seeker_activation_and_lock_tone",

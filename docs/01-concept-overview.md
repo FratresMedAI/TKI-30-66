@@ -63,7 +63,7 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 | Tube | Ravioli-can; pull-off cap on load |
 | Breech | Gustav flip + spring bolt + positive lock |
 | Controls | Front = seeker/tone; rear = fire (front held) |
-| Sight | Integrated holo **1.5×–4×** variable; grip battery |
+| Sight | Integrated holo **1.5×–4×**; fold-out **~4 in** viewer; **+ / −** on foregrip |
 | CoG | Slightly rear-biased |
 | **Retention stop** | Bore stop when carried; releases with closed breech + front held + ready tone |
 
@@ -71,9 +71,9 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 
 ## Launcher Concept (Locked Silhouette)
 
-Modernized **M1 Bazooka** layout: long slim **40 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **integrated variable holo (1.5×–4×, no rail)**. Small **launcher battery** in the grip powers the holo and fire-control electronics.
+Modernized **M1 Bazooka** layout: long slim **40 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **integrated holo (1.5×–4×)** feeding a **fold-out ~4 in camcorder-style viewer**; **+ / −** zoom on the **foregrip**. Grip battery powers optics, display, and fire-control.
 
-![Launcher concept](../visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png)
+![Launcher concept](../visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png)
 
 ---
 

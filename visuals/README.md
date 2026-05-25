@@ -6,6 +6,6 @@ Concept art and reference imagery for the RADR program. Figures are **notional**
 
 | Asset | Role |
 |-------|------|
-| [`launcher/output/radr-bazooka-side-v6-integrated-sight.png`](launcher/output/radr-bazooka-side-v6-integrated-sight.png) | **Primary** side-profile launcher concept (locked layout) |
+| [`launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png`](launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png) | **Primary** side-profile launcher concept (locked layout) |
 
-**v6 (locked):** Integrated holographic sight pod (no Picatinny rail). **40 in OAL** validated by shoulder/tape check — concept art proportions match locked layout.
+**v7 (locked):** Fold-out camcorder-style viewfinder (~4 in wide), integrated holo feeds the panel, **+ / −** zoom on foregrip. **40 in OAL.**

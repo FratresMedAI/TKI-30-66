@@ -65,7 +65,7 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 | Main tube (60 mm bore, 40 in) | 2.55 | Aluminum / composite mix |
 | Breech block + hinge + deadbolt | 0.90 | Gustav-class steel |
 | Triggers, contacts, pressure sensor | 0.30 | Grip electronics |
-| Grips, integrated sight, rear pad, retention stop, grip battery | 1.00 | Foregrip + pistol grip + holo pod; pad grip→breech; no shoulder stock |
+| Grips, integrated sight, fold-out viewer, rear pad, retention stop, grip battery | 1.05 | Foregrip w/ zoom buttons; holo + ~4 in panel |
 | Misc hardware (slings, pins) | 0.20 | — |
 | **Nominal total** | **4.95** | — |
 

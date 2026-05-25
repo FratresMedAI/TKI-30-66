@@ -5,9 +5,9 @@
 **RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** as a **simple, rugged terminal-layer** counter-UAS weapon against **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones). It fires an **18-inch** rocket with **300 × 7 mm** dense alloy cube flak, **IR fire-and-forget** guidance, **radar or millimeter-wave proximity fuze**, and a **progressive-burn** solid motor — **speed-to-target** and **KISS** over high maneuverability.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.3.0
+**Version:** 1.4.0
 
-![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png)
+![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png)
 
 ---
 
@@ -19,7 +19,7 @@ Dismounted teams get a **fast, reliable, reloadable** answer when machine guns a
 
 **Philosophy:** Speed is the primary defense · KISS + rugged · One-person reload · Honest capability ceiling.
 
-**Launcher look:** Modernized **M1 Bazooka** proportions — long slim tube, **matte camo**, **integrated holographic sight** (built into tube, no rail), **compact Gustav flip breech**, **dual triggers**, **no shoulder stock**; rear **padding** from pistol grip to breech only. Small **launcher battery** in the pistol grip powers the sight and fire-control electronics. See [visuals](visuals/README.md).
+**Launcher look:** Modernized **M1 Bazooka** — **40 in** tube, matte camo, compact Gustav breech, dual triggers, no shoulder stock. **Fold-out viewfinder** (~4 in wide, camcorder-style) shows the **integrated holo** picture; **+ / −** zoom on the **foregrip**. Grip battery powers sight + display. See [visuals](visuals/README.md).
 
 ---
 
@@ -53,7 +53,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | Seeker | 100 mm IR fire-and-forget | Locked |
 | Guidance | Low-maneuver; small movable canards near nose | Locked |
 | Fins | 4 swept spring-loaded at base; deploy on exit | Locked |
-| Sight / power | Integrated holo **1.5×–4×** variable (no rail); grip battery | Locked |
+| Sight / power | Integrated holo **1.5×–4×**; fold-out **4 in** viewer; **+ / −** on foregrip; grip battery | Locked |
 | Range goal | 1000 m effective | Locked |
 | Backblast | ≤ 10 yards (30 ft) | Locked |
 | Protective tube | Ravioli-can + manual pull-off cap (soldier removes on load) | Locked |

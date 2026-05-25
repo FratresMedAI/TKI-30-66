@@ -1,6 +1,6 @@
 # LinkedIn Launch — Draft Post
 
-Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-side-v6-integrated-sight.png`
+Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-side-v7-foldout-viewfinder.png`
 
 ---
 
@@ -16,7 +16,7 @@ Squad and SOF need something between a machine gun and a Stinger for close-in dr
 - **Gustav-style flip breech** · dual-trigger safety · **mechanical rocket retention stop** for slung carry  
 
 **What it looks like**  
-Modernized **M1 Bazooka** — slim tube, matte camo, integrated holo sight (no rail clutter), compact rear breech. **40 in** launcher OAL.
+Modernized **M1 Bazooka** — **40 in** tube, fold-out **~4 in** viewfinder (camcorder-style), holo-fed display, **+ / −** zoom on foregrip.
 
 Open engineering repo (concept only — notional performance, not procurement):
 

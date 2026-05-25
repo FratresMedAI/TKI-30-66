@@ -1,7 +1,7 @@
 # Annex C — Trades Matrix
 
 **Document ID:** RADR / ANX-C  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
@@ -14,7 +14,7 @@
 | Threats | Armor, aircraft | **Group 1–2 UAS (5 classes)** |
 | Payload | Rod, HE only | **300×7 mm alloy cone** |
 | Guidance | Beam-ride, launcher track, high OBA | **IR F&F + nose canards** |
-| Fuze | Single-point | **Proximity + timed backup** |
+| Fuze | Impact / command | **Radar or mm-wave proximity + timed backup** |
 | Motor | Boost-first | **Progressive 1–2 s low, ramp** |
 
 ---

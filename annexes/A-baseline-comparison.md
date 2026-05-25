@@ -1,7 +1,7 @@
 ﻿# Annex A — Baseline System Comparison
 
 **Document ID:** RADR / ANX-A  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 Data: [`data/baseline_systems.json`](../data/baseline_systems.json)

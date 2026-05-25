@@ -1,7 +1,7 @@
 ﻿# 04 — CONOPS / Use Cases
 
 **Document ID:** RADR / DOC-04  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 **Team:** Gunner + ammo bearer. **Single carry:** ≤ 9.0 kg (launcher + one round).

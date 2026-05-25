@@ -1,7 +1,7 @@
 # 03 — Design Constraints
 
 **Document ID:** RADR / DOC-03  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
@@ -26,7 +26,7 @@
 |------------|-------------|
 | Fragments | **300 × 7 mm** dense alloy, **rough-edged** |
 | Pattern | **Forward cone**, ~10–12 ft @ ~20 ft |
-| Fuze | **Proximity primary + timed backup** |
+| Fuze | **Radar or millimeter-wave proximity (primary) + timed backup** |
 | Burster | Disperser only |
 
 ---
@@ -38,7 +38,7 @@
 | Seeker | **100 mm** IR F&F |
 | Canards | Small, movable, **near nose** |
 | Fins | **4** swept spring-loaded at **base** |
-| Motor | Progressive: **lower thrust 1–2 s**, then ramp |
+| Motor | Solid rocket; **Evolution Space** high-rate tactical propellant; progressive grain — **lower thrust 1–2 s**, then ramp; low-signature goal |
 | Off-boresight | **Not** high off-boresight |
 
 ---
@@ -47,7 +47,7 @@
 
 | Item | Requirement |
 |------|-------------|
-| Round | **Ravioli-can** tube; **pull-off cap** removed by soldier on load |
+| Round | **Ravioli-can** tube; **manual pull-off cap** removed by soldier on load |
 | Breech | **Gustav-style flip**; spring-loaded bolt; **positive lock** |
 | Triggers | Front = seeker + tone; rear = fire (front held) |
 | Retention stop | Mechanical bore stop; release only when breech closed + front held + ready tone |

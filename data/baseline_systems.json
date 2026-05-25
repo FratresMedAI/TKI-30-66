@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.1.0: Phase 1 mechanical docs — breech operating principle, retention stop baseline, gunner 7-phase sequence, interlock flow."
+    "notes": "v1.2.0: Locked radar/mm-wave proximity fuze, Evolution Space propellant baseline, KISS terminal-layer vision alignment."
   },
   "primary_threats": [
     {
@@ -72,7 +72,10 @@
       "deploy": "on_exit"
     },
     "motor": {
-      "type": "progressive_burn",
+      "type": "solid_rocket_progressive_burn",
+      "propellant": "evolution_space_high_rate_tactical",
+      "signature_goal": "low_signature_where_possible",
+      "grain": "progressive_burn_profile",
       "initial_phase_s": { "min": 1, "max": 2 },
       "initial_thrust_n_avg": 700,
       "peak_thrust_n": 1050,
@@ -80,7 +83,7 @@
     },
     "round_packaging": {
       "type": "ravioli_can_protective_tube",
-      "cap": "pull_off",
+      "cap": "manual_pull_off",
       "removed_by": "soldier_during_loading"
     },
     "breech": {
@@ -324,7 +327,8 @@
       "effective_range_m": { "min": 150, "goal": 1000 },
       "backblast_danger_zone_yards": 10,
       "backblast_danger_zone_ft": 30,
-      "fuze": "proximity_primary_timed_backup",
+      "fuze": "radar_or_mmw_proximity_primary_timed_backup",
+      "motor_propellant": "evolution_space_high_rate_tactical_progressive",
       "breech": "gustav_flip_spring_bolt_positive_lock",
       "rocket_retention_stop": true,
       "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",

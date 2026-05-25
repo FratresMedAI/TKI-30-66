@@ -1,7 +1,7 @@
 # Annex D — Projectile Stabilization & Ballistics
 
 **Document ID:** RADR / ANX-D  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
@@ -23,7 +23,7 @@
 | Launch | Backblast ≤ 10 yd (30 ft) |
 | 0–2 s | Reduced motor thrust |
 | Ramp | Velocity build for 1000 m class |
-| Terminal | Proximity (+ timed backup) @ ~20 ft → forward cone |
+| Terminal | Radar or mm-wave proximity (+ timed backup) @ ~20 ft → forward cone |
 
 ---
 

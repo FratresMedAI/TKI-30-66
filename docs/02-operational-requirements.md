@@ -1,7 +1,7 @@
 # 02 — Operational Requirements
 
 **Document ID:** RADR / DOC-02  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
@@ -42,11 +42,11 @@ The system shall be designed to engage:
 | System mass (launcher + 1 round) | ≤ 9.0 kg | Locked |
 | Warhead | 300 × 7 mm dense alloy cubes | Locked |
 | Pattern | Forward cone @ ~20 ft | ~10–12 ft wide |
-| Fuze | Proximity + timed backup | Locked |
+| Fuze | Radar or mm-wave proximity + timed backup | Locked |
 | Seeker | 100 mm IR F&F | Lock before launch |
 | Guidance | Low-maneuver nose canards | Not high OBA |
 | Fins | 4 spring-loaded swept | Deploy on exit |
-| Motor | Progressive (low 1–2 s, ramp) | Locked |
+| Motor | Evolution Space propellant; progressive burn (low 1–2 s, ramp) | Locked |
 | Range | ≥ 800 m | **1000 m** effective |
 | Backblast | ≤ 10 yd (30 ft) | Locked |
 | Tube | Ravioli-can, pull-off cap | Locked |
@@ -93,7 +93,7 @@ The system shall be designed to engage:
 | MOE | Target |
 |-----|--------|
 | Mission kill vs. TH-01–TH-05 at 1000 m | TBD live fire |
-| Fuze function (proximity or backup) | ≥ 99% |
+| Fuze function (proximity primary or timed backup) | ≥ 99% |
 | Time threat → fire | Minimize |
 | Rockets per kill (hover quadcopter) | ≤ 2 (trained) |
 | One-person carry/reload | ≤ 9.0 kg system |
@@ -104,7 +104,7 @@ The system shall be designed to engage:
 
 - Gunner can rough-aim within seeker FOV  
 - Progressive motor achieves 1000 m class closure speed  
-- Proximity + timed backup covers fuze reliability for forward-cone geometry  
+- Radar or mm-wave proximity + timed backup covers fuze reliability for forward-cone geometry at ~20 ft  
 
 ---
 

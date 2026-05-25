@@ -1,7 +1,7 @@
 # Annex G — Mass Budget and Center of Gravity
 
 **Document ID:** RADR / ANX-G  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual — notional mass properties
 
 *All values are engineering estimates — not measured on hardware.*

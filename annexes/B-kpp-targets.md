@@ -1,7 +1,7 @@
 # Annex B — KPP Targets
 
 **Document ID:** RADR / ANX-B  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
@@ -27,7 +27,7 @@
 | KPP-03 | Caliber | 60 mm | 60 mm |
 | KPP-04 | Range | ≥ 800 m | **1000 m** |
 | KPP-05 | Backblast | 10 yd (30 ft) | 10 yd |
-| KPP-06 | Fuze | Proximity + timed backup | Locked |
+| KPP-06 | Fuze | Radar or mm-wave proximity + timed backup | Locked |
 | KPP-07 | System mass (L+1 round) | ≤ 9.0 kg | 9.0 kg |
 | KPP-08 | One-person reload | Required | — |
 | KPP-09 | Rocket retention stop | Engaged unless arm interlock met | Locked |

@@ -1,7 +1,7 @@
 # 07 — Limitations and Risks
 
 **Document ID:** RADR / DOC-07  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
@@ -15,7 +15,7 @@
 | 1000 m range | **Goal** — not yet demonstrated |
 | Glide targets | Low-signature gliders may reduce lock Pk |
 | Swarm | One round per engagement; not area weapon |
-| Fuze timing | Early/late actuation breaks cone at ~20 ft |
+| Fuze timing / sensor choice | Early/late radar or mm-wave actuation breaks cone at ~20 ft |
 | Backblast | 10 yd (30 ft) still lethal if ignored |
 | Concept only | No fielded hardware |
 
@@ -28,7 +28,7 @@
 | R-01 | Motor underperforms vs. 1000 m | Ballistic test |
 | R-02 | FPV crossing Pk lower than hover | Training; threat prioritization |
 | R-03 | Glide target IR lock difficulty | Drone-tuned seeker; aim discipline |
-| R-04 | Proximity miss | Timed backup fuze |
+| R-04 | Proximity sensor miss (radar or mm-wave) | Timed backup fuze |
 | R-05 | Fin deploy failure | Factory QA |
 | R-06 | Breech / seating fault | Deadbolt QC; drills |
 | R-07 | Swarm saturation | Layer with EW; multiple teams |

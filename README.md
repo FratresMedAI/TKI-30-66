@@ -2,10 +2,10 @@
 
 **Squad / SOF Terminal Counter-UAS — 60 mm Class**
 
-**RADR** is a lightweight, reusable **60 mm** shoulder-fired rocket system designed as a **squad and SOF terminal-layer** weapon. It fires an **18-inch** rocket with a **300 × 7 mm dense alloy cube flak** warhead, **onboard IR fire-and-forget** seeker, and **progressive-burn** motor optimized for **speed-to-target** rather than high off-boresight maneuvering.
+**RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** as a **simple, rugged terminal-layer** counter-UAS weapon against **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones). It fires an **18-inch** rocket with **300 × 7 mm** dense alloy cube flak, **IR fire-and-forget** guidance, **radar or millimeter-wave proximity fuze**, and a **progressive-burn** solid motor — **speed-to-target** and **KISS** over high maneuverability.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.1.0
+**Version:** 1.2.0
 
 ![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v5.png)
 
@@ -15,7 +15,7 @@
 
 RADR is a **lightweight, reusable** **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** as a **terminal-layer counter-UAS** weapon. It emphasizes **speed-to-target**, **simplicity**, **one-person reload**, and **multiple layers of safety**.
 
-Dismounted teams get a **fast, reliable, reloadable** answer when machine guns are short and SAM is too heavy to allocate. The gunner **rough-aims**, the seeker **locks** (audible tone), and the rocket **closes quickly** with **small nose-canard corrections** only. At **~20 ft**, **proximity fuze** actuation (with **timed backup**) releases a **forward cone** of **300 rough-edged alloy cubes**. The burster **disperses** — the **cubes kill**.
+Dismounted teams get a **fast, reliable, reloadable** answer when machine guns are short and SAM is too heavy to allocate. The gunner **rough-aims**, the seeker **locks** (audible tone), and the rocket **closes quickly** with **small nose-canard corrections** only. At **~20 ft**, **radar or millimeter-wave proximity** actuation (with **timed backup**) releases a **forward cone** of **300 rough-edged alloy cubes**. The burster **disperses** — the **cubes kill**.
 
 **Philosophy:** Speed is the primary defense · KISS + rugged · One-person reload · Honest capability ceiling.
 
@@ -44,18 +44,19 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | Caliber | 60 mm | Locked |
 | Rocket length | 18 in (457 mm) | Locked |
 | Launcher length | 36 in (914 mm) | Locked |
-| Rocket mass | ≤ 3.5 kg | Locked |
-| Launcher empty mass | ≤ 5.5 kg | Locked |
+| Rocket mass (target) | ≤ 3.5 kg | Locked |
+| Launcher empty mass (target) | ≤ 5.5 kg | Locked |
 | Warhead | 300 × 7 mm dense alloy rough-edged cubes | Locked |
 | Pattern | Forward cone, ~10–12 ft wide @ ~20 ft | Locked |
-| Fuze | Proximity primary + timed backup | Locked |
+| Fuze | Radar or mm-wave proximity (primary) + timed backup | Locked |
+| Motor | Solid rocket; Evolution Space high-rate tactical propellant; progressive grain | Locked |
 | Seeker | 100 mm IR fire-and-forget | Locked |
 | Guidance | Low-maneuver; small movable canards near nose | Locked |
 | Fins | 4 swept spring-loaded at base; deploy on exit | Locked |
 | Motor | Progressive burn (lower thrust 1–2 s, then ramp) | Locked |
 | Range goal | 1000 m effective | Locked |
 | Backblast | ≤ 10 yards (30 ft) | Locked |
-| Protective tube | Ravioli-can + pull-off cap (soldier removes on load) | Locked |
+| Protective tube | Ravioli-can + manual pull-off cap (soldier removes on load) | Locked |
 | Breech | Gustav-style flip; spring bolt + positive lock | Locked |
 | Controls | Front = seeker + tone; rear = fire (front held) | Locked |
 | CoG | Slightly rear-biased | Locked |
@@ -140,6 +141,8 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 - Progressive grain vs. measured backblast inside 10 yd zone  
 - Cube alloy finalization (dense Ti/steel baseline)  
 - Retention stop mechanism detail (spring/cam vs. solenoid assist) — function locked  
+- Fuze baseline down-select: **radar proximity** vs. **millimeter-wave proximity** (one primary per round)  
+- Evolution Space grain geometry vs. measured backblast inside 10 yd zone  
 
 ---
 

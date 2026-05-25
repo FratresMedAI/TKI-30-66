@@ -1,7 +1,7 @@
 ﻿# Annex E — References and Bibliography
 
 **Document ID:** RADR / ANX-E  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
@@ -28,9 +28,15 @@
 
 ---
 
+## Propulsion (Baseline Reference)
+
+8. **Evolution Space.** High-rate tactical solid propellant families — baseline reference for RADR progressive-burn grain trades (conceptual; no endorsement implied).
+
+---
+
 ## Superseded Concepts
 
-Early program drafts included **laser beam-riding**, **launcher tracking**, and **kinetic rod** payloads. None are part of the **RADR v1.0** baseline.
+Early program drafts included **laser beam-riding**, **launcher tracking**, **kinetic rod** payloads, and **generic optical-only proximity** as sole fuze. None are part of the **RADR v1.2** baseline.
 
 ---
 

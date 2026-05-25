@@ -1,7 +1,7 @@
 # 06 — System Description
 
 **Document ID:** RADR / DOC-06  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G](../annexes/G-mass-and-center-of-gravity.md) · [Annex H](../annexes/H-motor-progressive-burn.md)
@@ -157,7 +157,7 @@ flowchart LR
 | Padding | Rear section only (pistol grip → breech) |
 | Sight | Short rail + **modern holographic** sight |
 | Finish | Matte tactical camo (non-reflective) |
-| Round | Ravioli-can tube; soldier removes **pull-off cap** before load |
+| Round | Ravioli-can tube; soldier removes **manual pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
 | Triggers | **Front:** seeker + **audible lock tone** · **Rear:** fire (front held) |
 | **Retention stop** | Mechanical bore stop — see below |
@@ -196,10 +196,10 @@ Full operating principle, components, and state machine: [Annex F § Breech Mech
 | Seeker | 100 mm IR fire-and-forget |
 | Canards | Small movable surfaces **near nose** |
 | Fins | 4 swept **spring-loaded** at **base**; deploy on exit |
-| Motor | Progressive burn — [Annex H](../annexes/H-motor-progressive-burn.md) |
+| Motor | Solid rocket; **Evolution Space** propellant; progressive grain — [Annex H](../annexes/H-motor-progressive-burn.md) |
 | Warhead | 300 × 7 mm **dense alloy** rough-edged cubes |
 | Dispersal | Forward cone ~10–12 ft wide @ ~20 ft |
-| Fuze | **Proximity primary** + **timed backup** |
+| Fuze | **Radar or millimeter-wave proximity** (primary) + **timed backup** |
 
 ### Mass (Summary)
 
@@ -229,10 +229,18 @@ Detail and CG: [Annex G](../annexes/G-mass-and-center-of-gravity.md).
 
 ## Fuze and Kill Chain
 
-1. Proximity initiates at **~20 ft** (primary).  
-2. Timed backup if proximity fails.  
-3. Burster opens cube pack into **forward cone**.  
+**Primary (locked):** **Radar or millimeter-wave proximity** sensor at **~20 ft** standoff — engineering selects one baseline path (radar proximity or mm-wave proximity), not both on one round. Detects the target envelope and initiates the burster without requiring direct impact.
+
+**Backup:** **Timed fuze** if the proximity channel fails — preserves forward-cone geometry.
+
+**Why this choice:** Group 1–2 UAS present small radar/RF and physical cross-sections at terminal range; proximity at standoff matches the **forward cone** flak pattern and **KISS** fire-and-forget employment (no impact fuze, no command link).
+
+1. Proximity (radar or mm-wave) initiates at **~20 ft** (primary).  
+2. Timed backup if proximity does not fire.  
+3. Burster opens cube pack into **forward cone** (~10–12 ft wide).  
 4. Cubes strike rotors, battery, sensors, and airframe.
+
+Detail: [Annex H — Motor](../annexes/H-motor-progressive-burn.md) · [Annex F — Employment](../annexes/F-employment-and-breech.md)
 
 ---
 

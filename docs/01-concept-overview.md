@@ -1,16 +1,16 @@
 # 01 — Concept Overview
 
 **Document ID:** RADR / DOC-01  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
 
 ## Core Vision
 
-**RADR** (Recoilless Anti-Drone Rocket) is a **lightweight, reusable** **60 mm** shoulder-fired **recoilless** rocket system designed as a **squad/SOF terminal-layer** counter-drone weapon. It emphasizes **speed-to-target**, **simplicity**, **one-person reload**, and **multiple layers of safety**.
+**RADR** (Recoilless Anti-Drone Rocket) is a **lightweight, reusable** **60 mm** shoulder-fired **recoilless** system for **squad and SOF** as a **simple, rugged terminal-layer** weapon against **Group 1–2 UAS** (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones). It prioritizes **speed-to-target**, **reliability**, and **KISS** over high maneuverability or complexity.
 
-The round is an **18-inch** rocket with **300 × 7 mm dense alloy cube flak**, **onboard IR fire-and-forget** seeker, and **progressive-burn** motor optimized for **speed-to-target** rather than high off-boresight maneuvering.
+The round is an **18-inch** rocket (target **≤ 3.5 kg**) with **300 × 7 mm** dense alloy cube flak, **100 mm IR fire-and-forget** seeker, **radar or millimeter-wave proximity fuze** (timed backup), and a **progressive-burn** solid motor using **Evolution Space high-rate tactical propellant**.
 
 ---
 
@@ -53,11 +53,11 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 | Launcher | 36 in; ≤ 5.5 kg empty |
 | Warhead | 300 × 7 mm dense alloy rough-edged cubes |
 | Pattern | Forward cone ~10–12 ft @ ~20 ft |
-| Fuze | Proximity primary + timed backup |
+| Fuze | Radar or mm-wave proximity (primary) + timed backup |
 | Seeker | 100 mm IR F&F |
 | Guidance | Small movable canards near nose |
 | Fins | 4 swept spring-loaded at base |
-| Motor | Progressive burn (low 1–2 s, ramp) |
+| Motor | Solid rocket; Evolution Space propellant; progressive grain (low 1–2 s, ramp) |
 | Range goal | 1000 m effective |
 | Backblast | ≤ 10 yards (30 ft) |
 | Tube | Ravioli-can; pull-off cap on load |

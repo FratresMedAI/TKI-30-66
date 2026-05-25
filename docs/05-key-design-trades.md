@@ -1,7 +1,7 @@
 ﻿# 05 — Key Design Trades
 
 **Document ID:** RADR / DOC-05  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual
 
 ---
@@ -16,8 +16,8 @@
 | Guidance | **Low-maneuver nose canards** | Pairs with rough aim + IR lock |
 | Off-boresight | **Rejected** | Complexity vs. mission |
 | Warhead | **Dense alloy cube forward cone** | Fragile UAS structures |
-| Fuze | **Proximity + timed backup** | Reliable ~20 ft actuation |
-| Motor | **Progressive burn** | Recoil/backblast then range |
+| Fuze | **Radar or mm-wave proximity + timed backup** | Standoff kill at ~20 ft without impact fuze |
+| Motor | **Evolution Space propellant; progressive grain** | Low signature goal; recoil/backblast then range |
 | Caliber | **60 mm** | Payload + motor + seeker balance |
 | Launcher | **36 in M1 Bazooka layout + Gustav breech** | Familiar silhouette; reload; 10 yd backblast |
 | Round | **Ravioli-can + pull cap** | Rugged field handling |

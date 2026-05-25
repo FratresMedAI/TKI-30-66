@@ -1,7 +1,7 @@
 # Annex F — Employment Sequence and Breech Mechanism
 
 **Document ID:** RADR / ANX-F  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual — locked baseline (notional until prototype)
 
 Traceability: [06 — System Description](../docs/06-system-description.md) · [04 — CONOPS](../docs/04-conops-use-cases.md)

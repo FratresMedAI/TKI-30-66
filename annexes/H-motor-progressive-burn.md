@@ -1,10 +1,10 @@
 # Annex H — Motor Progressive Burn Profile
 
 **Document ID:** RADR / ANX-H  
-**Version:** 1.1.0  
+**Version:** 1.2.0  
 **Status:** Conceptual — notional ballistics
 
-*Thrust, impulse, and range figures are analytic placeholders — not live-fire data.*
+*Thrust, impulse, propellant selection, and range figures are analytic placeholders — not live-fire data.*
 
 Traceability: [06 — System Description](../docs/06-system-description.md) · [05 — Key Design Trades](../docs/05-key-design-trades.md)
 
@@ -14,13 +14,29 @@ Traceability: [06 — System Description](../docs/06-system-description.md) · [
 
 | Parameter | Value |
 |-----------|--------|
-| Type | Progressive-burn solid grain |
+| Type | **Solid rocket motor** — progressive-burn grain |
+| Propellant | **Evolution Space high-rate tactical** propellant (baseline selection) |
+| Signature | **Low-signature where possible** (smoke/plume reduction goal — not zero signature) |
 | Motor bay length | ~297 mm |
 | Usable grain length | ~260 mm |
 | Propellant mass | ~1.20 kg |
 | Burn time | ~3.2–3.4 s |
 | Total impulse (notional) | **2800–3200 N·s** (nominal **~2900 N·s**) |
 | Range goal | **1000 m** effective |
+
+---
+
+## Propellant Choice (Evolution Space)
+
+RADR uses a **solid grain** sized for a **60 mm × 18 in** round, not a liquid or hybrid system — **KISS** for squad logistics and field reliability.
+
+| Factor | Rationale |
+|--------|-----------|
+| **Evolution Space high-rate tactical propellant** | Baseline for **fast pressure rise capability** in the ramp phase while still allowing a **low initial thrust** grain segment |
+| **Progressive grain geometry** | First **1–2 s** lower thrust → manageable recoilless backblast and shoulder impulse; then **ramp** to terminal closure speed |
+| **Low-signature goal** | Reduce visual/thermal launch signature **where propellant chemistry allows** without sacrificing the 1000 m closure target — exact formulation TBD in propellant trade |
+
+**Not selected:** Boost-first grains (excess peak pressure for 10 yd rear SOP); neutral-burn grains (higher initial peak, less backblast margin).
 
 ---
 
@@ -51,8 +67,6 @@ Progressive burn: **lower thrust 0–2 s** (recoil/backblast control), **ramp 2�
 
 **Stated design band:** 2800–3200 N·s (conservative pad applied → **nominal ~2900 N·s**).
 
-*Thrust rises from ~700 N (0–2 s) to ~1050 N peak at 3.2 s — see table for authoritative points.*
-
 ---
 
 ## Why Progressive (Not Neutral / Boost-First)
@@ -77,17 +91,7 @@ Low initial thrust keeps the **10 yard (30 ft)** rear danger zone manageable; ra
 | Time of flight @ 1000 m | ~4.5–5.0 s | Ballistic estimate |
 | Terminal velocity @ 1000 m | ~330–370 m/s | Drag + impulse placeholder |
 
-**Honest limit:** No live motor test or trajectory radar validation. Range goal is a **design target**, not a demonstrated KPP.
-
----
-
-## Comparison to Prior Program Estimates
-
-| Metric | v0.5 notional | v0.9 Annex H |
-|--------|---------------|--------------|
-| Average thrust | 850–1050 N | ~850 N avg over burn |
-| Total impulse | 2800–3200 N·s | ~2900 N·s nominal |
-| Low thrust phase | 3.0–3.4 s burn | **First 2.0 s** explicit low phase |
+**Honest limit:** No live motor test with Evolution Space grain in this form factor. Range goal is a **design target**, not a demonstrated KPP.
 
 ---
 

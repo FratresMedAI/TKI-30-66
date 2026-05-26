@@ -1,10 +1,10 @@
 # 06 — System Description
 
 **Document ID:** RADR / DOC-06  
-**Version:** 1.6.0  
+**Version:** 1.7.0  
 **Status:** Conceptual
 
-Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G](../annexes/G-mass-and-center-of-gravity.md) · [Annex H](../annexes/H-motor-progressive-burn.md)
+Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G](../annexes/G-mass-and-center-of-gravity.md) · [Annex H](../annexes/H-motor-progressive-burn.md) · [Annex I](../annexes/I-performance-modeling.md) · [Annex J](../annexes/J-warhead-dispersal.md)
 
 ---
 
@@ -167,6 +167,19 @@ flowchart LR
 | Backblast | ≤ **10 yards (30 ft)** rear |
 | Tracker | None |
 
+### Forward device — muzzle brake / blast deflector
+
+The fitting at the **muzzle** (M1 Bazooka–heritage silhouette) is a **combined muzzle brake and blast deflector**, not a decorative cap.
+
+| Function | Description |
+|----------|-------------|
+| **Recoilless vent management** | A fraction of launch gas exits **rearward** through the breech vent path; the forward device captures and redirects **residual forward blast** away from the gunner’s support hand |
+| **Impulse reduction** | Baffle surfaces reduce **peak overpressure** at the muzzle plane during firing |
+| **Hand clearance** | Deflector geometry keeps the **forward foregrip** outside the primary blast cone |
+| **Mass** | **~0.20 kg** (budgeted within main tube forward section — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
+
+Visual intent: [visuals/README.md](../visuals/README.md). Concept art (Goodmk60) — forward hardware to be read as this device in future renders.
+
 ### Rocket Retention Stop
 
 A **spring-biased radial bore finger** bears on the protective tube aft shoulder and blocks forward slide during sling carry and movement. The stop **disengages** only when the breech is deadbolt-locked, the gunner holds the **front trigger**, and the seeker outputs **steady lock tone**. Releasing the front trigger **re-engages** the stop immediately. The **rear trigger never** retracts the stop.
@@ -196,7 +209,7 @@ Full operating principle, components, and state machine: [Annex F § Breech Mech
 | **Display** | Panel shows the holo/optics picture + reticle when **deployed** (~barrel-height swing out) |
 | **Zoom** | **+** and **−** on the **aft-facing (rear) face** of the forward foregrip — buttons face rear; right-handed gunner uses **left index** on front trigger, **left thumb** on zoom — steps through **1.5× → 4×** (default **1.5×** on power-up) |
 | **Battery** | Rechargeable cell in the **pistol grip** powers holo, display, zoom logic, triggers, and tone |
-| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — terminal lock, not the launcher camera |
+| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — **seeker lock** at endgame, not the launcher camera |
 
 #### Stowed vs. deployed
 
@@ -266,7 +279,7 @@ Detail and CG: [Annex G](../annexes/G-mass-and-center-of-gravity.md).
 | 2.0–3.0 | 870 → 1120 ramp | Mildly progressive |
 | 3.0–3.3 | ~1050 tail | Burnout |
 
-Full table and rationale: [Annex H](../annexes/H-motor-progressive-burn.md).
+Full table and rationale: [Annex H](../annexes/H-motor-progressive-burn.md). Performance model: [Annex I](../annexes/I-performance-modeling.md).
 
 ---
 
@@ -276,14 +289,14 @@ Full table and rationale: [Annex H](../annexes/H-motor-progressive-burn.md).
 
 **Backup:** **Timed fuze** if the proximity channel fails — preserves forward-cone geometry.
 
-**Why this choice:** Group 1–2 UAS present small radar/RF and physical cross-sections at terminal range; proximity at standoff matches the **forward cone** flak pattern and **KISS** fire-and-forget employment (no impact fuze, no command link).
+**Why this choice:** Group 1–2 UAS present small radar/RF and physical cross-sections at **engagement range**; proximity at standoff matches the **forward kill cone** flak pattern and **KISS** fire-and-forget employment (no impact fuze, no command link).
 
 1. Proximity (radar or mm-wave) initiates at **~20 ft** (primary).  
 2. Timed backup if proximity does not fire.  
 3. Burster opens cube pack into **forward cone** (~10–12 ft wide).  
 4. Cubes strike rotors, battery, sensors, and airframe.
 
-Detail: [Annex H — Motor](../annexes/H-motor-progressive-burn.md) · [Annex F — Employment](../annexes/F-employment-and-breech.md)
+Detail: [Annex H — Motor](../annexes/H-motor-progressive-burn.md) · [Annex I — Performance](../annexes/I-performance-modeling.md) · [Annex J — Warhead](../annexes/J-warhead-dispersal.md) · [Annex F — Employment](../annexes/F-employment-and-breech.md)
 
 ---
 

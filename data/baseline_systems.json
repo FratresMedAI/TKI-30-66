@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.6.0: Full vision sync — locked specs, ravioli-can tube, pyrotechnic dispersal, moderate-maneuver canards, fin deploy lock."
+    "notes": "v1.7.0: Mid-range framing; Annex I performance, J warhead; expanded F/G; one-pager and pitch deck."
   },
   "primary_threats": [
     {
@@ -215,6 +215,12 @@
       "display_feed": "launcher_holo_optics_module",
       "launcher_battery": "pistol_grip_cell_powers_sight_and_fire_control",
       "finish": "matte_tactical_camo",
+      "forward_device": {
+        "type": "muzzle_brake_blast_deflector_combined",
+        "function": "redirect_recoilless_vent_fraction_and_reduce_forward_blast_impulse_on_hands",
+        "mass_kg_nominal": 0.2,
+        "heritage": "m1_bazooka_like_forward_fitting_repurposed"
+      },
       "concept_art": "visuals/launcher/output/radr-bazooka-goodmk60.png"
     },
     "launcher_controls": {
@@ -284,7 +290,7 @@
       }
     ],
     "philosophy": {
-      "echelon": "squad_sof_terminal_layer",
+      "echelon": "squad_sof_mid_range_counter_uas",
       "primary_defense": "speed_to_target",
       "kiss_rugged": true,
       "one_person_reload": true
@@ -328,6 +334,48 @@
         { "t_s": 3.3, "thrust_n": 1050 }
       ]
     },
+    "performance_model": {
+      "status": "notional_point_mass",
+      "launch_mass_kg": 3.1,
+      "cd_a_m2": { "nominal": 0.35, "min": 0.32, "max": 0.42 },
+      "burnout_velocity_mps": { "nominal": 395, "min": 360, "max": 430 },
+      "mean_boost_acceleration_mps2": 293,
+      "velocity_at_1000m_mps": { "min": 330, "max": 350, "nominal": 340 },
+      "time_of_flight_1000m_s": { "min": 4.5, "max": 5.0, "nominal": 4.7 },
+      "sensitivity": {
+        "mass_plus_5pct_velocity_delta_mps": -15,
+        "impulse_minus_3pct_velocity_delta_mps": -10,
+        "cd_a_plus_10pct_velocity_delta_mps": -18
+      }
+    },
+    "rocket_mass_budget": {
+      "total_nominal_kg": 3.1,
+      "cap_kg": 3.5,
+      "cg_mm_from_nose": 248,
+      "components": [
+        { "id": "seeker_dome", "mass_kg": 0.22, "cg_mm": 45 },
+        { "id": "seeker_core_mount", "mass_kg": 0.28, "cg_mm": 55 },
+        { "id": "fuze_electronics", "mass_kg": 0.08, "cg_mm": 90 },
+        { "id": "forward_bulkhead", "mass_kg": 0.12, "cg_mm": 110 },
+        { "id": "pyrotechnic_burster", "mass_kg": 0.10, "cg_mm": 130 },
+        { "id": "cube_pack", "mass_kg": 0.72, "cg_mm": 165 },
+        { "id": "warhead_casing", "mass_kg": 0.15, "cg_mm": 155 },
+        { "id": "avionics_battery", "mass_kg": 0.15, "cg_mm": 220 },
+        { "id": "body_structure", "mass_kg": 0.12, "cg_mm": 300 },
+        { "id": "motor_case", "mass_kg": 0.35, "cg_mm": 390 },
+        { "id": "propellant_grain", "mass_kg": 1.20, "cg_mm": 380 },
+        { "id": "nozzle", "mass_kg": 0.08, "cg_mm": 440 },
+        { "id": "fins_canards_locks", "mass_kg": 0.20, "cg_mm": 430 },
+        { "id": "tail_structure", "mass_kg": 0.08, "cg_mm": 450 }
+      ],
+      "cg_sensitivity": [
+        { "perturbation": "warhead_plus_10pct", "delta_cg_mm": 6 },
+        { "perturbation": "warhead_minus_10pct", "delta_cg_mm": -6 },
+        { "perturbation": "motor_plus_10pct", "delta_cg_mm": 14 },
+        { "perturbation": "motor_minus_10pct", "delta_cg_mm": -14 },
+        { "perturbation": "seeker_plus_10pct", "delta_cg_mm": -3 }
+      ]
+    },
     "range_m": {
       "effective_goal": 1000,
       "min_engagement": 150
@@ -363,7 +411,7 @@
       "rocket_retention_stop": true,
       "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",
       "round_packaging": "ravioli_can_style_tube_pull_off_cap",
-      "primary_role": "squad_sof_terminal_c_uas",
+      "primary_role": "squad_sof_mid_range_drone_destroyer",
       "typical_targets": [
         "fpv_kamikaze_drone",
         "small_medium_quadcopter",
@@ -374,7 +422,7 @@
       "squad_suitable": true,
       "team_size": 2,
       "team_roles": ["gunner", "ammo_bearer"],
-      "notes": "Recoilless Anti-Drone Rocket. Speed-first terminal layer for Group 1-2 UAS. 1000 m goal."
+      "notes": "Recoilless Anti-Drone Rocket. Mid-range drone destroyer for Group 1-2 UAS. 1000 m goal."
     },
     {
       "id": "fim-92-stinger",

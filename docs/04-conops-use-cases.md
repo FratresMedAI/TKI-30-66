@@ -36,7 +36,7 @@ Summary: open breech → remove cap from **ravioli-can style** tube → load →
 
 **Threat:** Loitering munition commits from **400–1000 m**.  
 **Action:** Halt, clear 10 yd backblast, engage before terminal dive completes.  
-**Why RADR:** Terminal-layer weapon sized for dismount teams.
+**Why RADR:** Mid-range drone destroyer sized for dismount teams.
 
 ---
 

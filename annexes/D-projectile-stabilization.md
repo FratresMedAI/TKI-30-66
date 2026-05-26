@@ -23,7 +23,7 @@
 | Launch | Backblast ≤ 10 yd (30 ft) |
 | 0–2 s | **750–850 N** initial thrust (mildly progressive segment) |
 | Ramp | Build to **1050–1150 N** peak; **~330–350 m/s** class at 1000 m |
-| Terminal | Radar or mm-wave proximity (+ timed backup) @ ~20 ft → forward cone |
+| Endgame | Radar or mm-wave proximity (+ timed backup) @ ~20 ft → forward kill cone |
 
 ---
 

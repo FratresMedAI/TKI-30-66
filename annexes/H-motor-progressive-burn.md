@@ -1,7 +1,7 @@
 # Annex H — Motor Progressive Burn Profile
 
 **Document ID:** RADR / ANX-H  
-**Version:** 1.6.0  
+**Version:** 1.7.0  
 **Status:** Conceptual — **final motor baseline locked** (notional ballistics until live-fire)
 
 *Thrust-time table supports design trades; impulse and velocity bands are analytic targets — not demonstrated test data.*

@@ -1,7 +1,7 @@
 # 02 — Operational Requirements
 
 **Document ID:** RADR / DOC-02  
-**Version:** 1.6.0  
+**Version:** 1.7.0  
 **Status:** Conceptual
 
 Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
@@ -10,7 +10,7 @@ Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
 
 ## Primary Mission
 
-Provide **squad and SOF** a **mid-range drone destroyer** — terminal-layer defeat of **Group 1–2 UAS** at **150–1000 m** using a **speed-first** guided flak rocket with **one-person reload**.
+Provide **squad and SOF** a **mid-range drone destroyer** — **mid-range** defeat of **Group 1–2 UAS** at **150–1000 m** using a **speed-first** guided flak rocket with **one-person reload**.
 
 ---
 

@@ -10,7 +10,7 @@
 
 | Trade | Selection | Rationale |
 |-------|-----------|-----------|
-| Echelon | **Squad / SOF terminal layer** | Not divisional air defense |
+| Echelon | **Squad / SOF mid-range counter-UAS** | Not divisional air defense |
 | Threat focus | **Group 1–2 UAS** (see DOC-02) | FPV, quads, loiter, glide, swarm |
 | Primary virtue | **Speed-to-target** | Beats evasion timeline |
 | Guidance | **Moderate-maneuver nose canards** | Pairs with rough aim + IR lock; not high OBA |
@@ -29,7 +29,7 @@
 
 ## Speed vs. Agility
 
-RADR deliberately **does not** pursue high off-boresight or aggressive intercept maneuvers. Closure speed and a reliable terminal cone are the kill chain.
+RADR deliberately **does not** pursue high off-boresight or aggressive intercept maneuvers. Closure speed and a reliable **forward kill cone** are the kill chain.
 
 ---
 

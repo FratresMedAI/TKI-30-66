@@ -1,12 +1,12 @@
 # 08 — Layered Defense Integration
 
 **Document ID:** RADR / DOC-08  
-**Version:** 1.2.0  
+**Version:** 1.7.0  
 **Status:** Conceptual
 
 ---
 
-RADR is the **dismounted squad/SOF terminal layer** for **Group 1–2 UAS** at **150–1000 m**.
+RADR fills the **150–1000 m mid-range counter-UAS** slot for **Group 1–2 UAS** in a layered stack.
 
 | Layer | Role |
 |-------|------|

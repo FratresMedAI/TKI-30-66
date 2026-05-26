@@ -2,10 +2,10 @@
 
 **Squad / SOF Mid-Range Drone Destroyer — 60 mm Class**
 
-**RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** — a **mid-range drone destroyer** that emphasizes **speed-to-target**, **simplicity (KISS)**, **reliability**, and **one-person reload**. It engages **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones) as a **terminal-layer** weapon when machine guns fall short and SAM is too heavy to allocate.
+**RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** — a **mid-range drone destroyer** that emphasizes **speed-to-target**, **simplicity (KISS)**, **reliability**, and **one-person reload**. It engages **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones) as a **mid-range counter-UAS** weapon when machine guns fall short and SAM is too heavy to allocate.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.6.0
+**Version:** 1.7.0
 
 ![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-goodmk60.png)
 
@@ -25,9 +25,9 @@ The gunner **rough-aims** on a fold-out viewer fed by an integrated holo (**1.5�
 
 | Threat class | Examples / notes |
 |--------------|------------------|
-| **FPV kamikaze drones** | Close-in terminal attack; high closure rate |
+| **FPV kamikaze drones** | Close-in attack profiles; high closure rate |
 | **Small-to-medium quadcopters** | ISR, spotter, and light attack platforms |
-| **Loitering munitions** | Orbiting or diving terminal engagement |
+| **Loitering munitions** | Orbiting or diving engagement profiles |
 | **Terrain-matching / GPS-denied gliders** | Low-signature glide profiles (e.g. Hornet / “Martian” class) |
 | **Group 1–2 UAS (general)** | Swarm and interdiction attacks in the close fight |
 
@@ -39,7 +39,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 
 | Item | Spec | Status |
 |------|------|--------|
-| **Role** | Mid-range drone destroyer; squad / SOF terminal C-UAS | Locked |
+| **Role** | Mid-range drone destroyer; squad / SOF mid-range counter-UAS | Locked |
 | **Caliber** | **60 mm** | Locked |
 | **Rocket length** | **18 in (457 mm)** maximum | Locked |
 | **Launcher length** | **40 in (1016 mm)** | Locked |
@@ -95,7 +95,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 
 | | RADR | Carl Gustaf M4 | FIM-92 Stinger |
 |--|------|----------------|----------------|
-| Role | Terminal C-UAS flak | Multi-role | MANPADS |
+| Role | Mid-range C-UAS | Multi-role | MANPADS |
 | Launcher | ≤ 5.5 kg, 40 in | ~6.6 kg | ~15 kg |
 | Round | ≤ 3.5 kg, 18 in | ~3.2 kg | ~10.1 kg |
 | Guidance | IR F&F, moderate-maneuver | Unguided | High-agility IR |
@@ -131,6 +131,15 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 | **F** | [Employment sequence & breech](annexes/F-employment-and-breech.md) |
 | **G** | [Mass budget & CG](annexes/G-mass-and-center-of-gravity.md) |
 | **H** | [Motor thrust curve](annexes/H-motor-progressive-burn.md) |
+| **I** | [Performance modeling](annexes/I-performance-modeling.md) |
+| **J** | [Warhead dispersal](annexes/J-warhead-dispersal.md) |
+
+### Outreach
+
+| Doc | Purpose |
+|-----|---------|
+| [One-pager](docs/RADR-one-pager.md) | Single-page concept summary |
+| [Pitch deck outline](docs/pitch-deck-outline.md) | 8–10 slide structure |
 
 ---
 

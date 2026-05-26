@@ -1,7 +1,7 @@
 # Annex F — Employment Sequence and Breech Mechanism
 
 **Document ID:** RADR / ANX-F  
-**Version:** 1.6.0  
+**Version:** 1.7.0  
 **Status:** Conceptual — locked baseline (notional until prototype)
 
 Traceability: [06 — System Description](../docs/06-system-description.md) · [04 — CONOPS](../docs/04-conops-use-cases.md)
@@ -204,6 +204,48 @@ The release cam is driven only when **all** of the following are true:
 | After fire; breech opened | **Engaged** | Reset for next cycle |
 
 Opening the breech clears the mechanical load path; stop returns to **engaged** when breech is open.
+
+### Mechanical integration (breech ↔ retention stop)
+
+```mermaid
+flowchart TB
+  subgraph bore [Bore_60mm]
+    Tube[RavioliCan_Tube_Rim]
+    Finger[RetentionFinger]
+  end
+  subgraph breech [Breech_Closed]
+    Seal[SealingFace]
+    Bolt[Deadbolt_Locked]
+  end
+  subgraph interlock [FireControl_AND_Gate]
+    Front[FrontTrigger_Held]
+    Tone[LockTone_Active]
+  end
+  Seal --> Tube
+  Finger -->|default_spring| Tube
+  Bolt --> Seal
+  Front --> ReleaseCam
+  Tone --> ReleaseCam
+  ReleaseCam -->|retract_2to4mm| Finger
+```
+
+| Interface | Behavior |
+|-----------|----------|
+| **Breech open** | Stop **engaged**; release cam **cannot** energize (interlock open circuit) |
+| **Breech closed + deadbolt** | Stop may still engage — tube rim captured on sealing face |
+| **Front + tone** | Solenoid/linkage rotates **release cam**; finger retracts **~2–4 mm** flush to bore wall |
+| **Rear trigger** | **No mechanical path** to cam — electrical launch enable only |
+
+**Cross-section (conceptual):** Radial finger (~6–8 mm wide contact on tube aft shoulder) projects from a pocket in the lower bore wall. Return spring **~8–12 N** at finger tip keeps engagement. Cam profile lifts finger against spring when all AND conditions true.
+
+### Failure modes
+
+| Failure | Symptom | Safe default |
+|---------|---------|--------------|
+| Tube creep when slung | Stop engaged — blocks forward slide | Stop engaged |
+| Partial seat / no `SEATED` | Tone blocked; stop engaged | Rear blocked |
+| Tone dropout while holding front | Stop re-engages; rear blocked | Immediate |
+| Breech not fully locked | Stop engaged; seeker off | No fire |
 
 ---
 

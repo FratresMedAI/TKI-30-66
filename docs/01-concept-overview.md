@@ -1,7 +1,7 @@
 # 01 — Concept Overview
 
 **Document ID:** RADR / DOC-01  
-**Version:** 1.6.0  
+**Version:** 1.7.0  
 **Status:** Conceptual — locked baseline
 
 ---
@@ -18,7 +18,7 @@ The launcher is **40 in**, **≤ 5.5 kg** empty, **Gustav-style flip breech**, d
 
 ## Purpose
 
-RADR closes the **150–1000 m** engagement band against **close-in UAS** when organic machine guns lack reach and SAM systems are not appropriate. **Specialist** issue — teams that need terminal C-UAS, not every rifleman.
+RADR closes the **150–1000 m** engagement band against **close-in UAS** when organic machine guns lack reach and SAM systems are not appropriate. **Specialist** issue — teams that need **mid-range counter-UAS**, not every rifleman.
 
 ---
 
@@ -40,7 +40,7 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 | **Moderate-maneuver guidance** | Rough aim + IR lock + nose-canard trim — not high OBA |
 | **KISS + rugged** | Ravioli-can tube; flip breech; dual-trigger |
 | **Safety in depth** | Retention stop, breech lock, dual-trigger interlocks |
-| **Terminal flak** | Pyrotechnic dispersal → forward cone of cubes |
+| **Mid-range flak** | Pyrotechnic dispersal → forward kill cone of cubes |
 | **Honest** | 1000 m and Pk are goals until live fire |
 
 ---

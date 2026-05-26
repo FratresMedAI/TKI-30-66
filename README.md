@@ -141,7 +141,7 @@ python scripts/radr_performance_model.py --verify
 jupyter lab notebooks/
 ```
 
-**RunPod:** [notebooks/RUNPOD-QUICKSTART.md](notebooks/RUNPOD-QUICKSTART.md) — 4090 pod is fine for preloaded Jupyter; math is CPU. Set `N_MC = 5000+` in the notebook.
+**RunPod:** [notebooks/RUNPOD-QUICKSTART.md](notebooks/RUNPOD-QUICKSTART.md) — `./scripts/runpod_max_cpu.sh` uses **32 workers** (4090 = Jupyter; math is CPU).
 
 Detail: [Annex I — Performance Modeling](annexes/I-performance-modeling.md)
 

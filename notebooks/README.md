@@ -6,7 +6,7 @@
 |----------|---------|
 | [`RADR_Performance_Dashboard.ipynb`](RADR_Performance_Dashboard.ipynb) | Trajectory, sensitivity, Monte Carlo envelope, pitch charts |
 
-**Laptop:** run `N_MC = 200` in the notebook. **4090 pod:** safe to raise to `2000–10000` (still CPU-bound math; GPU not required).
+**Laptop:** `python scripts/run_light_dashboard.py` (n=200). **RunPod 32 vCPU:** `./scripts/runpod_max_cpu.sh` (n=25000, workers=32).
 
 ```bash
 cd TKI-30-66

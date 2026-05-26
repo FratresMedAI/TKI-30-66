@@ -1,38 +1,71 @@
-# RunPod + Jupyter — RADR mk.60
+# RunPod — max CPU (your 4090 pod)
 
-Your **4090** pod is fine for **preloaded Jupyter** even though RADR ballistics are **CPU math**. Use the GPU pod as a fast remote workstation, not because the rocket model needs CUDA.
+| Resource | Your pod | Used by RADR |
+|----------|----------|--------------|
+| GPU | RTX 4090 ×1 | **Not used** for ballistics (Jupyter only) |
+| vCPU | **32** | **Monte Carlo** — use `--workers 32` |
+| RAM | 125 GB | Plenty |
+| Disk | 20 GB | Repo + pip fits easily |
 
-## 1. Start pod → open Jupyter
+## One-command max CPU (recommended)
 
-Use the template that includes **Jupyter Lab**. Open the web URL RunPod gives you.
-
-## 2. Terminal in Jupyter (or SSH)
+Terminal on the pod:
 
 ```bash
 git clone https://github.com/FratresMedAI/RADR-mk.60.git
 cd RADR-mk.60
-pip install -r requirements-modeling.txt
-python scripts/radr_performance_model.py --verify
-python scripts/radr_performance_model.py --json-out data/performance_model_output.json
-python scripts/mass_cg_calc.py
-jupyter lab notebooks/ --ip=0.0.0.0 --port=8888 --no-browser
+chmod +x scripts/runpod_max_cpu.sh
+./scripts/runpod_max_cpu.sh
 ```
 
-(If Jupyter is already running on the pod, skip the last line and open `notebooks/RADR_Performance_Dashboard.ipynb` from the file browser.)
+Defaults: **25,000** Monte Carlo samples · **32** workers · 4 PNGs in `notebooks/output/`.
 
-## 3. In the notebook
+### Tune without editing files
 
-1. Set **`N_MC = 5000`** (or higher) in the Monte Carlo cell.  
-2. **Kernel → Restart & Run All**.  
-3. **File → Export** plots or save notebook as PDF for pitch deck.
+```bash
+N_MC=50000 WORKERS=32 ./scripts/runpod_max_cpu.sh
+```
 
-## 4. Do not expect GPU speedup
+## Why `OMP_NUM_THREADS=1`
 
-`radr_performance_model.py` and the notebook use **NumPy on CPU**. That is correct. Optional later: JAX/CuPy for huge MC — not required for v1 wow.
+Each worker is a separate process. If NumPy also spawns 32 threads *per* worker, you oversubscribe and slow down. The script sets **1 thread per process × 32 processes = 32 cores**.
 
-## 5. Wow checklist for meetings
+## Manual steps (Jupyter pod)
 
-- [ ] `performance_model_output.json` regenerated on pod  
-- [ ] Dashboard notebook all cells green  
-- [ ] Three exports: `range_envelope.png`, `sensitivity_1000m.png`, `monte_carlo_v1000.png`  
-- [ ] Annex I numbers match notebook title card  
+```bash
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+git clone https://github.com/FratresMedAI/RADR-mk.60.git
+cd RADR-mk.60
+pip install -r requirements-modeling.txt
+python scripts/run_light_dashboard.py --runpod-max
+```
+
+Or Monte Carlo only:
+
+```bash
+python scripts/monte_carlo_envelope.py --runpod-max --json-out data/monte_carlo_25000.json
+```
+
+## Jupyter notebook
+
+Open `notebooks/RADR_Performance_Dashboard.ipynb` and set:
+
+```python
+N_MC = 25000
+WORKERS = 32  # add parallel cell — or use runpod_max_cpu.sh instead (faster)
+```
+
+For max CPU, **prefer `runpod_max_cpu.sh`** over the notebook loop (parallel map).
+
+## 20 GB disk tips
+
+- `pip install -r requirements-modeling.txt` only (~numpy, matplotlib, jupyter if needed).
+- Skip Conda mega-stacks.
+- Download `notebooks/output/*.png` to your PC when done.
+
+## Wow checklist
+
+- [ ] `./scripts/runpod_max_cpu.sh` completes  
+- [ ] `monte_carlo_25000.json` — **fraction_in_330_350_band** high  
+- [ ] Four PNGs in `notebooks/output/`  
+- [ ] Optional: zip and download folder before stopping pod  

@@ -201,23 +201,46 @@ Cross-section stays **soft and rounded** (same diamond pad texture as the rear w
 
 ### Rocket Retention Stop
 
-A **spring-biased radial bore finger** in the lower bore wall bears on the protective tube **aft shoulder** and blocks **forward slide** toward the muzzle during sling carry. The breech sealing face holds the tube rearward; the finger is the anti-creep element. The stop **disengages** only when: breech **deadbolt-locked**, gunner holds **front trigger**, and seeker outputs **steady lock tone** — then a **release cam** retracts the finger **~2–4 mm** flush to the bore. Releasing the front trigger **re-engages** immediately. The **rear trigger never** drives the stop.
+**Physical layout:** Fixed pocket in the **lower bore wall**, **forward of the breech sealing face**, **aft of the muzzle**. A **spring-biased radial finger** (~2–3 mm intrusion at tip) bears on the **alloy tube aft shoulder** (rim step) — **not** on bare rocket OD. The breech sealing face captures the tube rim rearward; the finger is the **anti-forward-creep** element during carry.
 
-| State | Retention stop |
-|-------|----------------|
-| Breech open / not seated | **Engaged** |
-| Breech closed, front trigger not held | **Engaged** |
-| Breech closed, front held, no ready tone | **Engaged** |
-| Breech closed, front held, **ready tone** | **Disengaged** |
-| Front trigger released | **Re-engages** immediately |
+**Default:** Finger **engaged** (~8–12 N at contact) whenever the bore must be carry-safe.
 
-Full mechanism and causality table: [Annex F § Rocket Retention Stop](../annexes/F-employment-and-breech.md#rocket-retention-stop).
+**Disengage (all required):**
 
-### Breech (Summary)
+1. Breech **fully closed** and **deadbolt locked** (`LOCKED_SEATED`).  
+2. Gunner **holding front trigger** (seeker powered).  
+3. Seeker **steady lock tone** active.
 
-**Gustav-style flip block** on a rear hinge (~90° open). Pull the **spring-return bolt handle** **15–25 mm** aft — **unlock cam** lifts the **deadbolt**; swing open on detent; insert tube; close; **release** handle so the return spring drives the deadbolt into the receiver notch with an audible **snap**. That snap is the positive lock (bolt-action feel). `SEATED` confirm via pressure + rim contacts gates seeker and retention logic.
+Then fire-control energizes a **solenoid-driven release cam** (baseline per [Annex F § Retention actuator trade](../annexes/F-employment-and-breech.md#retention-actuator-trade-study-m-01--baseline-locked)); cam rotates **~15–25°** and retracts the finger **~2–4 mm** flush to the bore wall. De-energized or breech-open states default **engaged**. Tube+rocket may translate forward on fire. **Rear trigger has no mechanical path to the finger** — ignition enable only.
 
-Full mechanical detail (bolt kinematics, lock elements, user feel): [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
+**Re-engage:** Front trigger released, tone lost, or breech opened → finger returns immediately via return spring.
+
+| State | Retention finger | Rear trigger |
+|-------|------------------|--------------|
+| Breech open / not seated | **Engaged** | Blocked |
+| Breech closed, front not held | **Engaged** | Blocked |
+| Breech closed, front held, no tone | **Engaged** | Blocked |
+| Breech closed, front held, **tone** | **Retracted** | Enabled (front still held) |
+| Front released | **Engaged** | Blocked |
+
+Full causality, side view, and failure modes: [Annex F § Rocket Retention Stop](../annexes/F-employment-and-breech.md#rocket-retention-stop).
+
+### Breech (mechanical summary)
+
+**Type:** Gustav-style **rear-hinged flip block** (~90° open) with **spring-return bolt handle** and **positive deadbolt**.
+
+| Step | Gunner action | Mechanism | Feel |
+|------|---------------|-----------|------|
+| Unlock | Pull handle **15–25 mm** aft | **Unlock cam** lifts deadbolt **~2–3 mm** clear of receiver notch | Spring resistance, then small click |
+| Open | Swing block down | Hinge + **open detent** holds block for hands-free load | Detent click |
+| Close | Swing block up; tube rim to **sealing face** | Alignment taper guides rim | Solid thunk when seated |
+| Lock | Release handle | Return spring drives handle forward; **deadbolt snaps** into notch | **Sharp snap** = locked (bolt-action certainty) |
+
+**Locked means:** Deadbolt in notch **and** sealing face loaded — not merely “closed.” Until snap, seeker and retention release stay blocked. `SEATED` confirmed by pressure port + rim electrical contacts → **rocket ready**.
+
+**Recoilless path:** Vent passages in block pass launch gas **rearward** (10 yd SOP); forward device is muzzle brake / deflector only.
+
+Full assembly, forces, and user-feel table: [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
 
 ### Digital Sight, Fold-Out Display, and Controls (Locked)
 

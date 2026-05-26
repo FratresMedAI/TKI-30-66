@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "status": "pending",
+  "disclaimer": "Template only. Copy to live_fire_results.json when partner provides data. Do not commit fabricated measurements.",
+  "project": "RADR mk.60",
+  "validation_plan_ref": "docs/11-live-fire-and-partner-validation.md",
+  "partner_id": null,
+  "test_date": null,
+  "motor_static_fire": {
+    "status": "pending",
+    "impulse_ns": null,
+    "impulse_band_pass": null,
+    "peak_thrust_n": null,
+    "opening_thrust_first_2s_n": null,
+    "backblast_10yd_ok": null,
+    "notes": ""
+  },
+  "instrumented_launches": [],
+  "instrumented_launch_shot_template": {
+    "shot_id": 0,
+    "range_m": 1000,
+    "v_at_range_mps": null,
+    "tof_s": null,
+    "in_330_350_band": null,
+    "loft_deg": null,
+    "mass_kg": null,
+    "notes": ""
+  },
+  "warhead_arena": {
+    "status": "pending",
+    "standoff_ft": 20,
+    "cone_diameter_ft": null,
+    "cone_diameter_band_pass": null,
+    "fuze_mode": null,
+    "notes": ""
+  },
+  "seeker_hil": {
+    "status": "pending",
+    "hover_lock_ok": null,
+    "crossing_lock_ok": null,
+    "mean_lock_time_s": null,
+    "notes": ""
+  },
+  "summary": {
+    "phase_2a_pass": null,
+    "phase_2b_pass": null,
+    "phase_2c_pass": null,
+    "phase_2d_pass": null,
+    "overall_live_fire_validated": false
+  }
+}

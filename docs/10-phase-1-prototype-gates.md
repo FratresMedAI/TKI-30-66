@@ -28,6 +28,7 @@ flowchart LR
 | **Entry** | Bench launcher fixture; retention stop hardware; mock tube shoulder |
 | **Procedure** | Cycle breech open/close 50×; attempt forward slide with stop engaged; verify stop releases only when interlock inputs simulated (breech closed + front held + tone) |
 | **Pass** | Deadbolt snap repeatable; stop holds mock tube against **≥ 50 N** forward shove when interlocks false; stop releases when all three interlocks true |
+| **Tolerances** | Per [Annex F § Prototype tolerance stack](../annexes/F-employment-and-breech.md#prototype-tolerance-stack-notional--first-article) — finger intrusion, deadbolt depth, shoulder land |
 | **Fail** | Creep open under shock; stop releases without tone; deadbolt does not seat |
 | **Artifacts** | Video, force log (if available), photos of lock engagement |
 | **Annex** | [F § Breech](../annexes/F-employment-and-breech.md#breech-mechanism) · [F § Retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop) |
@@ -45,6 +46,7 @@ flowchart LR
 | **Entry** | 1A passed; alloy tube mock with foil contacts; inert round mock optional |
 | **Procedure** | Trained operator completes load under **10 s** target; measure continuity resistance/LED; repeat 20 cycles |
 | **Pass** | Continuity detected within **200 ms** of breech lock; no bind on tube insert; bottom cap removable in bore with gloved hands |
+| **Tolerances** | Rim concentricity and seat preload per Annex F tolerance table |
 | **Fail** | Intermittent continuity; tube bind; cap cross-thread |
 | **Artifacts** | Load-time log, continuity trace, CONTAINER-SPEC checklist signed |
 | **Annex** | [CONTAINER-SPEC](../visuals/rocket/CONTAINER-SPEC.md) · [F gunner sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) |
@@ -70,12 +72,16 @@ flowchart LR
 
 ## Phase 2 — Forward dependencies (not Phase 1)
 
-| Gate | Proves | Depends on |
-|------|--------|------------|
-| Motor static fire | Impulse, \(F(t)\), backblast vs 10 yd | [DOC-09 motor vendor brief](09-motor-vendor-brief.md) |
-| Ballistic validation | v @ 1000 m, TOF | Motor + instrumented launch |
-| Seeker / guidance | Track vs crossing targets | Hardware-in-loop |
-| Warhead | Cone at ~20 ft, cube dispersion | Fuze + static arena |
+Requires a **partner or range** — see [DOC-11 — Live-fire and partner validation](11-live-fire-and-partner-validation.md) and [`data/live_fire_results.template.json`](../data/live_fire_results.template.json).
+
+| Gate | ID | Proves | Depends on |
+|------|-----|--------|------------|
+| Motor static fire | **2A** | Impulse, \(F(t)\), backblast vs 10 yd | [DOC-09 motor vendor brief](09-motor-vendor-brief.md) |
+| Instrumented launch | **2B** | **v @ 1000 m** in **330–350 m/s**; TOF | 2A + range access |
+| Warhead arena | **2C** | Cone **~10–12 ft** @ **~20 ft** | Fuze + arena |
+| Seeker HIL | **2D** | Lock tone vs threat class | Seeker hardware |
+
+**Phase 2 exit:** Populate `live_fire_results.json` with measured data; set Annex I live-fire row to **Partner validated** when gates 2A–2B (minimum) pass.
 
 Traceability matrix: [Annex I — Validated vs notional](../annexes/I-performance-modeling.md#validated-vs-notional-traceability).
 

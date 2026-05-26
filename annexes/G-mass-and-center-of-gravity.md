@@ -1,7 +1,7 @@
 # Annex G — Mass Budget and Center of Gravity
 
 **Document ID:** RADR / ANX-G  
-**Version:** 1.8.0  
+**Version:** 1.9.0  
 **Status:** Conceptual — notional mass properties
 
 *All values are engineering estimates — not measured on hardware.*
@@ -13,6 +13,55 @@ Traceability: [06 — System Description](../docs/06-system-description.md) · [
 ## Rocket Mass Budget (≤ 3.5 kg cap)
 
 **OAL:** 457 mm (18 in) · **Nominal total:** ~3.10 kg · **Cap:** 3.5 kg · **Margin:** ~0.40 kg
+
+### Component mass budget (engineering rollup)
+
+Longitudinal CG measured **from nose** (mm). Masses sum to **3.10 kg** nominal; aligns with [`mass_cg_calc.py`](../scripts/mass_cg_calc.py) and `rocket_mass_budget` in JSON.
+
+| Line item | Mass (kg) | CG from nose (mm) | % of total | Notes |
+|-----------|-----------|-------------------|------------|-------|
+| **Seeker + forward electronics** | **0.50** | 50 | 16% | 100 mm IR bay; dome, core, forward fuze path |
+| **Warhead (300 cubes + burster + casing)** | **1.05** | 160 | 34% | **0.803 kg** cubes only; **~0.25 kg** burster/casing/liner |
+| **Avionics + power (mid-body)** | **0.15** | 220 | 5% | Canard drivers, bus, battery share |
+| **Motor + propellant** | **1.20** | 380 | 39% | ~1.20 kg grain in ~297 mm case |
+| **Structure + fins + canards** | **0.20** | 430 | 6% | Body tube, 4× fins + locks, 2× nose canards, nozzle, igniter |
+| **Total** | **3.10** | **248** (weighted) | 100% | — |
+
+**Not on the round:** **Rocket retention stop** is **launcher hardware** (~0.04 kg in launcher budget). The round interfaces via the **tube aft shoulder** seated against the bore finger — see [Annex F § Retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop).
+
+#### Warhead detail (300 × 7 mm)
+
+| Sub-item | Mass (kg) | CG (mm) |
+|----------|-----------|---------|
+| Cube pack (300 × 7 mm, 7800 kg/m³ equiv.) | **0.803** | ~165 |
+| Pyrotechnic dispersal charge | **0.10** | ~130 |
+| Casing + liner + fasteners | **~0.15** | ~155 |
+| **Warhead section total** | **1.05** | **160** |
+
+#### Motor + propellant detail
+
+| Sub-item | Mass (kg) | CG (mm) |
+|----------|-----------|---------|
+| Propellant grain (locked) | **1.20** | ~380 |
+| Motor case (aluminum) | (in rollup) | ~390 |
+| Nozzle + throat | (in structure line) | ~440 |
+
+#### Seeker + electronics detail
+
+| Sub-item | Mass (kg) | CG (mm) |
+|----------|-----------|---------|
+| IR dome + seeker core | **~0.50** | ~50–55 |
+| Forward fuze sensor share | (in seeker line) | ~90 |
+| Avionics PCB + harness | **0.15** | ~220 |
+
+#### Structure, fins, and canards
+
+| Sub-item | Mass (kg) | CG (mm) |
+|----------|-----------|---------|
+| Main body tube | **~0.12** | ~300 |
+| 4 × swept spring fins + deploy locks | **~0.12** | ~445 |
+| 2 × nose canards + actuators | **~0.06** | ~75 |
+| Tail cone / igniter / small parts | **~0.02–0.08** | ~400–450 |
 
 ### Section Breakdown
 
@@ -91,7 +140,7 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 | Component | Mass (kg) | CG from nose (mm) | Notes |
 |-----------|-----------|-------------------|-------|
 | Pyrotechnic dispersal charge | 0.10 | 130 | Forward of cube pack |
-| Cube pack (300 × 7 mm alloy) | 0.72 | 165 | ~60% of warhead mass |
+| Cube pack (300 × 7 mm alloy) | **0.803** | 165 | ~77% of warhead section mass |
 | Warhead casing + end liner | 0.15 | 155 | Thin-wall aluminum/steel |
 | **Subtotal** | **0.97** | **~162** | Rounded to **1.05 kg** section with fasteners |
 
@@ -157,29 +206,35 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 
 The rocket is **not** nose-heavy: motor and propellant pull the CG to **~248 mm** (54% of OAL), **19 mm aft** of geometric center.
 
-### CG Sensitivity (±10% section mass)
+### Mass and CG sensitivity (±10% per section)
 
-| Perturbation | Δ CG from nose (mm) | Effect |
-|--------------|---------------------|--------|
-| Warhead +10% | **+6** | Slightly more forward — stable |
-| Warhead −10% | **−6** | Slightly more aft |
-| Motor +10% | **+14** | More aft — reinforces rear bias |
-| Motor −10% | **−14** | Moves CG forward — watch fin trim |
-| Seeker +10% | **−3** | Minor forward shift |
+Linearized from component CG table (not a dynamic flight model). **Δ CG** = shift of rocket CG from nose; **+** = aft.
 
-Nominal CG **248 mm** remains inside acceptable band for fin-stabilized launch if perturbations stay within **±10%** per section.
+| Perturbation | Total mass (kg) | Δ mass | Δ CG (mm) | vs. 3.5 kg cap |
+|--------------|-----------------|--------|-----------|----------------|
+| **Nominal** | **3.10** | — | **248** (baseline) | 0.40 kg margin |
+| Warhead **+10%** | 3.20 | +0.11 | **+6** | Pass |
+| Warhead **−10%** | 3.00 | −0.11 | **−6** | Pass |
+| Motor **+10%** | 3.22 | +0.12 | **+14** | Pass |
+| Motor **−10%** | 2.98 | −0.12 | **−14** | Pass |
+| Seeker **+10%** | 3.15 | +0.05 | **−3** | Pass |
+| Seeker **−10%** | 3.05 | −0.05 | **+3** | Pass |
+| Structure/fins **+10%** | 3.12 | +0.02 | **+2** | Pass |
 
-### CG Sensitivity (±15% warhead and motor)
+### Mass and CG sensitivity (±15% — warhead and motor focus)
 
-| Perturbation | Δ CG from nose (mm) | Mass (kg) | vs. 3.5 kg cap |
-|--------------|---------------------|-----------|----------------|
-| Warhead +15% | **+9** | 3.26 | Pass |
-| Warhead −15% | **−9** | 2.94 | Pass |
-| Motor +15% | **+21** | 3.28 | Pass |
-| Motor −15% | **−21** | 2.92 | Pass |
-| **Combined worst heavy** (warhead +15%, motor +15%, seeker +10%) | **+12** | **~3.38** | **Pass** |
+| Perturbation | Total mass (kg) | Δ CG (mm) | vs. 3.5 kg cap | Flight note |
+|--------------|-----------------|-----------|----------------|-------------|
+| Warhead **+15%** | 3.26 | **+9** | Pass | Slightly more forward — stable |
+| Warhead **−15%** | 2.94 | **−9** | Pass | Aft shift if motor also light |
+| Motor **+15%** | 3.28 | **+21** | Pass | Strongest CG mover — recheck fin/canard trim |
+| Motor **−15%** | 2.92 | **−21** | Pass | Risk of forward CG if warhead also light |
+| **Combined heavy** (warhead +15%, motor +15%, seeker +10%) | **~3.38** | **~+12** | Pass | Near growth pool — still under cap |
+| **Combined light** (warhead −15%, motor −15%) | **~2.86** | **~−18** | Pass | Watch nose-heavy coast attitude |
 
 `python scripts/mass_cg_calc.py` rolls up [`rocket_mass_budget`](../data/baseline_systems.json) and flags drift vs JSON nominal.
+
+**Longitudinal CG summary:** Nominal **248 mm** from nose (**54%** of 457 mm OAL) — **19 mm aft** of geometric center. Slight **rear bias** supports shoulder carry and fin-stable exit; not nose-heavy.
 
 ### Balance if sections run heavy or light
 
@@ -250,6 +305,17 @@ Combining launcher (4.8 kg, CG ~550 mm from pistol grip) and round (3.1 kg, CG ~
 | Launcher ≤ 5.5 kg | Pass (nominal 4.95) |
 | System ≤ 9.0 kg | Pass (nominal 8.05) |
 | Rocket CG rear of mid-body | Pass (~248 mm vs 229 mm mid) |
+
+---
+
+## Open questions (mass properties)
+
+| ID | Topic | Status |
+|----|-------|--------|
+| G-01 | Cube alloy final density (7800 kg/m³ equiv. today) | Affects fragment mass ± few grams |
+| G-02 | Seeker mass growth vs. dome material | First trim target if over 3.5 kg |
+| G-03 | Motor case vs. grain split | Case mass folded into motor line — vendor CAD TBD |
+| G-04 | Measured CG on prototype | Replace notional 248 mm with scale + balance test |
 
 ---
 

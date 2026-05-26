@@ -4,7 +4,8 @@ RADR notional performance model — traceable point-mass ballistics (stdlib only
 
 Uses explicit effective drag areas (m²) for boost vs coast, tied to 60 mm frontal
 geometry, fitted to the locked 330–350 m/s @ 1000 m band. Includes rocket-equation
-checks, warhead cube mass, loft/impulse/mass sweeps, and evasion geometry.
+checks, warhead cube mass, loft/impulse/mass sweeps, evasion geometry, and optional
+crosswind_mps (notional lateral coupling — see wind_loft_dispersion.py).
 
 NOT LIVE-FIRE DATA.
 """
@@ -61,6 +62,7 @@ class ModelConfig:
     thrust_scale: float = 1.0
     cda_boost_m2: float = CDA_BOOST_M2
     cda_coast_m2: float = CDA_COAST_M2
+    crosswind_mps: float = 0.0  # constant lateral wind (notional advection + coupling)
     dt_s: float = 0.002
 
 
@@ -72,6 +74,7 @@ class RangePoint:
     mach: float
     q_pa: float
     phase: str
+    lateral_m: float = 0.0
 
 
 @dataclass
@@ -85,6 +88,7 @@ class FlightSummary:
     burnout_mach: float
     cda_boost_m2: float
     cda_coast_m2: float
+    max_downrange_m: float = 0.0
     ranges: dict[str, RangePoint] = field(default_factory=dict)
 
 
@@ -126,15 +130,16 @@ def simulate(cfg: ModelConfig, marks: list[float]) -> FlightSummary:
     impulse = integrate_impulse(t_scale)
     theta = math.radians(cfg.loft_deg)
 
-    x = y = vx = vy = t = 0.0
-    history: list[tuple[float, float, float, str]] = []
+    x = y = z = vx = vy = vz = t = 0.0
+    history: list[tuple[float, float, float, float, str]] = []
     v_bo = x_bo = 0.0
     burned = False
+    wind_coupling = 0.25  # notional: vz tracks crosswind (not 6-DOF)
 
     while t < BURN_END_S + 30.0 and y >= -2.0:
         v = math.hypot(vx, vy)
         phase = "boost" if t <= BURN_END_S + 1e-9 else "coast"
-        history.append((x, t, v, phase))
+        history.append((x, t, v, z, phase))
 
         cda = cfg.cda_boost_m2 if phase == "boost" else cfg.cda_coast_m2
         ax = ay = 0.0
@@ -149,6 +154,9 @@ def simulate(cfg: ModelConfig, marks: list[float]) -> FlightSummary:
 
         vx += ax * cfg.dt_s
         vy += ay * cfg.dt_s
+        if cfg.crosswind_mps != 0.0:
+            vz += wind_coupling * (cfg.crosswind_mps - vz) * cfg.dt_s
+        z += vz * cfg.dt_s
         x += vx * cfg.dt_s
         y += vy * cfg.dt_s
         t += cfg.dt_s
@@ -164,16 +172,17 @@ def simulate(cfg: ModelConfig, marks: list[float]) -> FlightSummary:
 
     def at_range(r: float) -> RangePoint:
         for i in range(1, len(history)):
-            x0, t0, v0, p0 = history[i - 1]
-            x1, t1, v1, p1 = history[i]
+            x0, t0, v0, z0, p0 = history[i - 1]
+            x1, t1, v1, z1, p1 = history[i]
             if x0 < r <= x1:
                 u = (r - x0) / (x1 - x0)
                 tt = t0 + u * (t1 - t0)
                 vv = v0 + u * (v1 - v0)
+                zz = z0 + u * (z1 - z0)
                 ph = p1 if u > 0.5 else p0
-                return RangePoint(r, tt, vv, vv / A_SOUND, 0.5 * RHO_SL * vv * vv, ph)
-        _, tL, vL, pL = history[-1]
-        return RangePoint(r, tL, vL, vL / A_SOUND, 0.5 * RHO_SL * vL * vL, pL)
+                return RangePoint(r, tt, vv, vv / A_SOUND, 0.5 * RHO_SL * vv * vv, ph, zz)
+        _, tL, vL, zL, pL = history[-1]
+        return RangePoint(r, tL, vL, vL / A_SOUND, 0.5 * RHO_SL * vL * vL, pL, zL)
 
     return FlightSummary(
         impulse_ns=impulse,
@@ -185,6 +194,7 @@ def simulate(cfg: ModelConfig, marks: list[float]) -> FlightSummary:
         burnout_mach=v_bo / A_SOUND,
         cda_boost_m2=cfg.cda_boost_m2,
         cda_coast_m2=cfg.cda_coast_m2,
+        max_downrange_m=x,
         ranges={str(int(m)): at_range(m) for m in marks},
     )
 

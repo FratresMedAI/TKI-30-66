@@ -1,7 +1,7 @@
 # Annex F — Employment Sequence and Breech Mechanism
 
 **Document ID:** RADR / ANX-F  
-**Version:** 1.8.0  
+**Version:** 1.10.0  
 **Status:** Conceptual — locked baseline (notional until prototype)
 
 Traceability: [06 — System Description](../docs/06-system-description.md) · [04 — CONOPS](../docs/04-conops-use-cases.md)
@@ -210,7 +210,20 @@ flowchart TD
 
 ### Purpose
 
-The retention stop prevents the loaded rocket (inside its protective tube) from sliding **forward** in the smoothbore when the launcher is **slung, carried, or bumped**. It provides a **mechanical carry-safe default** that does not depend on battery state or software alone.
+The retention stop prevents the loaded **protective tube** (with the rocket inside) from sliding **forward** in the smoothbore when the launcher is **slung, carried, or bumped**. It provides a **mechanical carry-safe default** that does not depend on battery state or software alone.
+
+**Tank-shell model:** The stop contacts the **tube aft shoulder** (rim step), not the bare rocket OD. The rocket is smaller than the tube and **flies free** after release; the spent tube drops when the breech opens.
+
+### Round / tube interface (what the stop actually bears on)
+
+| Feature | Location | Mechanical role |
+|---------|----------|-----------------|
+| **Tube aft shoulder** | External step on alloy tube, forward of breech rim | Primary **contact pad** for retention finger (~6–8 mm axial width) |
+| **Tube rim** | Mates **breech sealing face** when closed | Rearward constraint — tube cannot move aft into breech block |
+| **Rocket OD** | Inside tube with annular clearance | **No direct stop contact** on rocket body in baseline concept |
+| **Foil / rim contacts** | Tube rim to breech block | Electrical **rocket ready** — separate from stop mechanics |
+
+When engaged, the finger clamps the tube between **breech seal** (rear) and **radial finger** (forward on shoulder) — a simple **captive sandwich** along the bore axis.
 
 Typical failure modes without a stop: tube creep toward muzzle on sling transition, muzzle-down carry, or movement before engagement — risking misalignment, damaged rim contacts, broken seeker dome clearance, or unintended forward displacement into the muzzle brake zone.
 
@@ -312,6 +325,20 @@ flowchart TB
 | **Rear trigger** | **No mechanical path** to cam — electrical launch enable only |
 
 **Cross-section (conceptual):** Radial finger (~6–8 mm wide contact on tube aft shoulder) projects from a pocket in the lower bore wall. Return spring **~8–12 N** at finger tip keeps engagement. Cam profile lifts finger against spring when all AND conditions true.
+
+### Retention actuator trade study (M-01 — baseline locked)
+
+| Option | Pros | Cons | Phase 1 bench |
+|--------|------|------|----------------|
+| **Solenoid + release cam** (**baseline**) | Fast retract (**under 50 ms** class); clean AND with breech + front + tone; **rear trigger isolated**; matches fire-control interlock diagram | Requires grip battery; must **fail engaged** on power loss; wiring harness | [DOC-10 § 1C](../docs/10-phase-1-prototype-gates.md) breadboard |
+| **Mechanical linkage (front trigger)** | No solenoid; can demo power-off if linkage defaults engaged | Extra pivots/wear; hard to guarantee **immediate re-engage** on front release; couples mechanics to trigger travel | Fallback only |
+| **Hybrid (solenoid + mechanical default)** | Solenoid retract; spring defaults engage on any power loss | Higher parts count; alignment sensitive | Defer past 1C |
+
+**Decision (documentation baseline):** Use **solenoid-driven release cam** for prototype and production intent. Mechanical linkage remains a **documented fallback** if a partner requires battery-off carry demo without electronics.
+
+**Fail-safe rule:** De-energized solenoid + open breech → cam in **safe (engage)** position; finger **must** project into bore.
+
+**Reopen M-01 only if:** Phase 1C fails (tone active but finger does not retract, or retracts without tone).
 
 ### How disengagement works (front trigger + seeker tone)
 
@@ -558,11 +585,35 @@ sequenceDiagram
 
 ---
 
+## Prototype tolerance stack (notional — first article)
+
+Values marked **TBD** are set when the first launcher article is measured. Linked to [DOC-10](../docs/10-phase-1-prototype-gates.md) gates.
+
+| Feature | Nominal | Tol band | Check method | Gate |
+|---------|---------|----------|--------------|------|
+| Tube aft shoulder land width | **TBD** mm | ±0.10 mm | Go/no-go gauge on shoulder mock | **1A** |
+| Finger tip intrusion (engaged) | **2.5** mm | +0 / −0.3 mm | Feeler gauge + nylon bore plug | **1A** |
+| Finger retract clearance (disengaged) | **≥ 0.5** mm below bore ID | min | Bore plug pass | **1C** |
+| Deadbolt engagement depth in notch | **TBD** mm | ±0.05 mm | Gauge pin + witness mark | **1A** |
+| Bolt handle travel (unlock) | **20** mm | ±2 mm | Caliper on handle stop | **1A** |
+| Breech sealing face rim concentricity | **TBD** | 0.15 mm TIR | Dial indicator on closed block | **1B** |
+| Tube rim seat axial preload (optional) | **TBD** N | min | Force washer on close cycle | **1B** |
+| Rim contact resistance (rocket ready) | **TBD** Ω | max | Multimeter at `LOCKED_SEATED` | **1B** |
+
+**Stack note:** Finger intrusion and shoulder width together set **creep margin** — if shoulder is undersize (−tol) and finger is at +intrusion, verify stop still holds **≥ 50 N** forward shove per DOC-10 **1A**.
+
+---
+
 ## Open Questions (Mechanical)
 
-- **Retention release:** Solenoid-driven cam vs. purely mechanical linkage from front trigger — down-select for battery-off safe default.  
-- **Materials:** Breech block alloy (steel vs. investment cast) and finger insert hardness vs. tube shoulder wear.  
-- **Tolerance stack:** Rim seat, finger intrusion, and deadbolt notch depth — prototype gauge set TBD.
+| ID | Topic | Status | Prototype action |
+|----|-------|--------|------------------|
+| M-01 | Retention actuator | **Closed** — solenoid + release cam baseline | Phase 1C breadboard |
+| M-02 | Finger wear | Open | Measure after 500 cycle bench |
+| M-03 | Breech materials | Open | Vendor quote + pressure rating |
+| M-04 | Tolerance stack | Open — nominals **TBD** at first article | Gauge set per table above |
+| M-05 | `SEATED` sensing | Open | False-seat fault injection |
+| M-06 | Deadbolt snap detect | Open | Audible vs. micro-switch |
 
 ---
 

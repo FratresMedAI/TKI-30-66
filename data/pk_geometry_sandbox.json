@@ -1,0 +1,52 @@
+{
+  "model": "pk_geometry_sandbox_v1",
+  "disclaimer": "Geometric Pk only. P_kill|hit are notional design placeholders \u2014 not arena or live-fire.",
+  "assumptions": {
+    "footprint_radius_m": 1.55,
+    "p_geometric_formula": "exp(-(residual/R)^2)",
+    "lateral_accel_mps2": 30.0,
+    "guidance_source": "data/guidance_evasion_output.json",
+    "p_kill_given_hit": {
+      "hover": 0.7,
+      "crossing": 0.4,
+      "glide": 0.35
+    },
+    "threat_speed_map_mps": {
+      "hover": 10.0,
+      "crossing": 25.0,
+      "glide": 40.0
+    }
+  },
+  "threats": [
+    {
+      "threat_class": "hover",
+      "representative_speed_mps": 10.0,
+      "residual_lateral_m": 0.0,
+      "footprint_radius_m": 1.55,
+      "p_geometric": 1.0,
+      "p_kill_given_hit_notional": 0.7,
+      "p_notional_combined": 0.7,
+      "inside_footprint_step": true
+    },
+    {
+      "threat_class": "crossing",
+      "representative_speed_mps": 25.0,
+      "residual_lateral_m": 0.0,
+      "footprint_radius_m": 1.55,
+      "p_geometric": 1.0,
+      "p_kill_given_hit_notional": 0.4,
+      "p_notional_combined": 0.4,
+      "inside_footprint_step": true
+    },
+    {
+      "threat_class": "glide",
+      "representative_speed_mps": 40.0,
+      "residual_lateral_m": 0.0,
+      "footprint_radius_m": 1.55,
+      "p_geometric": 1.0,
+      "p_kill_given_hit_notional": 0.35,
+      "p_notional_combined": 0.35,
+      "inside_footprint_step": true
+    }
+  ]
+}

@@ -12,6 +12,7 @@ Traceable **2-D point-mass** model:
 - Range table **200–1200 m** with TOF, Mach, dynamic pressure \(q\)
 - **Warhead** cube mass (300 × 7 mm @ 7800 kg/m³)
 - **Evasion geometry** (lateral drift vs drone speed, 1000 vs 1200 m TOF delta)
+- Optional **`crosswind_mps`** — notional lateral drift (not 6-DOF)
 - Loft / mass / impulse / coast-drag sensitivity
 
 ### Run
@@ -52,6 +53,24 @@ python scripts/guidance_evasion_sanity.py --json-out data/guidance_evasion_outpu
 
 Requires `data/performance_model_output.json` (run performance model first).
 
+## `wind_loft_dispersion.py`
+
+Sweeps **loft 2–5°** and **crosswind 0–15 m/s** @ **1000 m** using `ModelConfig.crosswind_mps`. **Not** 6-DOF or validated wind tunnel data.
+
+```bash
+python scripts/wind_loft_dispersion.py --verify
+python scripts/wind_loft_dispersion.py --json-out data/wind_loft_dispersion.json
+```
+
+## `pk_geometry_sandbox.py`
+
+Notional **P_geometric = exp(-(residual/R)²)** with **R = 1.55 m** and placeholder **P_kill|hit** by threat class (hover / crossing / glide). Uses `guidance_evasion_output.json`.
+
+```bash
+python scripts/pk_geometry_sandbox.py --verify
+python scripts/pk_geometry_sandbox.py --json-out data/pk_geometry_sandbox.json
+```
+
 ## `monte_carlo_envelope.py` / `run_light_dashboard.py`
 
 Monte Carlo dispersion; dashboard regenerates JSON + PNGs including `guidance_evasion_sanity.png`.
@@ -88,3 +107,7 @@ python scripts/make_system_triptych.py
 - `python scripts/radr_trajectory.py --smoke`
 - `python scripts/mass_cg_calc.py`
 - `python scripts/guidance_evasion_sanity.py --verify`
+- `python scripts/wind_loft_dispersion.py --verify`
+- `python scripts/pk_geometry_sandbox.py --verify`
+
+Wind and Pk JSON are **CLI-only** (not added to `run_light_dashboard.py`) to keep dashboard runtime short.

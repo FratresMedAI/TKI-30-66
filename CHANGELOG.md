@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.8.3 — Partner validation & analytic gaps (2026-05-24)
+
+- **Live-fire / partner path:** [DOC-11](docs/11-live-fire-and-partner-validation.md) Phase 2 gates (2A–2D), instrumentation, collaboration hooks; [`data/live_fire_results.template.json`](data/live_fire_results.template.json) (`status: pending` — no fabricated test data).
+- **Mechanical:** [Annex F](annexes/F-employment-and-breech.md) v1.10 — solenoid + release cam baseline (M-01 closed), prototype tolerance stack; [DOC-06](docs/06-system-description.md) retention baseline locked.
+- **Wind / loft:** `crosswind_mps` on performance model; [`scripts/wind_loft_dispersion.py`](scripts/wind_loft_dispersion.py), `data/wind_loft_dispersion.json`, CI verify.
+- **Notional Pk:** [`scripts/pk_geometry_sandbox.py`](scripts/pk_geometry_sandbox.py), `data/pk_geometry_sandbox.json`; [Annex I](annexes/I-performance-modeling.md) wind/Pk sections + traceability; **6-DOF explicitly deferred** (I-07).
+- CI: DOC-11 required; template JSON validation; wind + Pk script checks.
+
 ## v1.8.2 — Phase 0 closure pack (2026-05-25)
 
 - **Round authoritative art:** `radr-round-authoritative.png` (v1 stowed fins); [ROUND-SPEC](visuals/rocket/ROUND-SPEC.md), README gallery, `baseline_systems.json` `rocket_round`.

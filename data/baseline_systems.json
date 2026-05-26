@@ -2,10 +2,11 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.8.2",
+    "version": "1.8.3",
     "status": "conceptual",
-    "last_updated": "2026-05-25",
-    "notes": "v1.8.2: Round authoritative art, validated vs notional matrix, guidance sanity, motor vendor brief, Phase 1 gates. v1.8.1: digital sight 1x-20x."
+    "validation_status": "pending_partner",
+    "last_updated": "2026-05-24",
+    "notes": "v1.8.3: DOC-11 partner validation plan, wind/loft + geometric Pk scripts, Annex F actuator/tolerance. v1.8.2: Round authoritative art, guidance sanity, Phase 1 gates."
   },
   "primary_threats": [
     {

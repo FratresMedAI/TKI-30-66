@@ -180,6 +180,7 @@ Detail: [Annex I — Performance Modeling](annexes/I-performance-modeling.md)
 | 08 | [Layered Defense Integration](docs/08-layered-defense-integration.md) |
 | 09 | [Motor Vendor Brief](docs/09-motor-vendor-brief.md) |
 | 10 | [Phase 1 Prototype Gates](docs/10-phase-1-prototype-gates.md) |
+| 11 | [Live-fire & Partner Validation](docs/11-live-fire-and-partner-validation.md) |
 
 | Annex | Topic |
 |-------|--------|

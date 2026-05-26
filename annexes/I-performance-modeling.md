@@ -1,8 +1,8 @@
 # Annex I — Performance Modeling (Notional)
 
 **Document ID:** RADR / ANX-I  
-**Version:** 1.10.0  
-**Status:** Conceptual — traceable point-mass model v2 (`radr_performance_model.py`)
+**Version:** 1.12.0  
+**Status:** Conceptual — traceable point-mass model v2 + wind/loft sweep + geometric Pk sandbox
 
 *All results are engineering estimates from a simplified point-mass model. Not live-fire data.*
 
@@ -14,7 +14,7 @@ Traceability: [H — Motor](H-motor-progressive-burn.md) · [G — Mass/CG](G-ma
 
 | Assumption | Value |
 |------------|--------|
-| Degrees of freedom | **2-D** point mass (loft ~3.5°, flat ground, sea level) |
+| Degrees of freedom | **2-D** point mass (loft ~3.5°, flat ground, sea level); optional **crosswind** lateral channel (not 6-DOF) |
 | Launch mass \(m_0\) | **3.10 kg** nominal (3.50 kg cap) |
 | Burn time \(t_b\) | **3.3 s** |
 | Total impulse \(I\) | **3000 N·s** nominal (**2950–3050** band) |
@@ -25,6 +25,62 @@ Traceability: [H — Motor](H-motor-progressive-burn.md) · [G — Mass/CG](G-ma
 | **Coast** \(C_d A\) | **0.000217 m²** (\(C_{d,\mathrm{eq}} \approx 0.08\)) |
 | Air density \(\rho\) | **1.225 kg/m³** (sea level) |
 | Launch elevation | **3.5°** loft nominal (2–5° field variation — see loft sweep in JSON) |
+
+---
+
+## Key performance estimates (nominal — script v2)
+
+Single reference for briefings. Regenerate from `performance_model_output.json` after any model change.
+
+### Primary intercept points
+
+| Metric | **@ 1000 m** (sweet spot) | **@ 1200 m** (max envelope) | **Burnout** (motor tail-off) |
+|--------|---------------------------|-----------------------------|------------------------------|
+| **Downrange** | 1000 m | 1200 m | **~726 m** |
+| **Time of flight** | **4.12 s** | **4.72 s** | **~3.3 s** (thrust ends) |
+| **Velocity** | **334.7 m/s** | **331.9 m/s** | **338.8 m/s** |
+| **Mach** (sea level) | **0.98** | **0.98** | **~1.00** at burnout |
+| **Dynamic pressure \(q\)** | **~69 kPa** | **~68 kPa** | peak boost **~70 kPa** @ 800 m |
+| **Flight phase** | Coast | Coast | End of boost |
+
+**Locked band @ 1000 m:** **330–350 m/s**. Nominal sits **~5 m/s below** band midpoint — intentional calibration anchor, not live-fire proof.
+
+**1000 → 1200 m:** Extra **~0.60 s** TOF, velocity drops **~2.8 m/s** — marginal closure gain vs longer target motion (see evasion table).
+
+### Burnout and coast handoff
+
+| Parameter | Value | Notes |
+|-----------|-------|-------|
+| Burnout speed \(v_{bo}\) | **338.8 m/s** | Last motor sample before coast drag model |
+| Burnout range \(x_{bo}\) | **725.9 m** | ~73% of 1000 m downrange under boost+early coast |
+| Coast segment @ 1000 m | **~0.82 s** | TOF 4.12 − 3.3 s boost |
+| Velocity bleed 1000 m | **~4 m/s** | 338.8 → 334.7 (low coast \(C_d A\)) |
+
+### Along-track snapshot (selected ranges)
+
+| Range (m) | TOF (s) | v (m/s) | Phase |
+|-----------|---------|---------|-------|
+| 200 | 1.57 | 253.1 | Boost |
+| 500 | 2.62 | 314.1 | Boost |
+| 800 | 3.52 | 337.7 | Coast (just post-burnout) |
+| **1000** | **4.12** | **334.7** | Coast |
+| **1200** | **4.72** | **331.9** | Coast |
+
+---
+
+## Assumptions and engineering margins
+
+| Category | Assumption | Margin / limit | If violated |
+|----------|------------|----------------|-------------|
+| Atmosphere | Sea level, **ρ = 1.225 kg/m³** | No altitude model | High DA reduces \(q\) and Mach — velocity band shifts |
+| Terrain | Flat earth, **3.5°** loft | **2–5°** field sweep in JSON | Low loft (2°) fails to reach 1000 m in model |
+| Mass | **3.10 kg** launch | **3.50 kg** cap (+12.9%) | At cap: **−3.4 m/s** @ 1000 m (script) |
+| Impulse | **3000 N·s** | **2950–3050 N·s** (±1.7%) | −3% impulse: **−5.6 m/s** @ 1000 m |
+| Drag | Effective **\(C_d A\)** boost/coast fit | Coast ±10% → **±0.4 m/s** | Fin-deploy transient not time-resolved |
+| Tube | Separates at launch | In-flight mass = rocket only | Tube drag not in flight model |
+| Guidance | Not modeled | See guidance sanity script | MC is ballistic dispersion only |
+
+**Statistical margin (Monte Carlo n = 25 000 @ 1000 m):** **p5–p95** velocity **331.1–337.4 m/s**; **99.76%** of draws in **330–350 m/s** band (`monte_carlo_25000.json`).
 
 ---
 
@@ -42,9 +98,12 @@ One-page matrix for PM, legal, and engineering reviewers. **Locked** = requireme
 | Effective **\(C_d A\)** boost/coast, impulse **3000 N·s** integration | **Modeled + CI** | `performance_model_output.json`, CI verify | Calibrated to velocity band, not wind tunnel |
 | **300-cube** fragment mass **~0.803 kg** | **Modeled + CI** | `mass_cg_calc.py` | Geometry sanity; alloy final TBD |
 | Monte Carlo **n=25 000** @ 1000 m: **99.76%** in **330–350 m/s** band | **Statistical (MC)** | `data/monte_carlo_25000.json`, `monte_carlo_envelope.py` | Parameter dispersion only — no guidance/wind |
-| Evasion lateral vs drone speed + canard sanity | **Modeled + CI** | `guidance_evasion_sanity.py`, JSON `evasion_geometry` | Coarse bang-bang bound; not P\_k or 6-DOF |
-| Motor thrust table, Evolution Space propellant, grain geometry | **Notional / untested** | Annex H | Vendor static fire / backblast TBD |
-| IR seeker track, proximity fuze timing, **P\_k** | **Notional / untested** | Annex J, DOC-06 | No seeker or warhead test data in repo |
+| Evasion lateral vs drone speed + canard sanity | **Modeled + CI** | `guidance_evasion_sanity.py`, JSON `evasion_geometry` | Coarse bang-bang bound; not full engagement sim |
+| Wind + loft dispersion @ 1000 m | **Modeled + CI** | `wind_loft_dispersion.py`, [`data/wind_loft_dispersion.json`](../data/wind_loft_dispersion.json) | Notional crosswind coupling; not validated in tunnel |
+| Notional **P\_k** (geometric × lethality placeholder) | **Modeled + CI** | `pk_geometry_sandbox.py`, [`data/pk_geometry_sandbox.json`](../data/pk_geometry_sandbox.json) | **P\_kill\|hit** are design placeholders — not arena test |
+| Live-fire velocity, impulse, warhead arena | **Pending partner test** | [DOC-11](../docs/11-live-fire-and-partner-validation.md), [`live_fire_results.template.json`](../data/live_fire_results.template.json) | Template `status: pending` — no fabricated shots |
+| Motor thrust table, Evolution Space propellant, grain geometry | **Notional / untested** | Annex H, DOC-11 gate **2A** | Vendor static fire / backblast TBD |
+| IR seeker track, proximity fuze timing (full loop) | **Notional / untested** | Annex J, DOC-06, DOC-11 gate **2D** | No seeker HIL data in repo |
 | **275-cube @ 1200 m** lighter pack | **Archived trade-study** | Annex J § trade-study | **Not** product baseline |
 
 ---
@@ -112,24 +171,28 @@ After \(t_b\), motor thrust = 0. Drag and gravity along the lofted path decelera
 
 ---
 
-## Acceleration Profile (0.5 s samples — script)
+## Acceleration profile (script — along-track)
 
-| t (s) | Phase | x (m) | v (m/s) |
-|-------|-------|-------|---------|
-| 0.0 | boost | 0 | 0 |
-| 0.5 | boost | ~45 | ~140 |
-| 1.0 | boost | ~175 | ~230 |
-| 1.5 | boost | ~360 | ~285 |
-| 2.0 | boost | ~520 | ~310 |
-| 2.5 | boost | ~640 | ~325 |
-| 3.0 | boost | ~700 | ~335 |
-| 3.3 | boost / burnout | **~726** | **~339** |
-| 3.5 | coast | ~780 | ~338 |
-| 4.0 | coast | ~920 | ~336 |
-| 4.12 | **mark 1000 m** | **1000** | **~335** |
-| 4.72 | mark 1200 m (stretch) | 1200 | ~332 |
+Net acceleration along the lofted path from `acceleration_profile` in JSON (includes thrust, drag, and gravity along path). **Not** constant — peaks early boost, tapers as drag rises.
 
-Full profile: `data/performance_model_output.json` → `acceleration_profile`.
+| t (s) | Phase | x (m) | v (m/s) | a (m/s²) | Comment |
+|-------|-------|-------|---------|----------|---------|
+| 0.0 | boost | 0.0 | 0.0 | 9.8 | Ignition / start |
+| 0.5 | boost | 11.3 | 67.0 | **260.7** | High apparent accel — low speed, full thrust |
+| 1.0 | boost | 74.7 | 179.2 | 179.9 | Drag rising with \(v^2\) |
+| 1.5 | boost | 183.1 | 246.9 | 95.3 | Mildly progressive thrust ramp |
+| 2.0 | boost | 316.3 | 282.7 | 52.6 | Approaching peak thrust segment |
+| 2.5 | boost | 464.8 | 308.5 | 50.1 | Still boosting |
+| 3.0 | boost | 625.0 | 332.1 | 44.2 | Near burnout |
+| **3.3** | **burnout** | **~726** | **338.8** | — | Motor tail-off (motor block in JSON) |
+| 3.5 | coast | 793.5 | 337.8 | 11.1 | Thrust = 0; drag + gravity |
+| 4.0 | coast | 961.7 | 335.3 | 11.0 | Approaching 1000 m mark |
+| **4.12** | coast | **1000** | **334.7** | ~11 | **Sweet spot** |
+| **4.72** | coast | **1200** | **331.9** | ~11 | **Max envelope** |
+
+**Readout:** Peak **~260 m/s²** (~27 g) at 0.5 s is a model artifact of low initial speed + full thrust — use for qualitative load order, not structural sign-off without transient FEA.
+
+Full time series: `data/performance_model_output.json` → `acceleration_profile`.
 
 ---
 
@@ -192,22 +255,64 @@ Supports **1000 m sweet spot** vs marginal gain at 1200 m — see JSON `evasion_
 
 ---
 
-## Sensitivity @ 1000 m (script v2)
+## Sensitivity @ 1000 m (mass, impulse, drag — script v2)
 
-From `performance_model_output.json` → `sensitivity_1000m`:
+From `performance_model_output.json` → `sensitivity_1000m`. All cases use nominal loft **3.5°** unless noted.
 
-| Case | Δv (m/s) | Δ TOF (s) |
-|------|----------|-----------|
-| Mass +5% | **−1.0** | +0.03 |
-| Mass −5% | **+0.9** | −0.04 |
-| Impulse −3% | **−5.6** | +0.05 |
-| Impulse +3% | **+5.5** | −0.06 |
-| Coast \(C_d A\) +10% | **−0.4** | ~0 |
-| Coast \(C_d A\) −10% | **+0.4** | ~0 |
-| Mass **3.35 kg** (cap edge) | **−3.4** | +0.08 |
-| Mass **2.95 kg** | **+2.8** | −0.07 |
+| Case | v @ 1000 m (m/s) | Δv vs nominal | Δ TOF (s) | In 330–350 band? |
+|------|------------------|---------------|-----------|------------------|
+| **Nominal** | **334.7** | 0 | 4.12 | Yes |
+| Mass +5% (3.26 kg) | 333.7 | −1.0 | +0.03 | Yes |
+| Mass −5% (2.95 kg) | 335.6 | +0.9 | −0.04 | Yes |
+| Impulse −3% (2910 N·s) | 329.1 | **−5.6** | +0.05 | **Marginal** (below 330) |
+| Impulse +3% (3090 N·s) | 340.2 | +5.5 | −0.06 | Yes |
+| Coast \(C_d A\) +10% | 334.3 | −0.4 | ~0 | Yes |
+| Coast \(C_d A\) −10% | 335.1 | +0.4 | ~0 | Yes |
+| Mass **3.35 kg** (cap edge) | 333.0 | **−1.7** | +0.05 | Yes |
+| Mass **2.95 kg** (light) | 335.6 | +0.9 | −0.04 | Yes |
 
-**Interpretation:** **Impulse** and **mass at cap** move the band; **coast drag** is second-order once calibrated. Fin/boost drag uncertainty should be bounded in live-fire or 6-DOF before production.
+### Combined perturbation (engineering judgment — not separate script runs)
+
+| Combined case | Expected trend @ 1000 m | Action if prototyping |
+|---------------|-------------------------|------------------------|
+| Heavy mass **+** low impulse | Largest downward velocity shift; highest risk of sub-330 | Prioritize motor I verification |
+| Light mass **+** high impulse | Upper band edge (~340 m/s); watch transonic \(q\) | Confirm structure/heating margin |
+| Heavy mass **+** high coast drag | Moderate downward; TOF slightly long | Bound fin-deploy Cd step |
+
+**Interpretation:** **Impulse** is the dominant lever on the locked velocity band; **mass at cap** is second. **Coast drag** is third once boost/coast \(C_d A\) are calibrated. Fin-deploy transient and wind are **not** in this table — bound in live-fire or 6-DOF before production sign-off.
+
+---
+
+## Wind and aim-error dispersion
+
+Notional **crosswind** (0–15 m/s) and **loft** (2–5°) sweep at **1000 m** from [`wind_loft_dispersion.py`](../scripts/wind_loft_dispersion.py). Regenerate: `python scripts/wind_loft_dispersion.py --json-out data/wind_loft_dispersion.json`.
+
+| Loft (°) | Crosswind (m/s) | Reaches 1000 m? | v @ 1000 m (m/s) | Lateral @ 1000 m (m) |
+|----------|-----------------|-----------------|------------------|----------------------|
+| 3.5 | 0 | Yes | **334.7** | **0.0** |
+| 3.5 | 15 | Yes | **334.7** | **~23** |
+| 2.0 | 0 | **No** | — | — |
+| 5.0 | 0 | Yes | ~336 | ~0 |
+
+**Assumption:** Constant crosswind with first-order coupling to lateral velocity — **not** fin moments, gust spectrum, or altitude wind shear. Full **6-DOF** attitude integration is **out of scope** for stdlib Phase 0 (see **I-07**).
+
+---
+
+## Notional Pk (geometric only)
+
+[`pk_geometry_sandbox.py`](../scripts/pk_geometry_sandbox.py) combines guidance residuals @ **30 m/s²** with footprint **R = 1.55 m**:
+
+\[
+P_{\mathrm{geometric}} = \exp\left(-\left(\frac{\mathrm{residual}}{R}\right)^2\right)
+\]
+
+| Threat class | Rep. speed (m/s) | Residual @ 30 m/s² (m) | P\_geo | P\_kill\|hit (notional) | P\_\* |
+|--------------|------------------|------------------------|--------|-------------------------|-------|
+| Hover | 10 | 0 | 1.00 | 0.70 | **0.70** |
+| Crossing | 25 | 0 | 1.00 | 0.40 | **0.40** |
+| Glide | 40 | 0 | 1.00 | 0.35 | **0.35** |
+
+**Disclaimer:** P\_kill\|hit values are **locked placeholders** for briefing — **not** arena fragment velocity or live-fire. Replace after partner warhead test ([DOC-11](../docs/11-live-fire-and-partner-validation.md) gate **2C**).
 
 ---
 
@@ -224,19 +329,24 @@ From `performance_model_output.json` → `sensitivity_1000m`:
 
 ## Open Questions
 
-- Loft angle field variation (2–5°) vs. display-based rough aim — TOF and intercept velocity spread.  
-- Fin deploy transient: step CdA not time-resolved in script.  
-- Sea-level \(\rho\) only — altitude/temperature not modeled.  
-- Fin-deploy transient not time-resolved; boost/coast use effective \(C_d A\) fit.  
-- 275-cube variant archived — see [Annex J](J-warhead-dispersal.md).
+| ID | Topic | Impact |
+|----|-------|--------|
+| I-01 | Loft **2–5°** field variation vs. display aim | TOF and v @ 1000 m spread — see `loft_sweep_1000m` in JSON |
+| I-02 | Fin-deploy **CdA step** (0.25 s deploy) | Boost/coast use effective fit only |
+| I-03 | Altitude / temperature | Sea-level \(\rho\) only |
+| I-04 | Wind / crosswind | **Partial** — `crosswind_mps` + `wind_loft_dispersion.py`; not in MC |
+| I-05 | Live-fire velocity confirmation | **Pending** — [DOC-11](../docs/11-live-fire-and-partner-validation.md); fill `live_fire_results.template.json` |
+| I-06 | 275-cube @ 1200 m | **Archived** — [Annex J](J-warhead-dispersal.md) |
+| I-07 | Full **6-DOF** (Euler/quaternion + fin moments) | **Deferred** — partner range test or external tool (OpenRocket / CFD); not stdlib Phase 0 |
 
 ---
 
 ## Honest Limits
 
-- **2-D point mass only** — no 6-DOF, fin-deploy transient, wind, or altitude tables in the primary model.  
-- **Monte Carlo** (`monte_carlo_25000.json`) varies mass/impulse/drag — not seeker noise or guidance.  
-- **Guidance sanity** is a coarse geometric bound — not engagement simulation or P\_k.  
+- **2-D point mass** — optional notional crosswind channel only; **no 6-DOF**, fin-deploy transient, or altitude tables in the primary model.  
+- **Monte Carlo** (`monte_carlo_25000.json`) varies mass/impulse/drag — not seeker noise, wind, or guidance.  
+- **Guidance sanity** + **Pk sandbox** are geometric bounds — not seeker IR, fuze timing, or arena lethality.  
+- **Live-fire** proof requires partner range — see DOC-11; repo holds template JSON only.  
 - Loft angle and launcher elevation change TOF and velocity at range.  
 - **330–350 m/s @ 1000 m** is a **design target** calibrated to this notional model — not a demonstrated KPP.
 

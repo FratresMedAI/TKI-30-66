@@ -15,6 +15,9 @@ jobs:
       - name: Validate baseline_systems.json
         run: python -m json.tool data/baseline_systems.json > /dev/null
 
+      - name: Validate live-fire results template
+        run: python -m json.tool data/live_fire_results.template.json > /dev/null
+
       - name: Check required documentation tree
         run: |
           test -f README.md
@@ -26,7 +29,8 @@ jobs:
                    docs/03-design-constraints.md docs/04-conops-use-cases.md \
                    docs/05-key-design-trades.md docs/06-system-description.md \
                    docs/07-limitations-and-risks.md docs/08-layered-defense-integration.md \
-                   docs/09-motor-vendor-brief.md docs/10-phase-1-prototype-gates.md; do
+                   docs/09-motor-vendor-brief.md docs/10-phase-1-prototype-gates.md \
+                   docs/11-live-fire-and-partner-validation.md; do
             test -f "$f"
           done
           for f in annexes/A-baseline-comparison.md annexes/B-kpp-targets.md \
@@ -50,6 +54,14 @@ jobs:
         run: |
           python scripts/radr_performance_model.py --json-out data/performance_model_output.json
           python scripts/guidance_evasion_sanity.py --verify
+
+      - name: Wind and loft dispersion check
+        run: |
+          python scripts/wind_loft_dispersion.py --json-out data/wind_loft_dispersion.json --verify
+
+      - name: Notional geometric Pk sandbox
+        run: |
+          python scripts/pk_geometry_sandbox.py --json-out data/pk_geometry_sandbox.json --verify
 
       - name: Check internal doc links resolve
         run: |

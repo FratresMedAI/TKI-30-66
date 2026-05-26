@@ -25,7 +25,7 @@
 
 | ID | Risk | Mitigation |
 |----|------|------------|
-| R-01 | Motor underperforms vs. 1000 m | Ballistic test |
+| R-01 | Motor underperforms vs. 1000 m | Vendor static fire per [DOC-09](09-motor-vendor-brief.md); then ballistic test (Phase 2) |
 | R-02 | FPV crossing Pk lower than hover | Training; threat prioritization |
 | R-03 | Glide target IR lock difficulty | Drone-tuned seeker; aim discipline |
 | R-04 | Proximity sensor miss (radar or mm-wave) | Timed backup fuze |

@@ -5,7 +5,7 @@
 **RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** — a **mid-range drone destroyer** that emphasizes **speed-to-target**, **simplicity (KISS)**, **reliability**, and **one-person reload**. It engages **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones) as a **mid-range counter-UAS** weapon when machine guns fall short and SAM is too heavy to allocate.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.8.1
+**Version:** 1.8.2
 
 ## Launcher concept art
 
@@ -20,6 +20,12 @@ Thin **~6 in** fold-down bar on the forward black sleeve; **visible hinge**; no 
 ![RADR alloy protective tube — pop top, screw bottom](visuals/rocket/output/radr-container-authoritative.png)
 
 **Tank-shell tube** (stays in launcher; rocket flies free) · **Pop top** → **load** → **unscrew bottom in bore** → close → **rocket ready**. Art: side **left = top**, **right = breech**. Spec: [CONTAINER-SPEC](visuals/rocket/CONTAINER-SPEC.md).
+
+## Round (18 in rocket)
+
+![RADR mk.60 round — stowed fins, authoritative](visuals/rocket/output/radr-round-authoritative.png)
+
+**18 in** self-contained round inside the tube; **fins stowed** for clearance. **Left = nose (seeker)**, **right = tail (nozzle)**. Spec: [ROUND-SPEC](visuals/rocket/ROUND-SPEC.md).
 
 ---
 
@@ -73,6 +79,18 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | **CoG** | **Slightly rear-biased** (comfortable shouldering) | Locked |
 | **Rocket retention stop** | Bore stop when slung; releases only: breech closed + front held + lock tone | Locked |
 | **Sight / power** | Integrated **digital cam sight**; **smooth 1×–20×** zoom (**+ / −** on foregrip); fold-out **~4 in** display; grip battery | Locked |
+
+### Validated vs notional (summary)
+
+| Item | Status |
+|------|--------|
+| 300 cubes, range envelope, employment, authoritative art | **Locked requirement** |
+| v@1000, CdA, mass/CG fragment check | **Modeled + CI** |
+| MC 25k @ 1000 m (99.76% in 330–350 m/s) | **Statistical** |
+| Motor, seeker, fuze, lethality (Pk) | **Notional / untested** |
+| 275-cube @ 1200 m | **Archived trade-study** |
+
+Full matrix: [Annex I — Validated vs notional traceability](annexes/I-performance-modeling.md#validated-vs-notional-traceability).
 
 ---
 
@@ -133,6 +151,7 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 | [`scripts/radr_performance_model.py`](scripts/radr_performance_model.py) | 2-D ballistics v2 — \(C_d A\) in m², ranges **200–1200 m**, CI `--verify` |
 | [`data/performance_model_output.json`](data/performance_model_output.json) | Regenerated tables (TOF, Mach, \(q\), sensitivity, evasion) |
 | [`scripts/mass_cg_calc.py`](scripts/mass_cg_calc.py) | Mass/CG + **300×7 mm** fragment mass check |
+| [`scripts/guidance_evasion_sanity.py`](scripts/guidance_evasion_sanity.py) | Moderate-maneuver vs lateral evasion (geometric sanity) |
 | [`notebooks/RADR_Performance_Dashboard.ipynb`](notebooks/RADR_Performance_Dashboard.ipynb) | **Jupyter pitch dashboard** (RunPod or local) |
 
 ```bash
@@ -159,6 +178,8 @@ Detail: [Annex I — Performance Modeling](annexes/I-performance-modeling.md)
 | 06 | [System Description](docs/06-system-description.md) |
 | 07 | [Limitations and Risks](docs/07-limitations-and-risks.md) |
 | 08 | [Layered Defense Integration](docs/08-layered-defense-integration.md) |
+| 09 | [Motor Vendor Brief](docs/09-motor-vendor-brief.md) |
+| 10 | [Phase 1 Prototype Gates](docs/10-phase-1-prototype-gates.md) |
 
 | Annex | Topic |
 |-------|--------|

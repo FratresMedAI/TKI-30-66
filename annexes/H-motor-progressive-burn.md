@@ -59,6 +59,34 @@ Notional **dual-layer progressive** grain inside the **~260 mm** usable length �
 - **Ramp (2–3 s):** **Core surface area** increases as outer web thins — mildly progressive, not neutral.  
 - **Tail (3–3.3 s):** **Aft grain face** contributes last impulse before burnout.
 
+### Grain sketch (notional cross-section)
+
+Case **60 mm OD** · usable grain **~260 mm** (motor bay ~297 mm). Nose of round to the left.
+
+```mermaid
+flowchart LR
+  subgraph grain [Grain_length_260mm]
+    F[Forward_web_inhibited_aft]
+    M[Outer_cylindrical_web]
+    C[Tapered_inner_core]
+    T[Aft_finisher_end_grain]
+  end
+  F --> M --> C --> T
+```
+
+| Region | Burning driver | Thrust phase |
+|--------|----------------|--------------|
+| Forward | Thick web, small port | **750–850 N** plateau 0–2 s |
+| Mid | Core opens as web regresses | Ramp **870–1000 N** |
+| Aft | End face / thin sliver | Peak **1050–1150 N** tail |
+
+ASCII (side cut, not to scale):
+
+```
+NOSE |....[==== inhibited web ====|== outer cyl ==|<> core <>|# fin #]| TAIL
+      |<-------- ~260 mm usable grain ------------------------------->|
+```
+
 ### Manufacturing and margin
 
 | Check | Notional | Action if out of band |
@@ -139,8 +167,29 @@ Low **750–850 N** initial thrust keeps the **10 yard (30 ft)** rear danger zon
 
 ---
 
+## Vendor engagement packet (Evolution Space or equivalent)
+
+Use [DOC-09 — Motor vendor brief](../docs/09-motor-vendor-brief.md) as the one-page attachment for email / NDA. Bring the **hard constraints** below; ask for measured data, not slide claims.
+
+| Topic | Hard constraints (RADR locked) | Request from vendor |
+|-------|----------------------------------|---------------------|
+| Form factor | **60 mm** case OD, **~260 mm** grain, **~1.20 kg** propellant | Feasibility + case rating |
+| Total impulse | **2950–3050 N·s** (nominal **3000**) | Static-fire \(I\) measurement |
+| Opening segment | **750–850 N** for **~1–2 s** | Thrust-time first 2 s (backblast driver) |
+| Peak / burn | **1050–1150 N** peak, **~3.3 s** burn | Full \(F(t)\), peak pressure |
+| Profile | **Mildly progressive** — not boost-first | Grain concept sketch + regression plan |
+| Backblast / plume | Recoilless **≤ 10 yd (30 ft)** rear SOP | Plume / blast data for opening thrust level |
+| Deliverables | — | \(F(t)\), \(I\), \(P_\mathrm{max}\), grain CAD concept, hazard classification |
+| Out of scope (call 1) | — | Full round integration, seeker, warhead |
+
+**Pass criteria for vendor down-select:** measured impulse inside band **and** opening thrust compatible with 10 yd rear discipline **without** exceeding 60 mm case pressure limits.
+
+---
+
 ## Related Documents
 
+- [09 — Motor vendor brief](../docs/09-motor-vendor-brief.md)  
+- [10 — Phase 1 prototype gates](../docs/10-phase-1-prototype-gates.md)  
 - [I — Performance Modeling](I-performance-modeling.md)  
 - [G — Mass and CG](G-mass-and-center-of-gravity.md)  
 - [05 — Key Design Trades](../docs/05-key-design-trades.md)  

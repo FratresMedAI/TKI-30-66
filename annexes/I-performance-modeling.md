@@ -1,7 +1,7 @@
 # Annex I — Performance Modeling (Notional)
 
 **Document ID:** RADR / ANX-I  
-**Version:** 1.9.0  
+**Version:** 1.10.0  
 **Status:** Conceptual — traceable point-mass model v2 (`radr_performance_model.py`)
 
 *All results are engineering estimates from a simplified point-mass model. Not live-fire data.*
@@ -25,6 +25,27 @@ Traceability: [H — Motor](H-motor-progressive-burn.md) · [G — Mass/CG](G-ma
 | **Coast** \(C_d A\) | **0.000217 m²** (\(C_{d,\mathrm{eq}} \approx 0.08\)) |
 | Air density \(\rho\) | **1.225 kg/m³** (sea level) |
 | Launch elevation | **3.5°** loft nominal (2–5° field variation — see loft sweep in JSON) |
+
+---
+
+## Validated vs notional traceability
+
+One-page matrix for PM, legal, and engineering reviewers. **Locked** = requirements baseline. **Modeled + CI** = reproducible script checks. **Statistical (MC)** = dispersion around the model. **Notional** = design intent without test proof. **Archived** = explicit non-baseline trade study.
+
+| Item | Status | Evidence | Disclaimer |
+|------|--------|----------|------------|
+| **300 × 7 mm** warhead, forward cone @ ~20 ft | **Locked requirement** | README, Annex J, `baseline_systems.json` | Lethality vs threat class not live-fire proven |
+| Range envelope **200 m min · 800–1200 m · 1000 m sweet** | **Locked requirement** | DOC-02, Annex I, JSON ranges | Employment doctrine, not ballistic test |
+| Tank-shell load sequence (pop top → bore screw → rocket ready) | **Locked requirement** | Annex F, CONTAINER-SPEC | Prototype mechanical proof TBD ([Phase 1 gates](../docs/10-phase-1-prototype-gates.md)) |
+| Launcher / container / round **authoritative art** | **Locked requirement** | `visuals/*/output/*-authoritative.png` | Concept art only — not as-built |
+| **v @ 1000 m = 334.7 m/s**, TOF **~4.12 s**, burnout **~339 m/s @ ~726 m** | **Modeled + CI** | `radr_performance_model.py --verify`, `radr_trajectory.py --smoke` | 2-D point mass; effective \(C_d A\) fit — not live fire |
+| Effective **\(C_d A\)** boost/coast, impulse **3000 N·s** integration | **Modeled + CI** | `performance_model_output.json`, CI verify | Calibrated to velocity band, not wind tunnel |
+| **300-cube** fragment mass **~0.803 kg** | **Modeled + CI** | `mass_cg_calc.py` | Geometry sanity; alloy final TBD |
+| Monte Carlo **n=25 000** @ 1000 m: **99.76%** in **330–350 m/s** band | **Statistical (MC)** | `data/monte_carlo_25000.json`, `monte_carlo_envelope.py` | Parameter dispersion only — no guidance/wind |
+| Evasion lateral vs drone speed + canard sanity | **Modeled + CI** | `guidance_evasion_sanity.py`, JSON `evasion_geometry` | Coarse bang-bang bound; not P\_k or 6-DOF |
+| Motor thrust table, Evolution Space propellant, grain geometry | **Notional / untested** | Annex H | Vendor static fire / backblast TBD |
+| IR seeker track, proximity fuze timing, **P\_k** | **Notional / untested** | Annex J, DOC-06 | No seeker or warhead test data in repo |
+| **275-cube @ 1200 m** lighter pack | **Archived trade-study** | Annex J § trade-study | **Not** product baseline |
 
 ---
 
@@ -167,6 +188,8 @@ Extra TOF **1000 → 1200 m:** **~0.60 s**. Lateral displacement \(\approx v_\ma
 
 Supports **1000 m sweet spot** vs marginal gain at 1200 m — see JSON `evasion_geometry`.
 
+**Guidance sanity (not P\_k):** [`scripts/guidance_evasion_sanity.py`](../scripts/guidance_evasion_sanity.py) compares uncorrected lateral drift to a **20–30 m/s²** moderate-maneuver correction over full TOF @ 1000 m vs a **~3.0–3.7 m** fragment footprint (10–12 ft). Output: `data/guidance_evasion_output.json`. Trajectory Monte Carlo does **not** model the seeker loop.
+
 ---
 
 ## Sensitivity @ 1000 m (script v2)
@@ -211,7 +234,9 @@ From `performance_model_output.json` → `sensitivity_1000m`:
 
 ## Honest Limits
 
-- No Monte Carlo, no 6-DOF, no seeker guidance loop modeled.  
+- **2-D point mass only** — no 6-DOF, fin-deploy transient, wind, or altitude tables in the primary model.  
+- **Monte Carlo** (`monte_carlo_25000.json`) varies mass/impulse/drag — not seeker noise or guidance.  
+- **Guidance sanity** is a coarse geometric bound — not engagement simulation or P\_k.  
 - Loft angle and launcher elevation change TOF and velocity at range.  
 - **330–350 m/s @ 1000 m** is a **design target** calibrated to this notional model — not a demonstrated KPP.
 

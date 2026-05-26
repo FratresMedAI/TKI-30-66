@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.8.1",
+    "version": "1.8.2",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.8.1: Digital cam sight 1x-20x smooth zoom; RPG-style shouldering. v1.8.0: trajectory, mass/CG, annex depth."
+    "notes": "v1.8.2: Round authoritative art, validated vs notional matrix, guidance sanity, motor vendor brief, Phase 1 gates. v1.8.1: digital sight 1x-20x."
   },
   "primary_threats": [
     {
@@ -125,6 +125,12 @@
       "electrical": "light_wiring_foil_contacts_with_tube_when_seated",
       "launch_resistance": "minimal_no_bind",
       "retention_stop_contact": "tube_aft_shoulder_not_bare_rocket"
+    },
+    "rocket_round": {
+      "concept_art_authoritative": "visuals/rocket/output/radr-round-authoritative.png",
+      "concept_art_review_deploy": "visuals/rocket/output/radr-round-v2-fins-deploy.png",
+      "cad_spec": "visuals/rocket/ROUND-SPEC.md",
+      "side_view_convention": "horizontal_left_is_nose_right_is_tail"
     },
     "breech": {
       "style": "gustav_flip",

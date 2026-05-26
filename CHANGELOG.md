@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.8.2 — Phase 0 closure pack (2026-05-25)
+
+- **Round authoritative art:** `radr-round-authoritative.png` (v1 stowed fins); [ROUND-SPEC](visuals/rocket/ROUND-SPEC.md), README gallery, `baseline_systems.json` `rocket_round`.
+- **Validated vs notional:** [Annex I § traceability](annexes/I-performance-modeling.md#validated-vs-notional-traceability) + README summary; MC / guidance limits updated.
+- **Guidance sanity:** [`scripts/guidance_evasion_sanity.py`](scripts/guidance_evasion_sanity.py) (20–30 m/s²), `data/guidance_evasion_output.json`, dashboard PNG, CI.
+- **Motor vendor path:** Annex H grain sketch + vendor packet; [DOC-09](docs/09-motor-vendor-brief.md).
+- **Phase 1 gates:** [DOC-10](docs/10-phase-1-prototype-gates.md) — 1A breech/retention, 1B tube/continuity, 1C fire-control UX.
+
 ## v1.8.0 — 2026-05-25
 
 ### Agent 1 — Performance and modeling

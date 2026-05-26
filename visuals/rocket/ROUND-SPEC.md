@@ -1,6 +1,6 @@
 # RADR mk.60 — Rocket round (CAD design spec)
 
-**Status:** CAD spec locked against repo math; **two render attempts** for review (not yet authoritative).
+**Status:** **Locked** — CAD spec and authoritative concept art (`radr-round-authoritative.png`, v1 stowed fins). Do not regenerate.
 
 Parent: [`CONTAINER-SPEC.md`](CONTAINER-SPEC.md) (tank-shell tube, load sequence).
 
@@ -16,14 +16,18 @@ Parent: [`CONTAINER-SPEC.md`](CONTAINER-SPEC.md) (tank-shell tube, load sequence
 
 ---
 
-## Authoritative art (review — pick or revise)
+## Authoritative art (locked)
+
+| Asset | File | Notes |
+|-------|------|-------|
+| **Authoritative round** | [`output/radr-round-authoritative.png`](output/radr-round-authoritative.png) | **Locked** — copy of v1 stowed fins; do not regenerate |
+| **Source v1** | [`output/radr-round-v1-stowed-fins.png`](output/radr-round-v1-stowed-fins.png) | Same image as authoritative (archive filename) |
+
+### Review only (not authoritative)
 
 | Variant | File | Notes |
 |---------|------|-------|
-| **V1 — stowed fins** | [`output/radr-round-v1-stowed-fins.png`](output/radr-round-v1-stowed-fins.png) | Side profile, fins flat for tube clearance |
-| **V2 — fins deploying** | [`output/radr-round-v2-fins-deploy.png`](output/radr-round-v2-fins-deploy.png) | Tail fins just sprung; exit moment |
-
-Paint workflow (optional): [`input/radr-round-paint-schematic.png`](input/radr-round-paint-schematic.png) → polish to single `radr-round-authoritative.png` when locked.
+| **V2 — fins deploying** | [`output/radr-round-v2-fins-deploy.png`](output/radr-round-v2-fins-deploy.png) | Exit moment — reference only |
 
 **View:** Horizontal **left = nose (seeker)**, **right = tail (nozzle)** — matches container convention (container **left = top**).
 
@@ -125,4 +129,4 @@ Stowed in tube: CG unchanged; clearance ring does not shift CG requirement.
 | Mass nominal | **3.1 kg** (within 3.3–3.5 kg goal band) |
 | Cube count | **300** locked |
 
-When a single round render is approved, rename/copy winner to `radr-round-authoritative.png` and update this table.
+Authoritative art locked **2026-05-25** from v1 stowed fins. Regenerate only on explicit art revision; update ROUND-SPEC if replaced.

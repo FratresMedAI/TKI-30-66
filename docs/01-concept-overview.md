@@ -76,6 +76,12 @@ Modernized **M1 Bazooka**: **40 in** matte multicam tube; **forward foregrip** (
 
 ![Launcher — shoulder bar stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png)
 
+## Round (locked art)
+
+![RADR round — stowed fins](../visuals/rocket/output/radr-round-authoritative.png)
+
+18 in round · fins stowed for tube clearance · [ROUND-SPEC](../visuals/rocket/ROUND-SPEC.md) · container [CONTAINER-SPEC](../visuals/rocket/CONTAINER-SPEC.md).
+
 ---
 
 ## Operational Sequence (Locked)

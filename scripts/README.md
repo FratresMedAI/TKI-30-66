@@ -41,6 +41,21 @@ python scripts/radr_performance_model.py --json-out data/performance_model_outpu
 
 Wraps `radr_performance_model.py` for CI and older doc links (`--smoke`, `--json-out`).
 
+## `guidance_evasion_sanity.py`
+
+Coarse **moderate-maneuver** (20–30 m/s²) lateral correction vs `evasion_geometry` drift @ **1000 m**. Compares residual miss to **~10–12 ft** fragment footprint radius — **not** Pk or seeker simulation.
+
+```bash
+python scripts/guidance_evasion_sanity.py --verify
+python scripts/guidance_evasion_sanity.py --json-out data/guidance_evasion_output.json
+```
+
+Requires `data/performance_model_output.json` (run performance model first).
+
+## `monte_carlo_envelope.py` / `run_light_dashboard.py`
+
+Monte Carlo dispersion; dashboard regenerates JSON + PNGs including `guidance_evasion_sanity.png`.
+
 ## `mass_cg_calc.py`
 
 Weighted CG from `baseline_systems.json` components; validates cube fragment mass vs warhead section.
@@ -63,3 +78,4 @@ python scripts/mass_cg_calc.py
 - `python scripts/radr_performance_model.py --verify`
 - `python scripts/radr_trajectory.py --smoke`
 - `python scripts/mass_cg_calc.py`
+- `python scripts/guidance_evasion_sanity.py --verify`

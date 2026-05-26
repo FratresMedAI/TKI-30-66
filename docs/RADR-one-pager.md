@@ -45,3 +45,5 @@ https://github.com/FratresMedAI/RADR-mk.60
 **Open concept:** MIT · **Prime / Program:** [LICENSE-COMMERCIAL](../LICENSE-COMMERCIAL.md) · [Partnership guide](licensing-and-partnership.md)
 
 **Deep dives:** [Annex F](../annexes/F-employment-and-breech.md) · [Annex I](../annexes/I-performance-modeling.md) · [Annex J](../annexes/J-warhead-dispersal.md) · [Pitch deck outline](pitch-deck-outline.md)
+
+**Traceability:** [Annex I — Validated vs notional](../annexes/I-performance-modeling.md#validated-vs-notional-traceability) · Phase 0 conceptual — not procurement-ready.

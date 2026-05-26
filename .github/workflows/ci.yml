@@ -25,7 +25,8 @@ jobs:
           for f in docs/01-concept-overview.md docs/02-operational-requirements.md \
                    docs/03-design-constraints.md docs/04-conops-use-cases.md \
                    docs/05-key-design-trades.md docs/06-system-description.md \
-                   docs/07-limitations-and-risks.md docs/08-layered-defense-integration.md; do
+                   docs/07-limitations-and-risks.md docs/08-layered-defense-integration.md \
+                   docs/09-motor-vendor-brief.md docs/10-phase-1-prototype-gates.md; do
             test -f "$f"
           done
           for f in annexes/A-baseline-comparison.md annexes/B-kpp-targets.md \
@@ -44,6 +45,11 @@ jobs:
 
       - name: Mass/CG and warhead cube check
         run: python scripts/mass_cg_calc.py
+
+      - name: Guidance evasion sanity check
+        run: |
+          python scripts/radr_performance_model.py --json-out data/performance_model_output.json
+          python scripts/guidance_evasion_sanity.py --verify
 
       - name: Check internal doc links resolve
         run: |

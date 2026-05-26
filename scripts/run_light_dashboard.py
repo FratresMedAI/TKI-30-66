@@ -42,7 +42,7 @@ def main() -> int:
     py = sys.executable
 
     print(f"Run: n_mc={n_mc} workers={workers}")
-    print("1/4 Performance model verify + JSON...")
+    print("1/5 Performance model verify + JSON...")
     subprocess.run([py, str(SCRIPTS / "radr_performance_model.py"), "--verify"], cwd=ROOT, check=True)
     subprocess.run(
         [py, str(SCRIPTS / "radr_performance_model.py"), "--json-out", str(DATA / "performance_model_output.json")],
@@ -52,7 +52,7 @@ def main() -> int:
 
     report = json.loads((DATA / "performance_model_output.json").read_text(encoding="utf-8"))
 
-    print("2/4 Range envelope plot...")
+    print("2/5 Range envelope plot...")
     ranges = report["ranges"]
     keys = sorted(ranges.keys(), key=int)
     xm = [int(k) for k in keys]
@@ -77,7 +77,7 @@ def main() -> int:
     fig.savefig(p1, dpi=150)
     plt.close(fig)
 
-    print("3/4 Sensitivity + evasion plots...")
+    print("3/5 Sensitivity + evasion plots...")
     sens = report["sensitivity_1000m"]
     fig, ax = plt.subplots(figsize=(9, 4))
     ax.barh([r["case"] for r in sens], [r["delta_v_mps"] for r in sens], color=["#2d5a27" if r["delta_v_mps"] >= 0 else "#8b4513" for r in sens])
@@ -105,7 +105,33 @@ def main() -> int:
     fig.savefig(p3, dpi=150)
     plt.close(fig)
 
-    print(f"4/4 Monte Carlo n={n_mc} workers={workers}...")
+    print("4/5 Guidance evasion sanity...")
+    subprocess.run(
+        [py, str(SCRIPTS / "guidance_evasion_sanity.py"), "--json-out", str(DATA / "guidance_evasion_output.json")],
+        cwd=ROOT,
+        check=True,
+    )
+    greport = json.loads((DATA / "guidance_evasion_output.json").read_text(encoding="utf-8"))
+    grows = greport["rows"]
+    gspeeds = [r["drone_speed_mps"] for r in grows]
+    r30 = [r["residual_lateral_m_at_30mps2"] for r in grows]
+    r20 = [r["residual_lateral_m_at_20mps2"] for r in grows]
+    foot = greport["assumptions"]["footprint_radius_m"]
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.plot(gspeeds, r20, "o--", color="#8b4513", label="Residual @ 20 m/s^2")
+    ax.plot(gspeeds, r30, "s-", color="#2d5a27", lw=2, label="Residual @ 30 m/s^2")
+    ax.axhspan(0, foot, color="#c4e7c4", alpha=0.5, label=f"Footprint R={foot} m")
+    ax.set_xlabel("Target speed (m/s)")
+    ax.set_ylabel("Residual lateral miss (m)")
+    ax.set_title("Guidance sanity @ 1000 m (geometric, not Pk)")
+    ax.legend(loc="upper left", fontsize=8)
+    ax.grid(True, alpha=0.3)
+    fig.tight_layout()
+    p3b = OUT / "guidance_evasion_sanity.png"
+    fig.savefig(p3b, dpi=150)
+    plt.close(fig)
+
+    print(f"5/5 Monte Carlo n={n_mc} workers={workers}...")
     mc, v_samples = run_mc(n_mc, seed=42, target_m=1000.0, workers=workers, return_samples=True)
     mc_path = DATA / f"monte_carlo_{n_mc}.json"
     mc_path.write_text(json.dumps(mc, indent=2), encoding="utf-8")
@@ -128,7 +154,7 @@ def main() -> int:
     print(f"  MC p50: {mc['v_mps']['p50']:.1f} m/s  in-band: {mc['fraction_in_330_350_band']*100:.1f}%")
     print(f"  MC elapsed: {mc.get('elapsed_s', '?')} s")
     print(f"  JSON: {mc_path}")
-    print(f"  PNGs: {p1}\n        {p2}\n        {p3}\n        {p4}")
+    print(f"  PNGs: {p1}\n        {p2}\n        {p3}\n        {p3b}\n        {p4}")
     return 0
 
 

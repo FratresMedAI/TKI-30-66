@@ -1,0 +1,127 @@
+{
+  "model": "guidance_evasion_sanity_v1",
+  "disclaimer": "Geometric sanity only. Not Pk, not seeker loop, not Monte Carlo.",
+  "assumptions": {
+    "t_go_s": 4.12,
+    "t_go_note": "Full TOF @ 1000 m used as correction horizon (conservative vs last-1.5s only).",
+    "lateral_accel_mps2": {
+      "min": 20.0,
+      "max": 30.0
+    },
+    "correction_model": "residual = max(0, lateral_uncorrected - 0.5 * a_lat * t_go^2)",
+    "footprint_radius_m": 1.55,
+    "footprint_diameter_ft": [
+      10.0,
+      12.0
+    ],
+    "detonation_standoff_ft": 20.0,
+    "target_range_m": 1000.0
+  },
+  "rows": [
+    {
+      "drone_speed_mps": 10.0,
+      "lateral_uncorrected_m": 41.2,
+      "extra_lateral_1000_to_1200m": 6.0,
+      "t_go_s": 4.12,
+      "lateral_accel_band_mps2": [
+        20.0,
+        30.0
+      ],
+      "residual_lateral_m_at_20mps2": 0.0,
+      "residual_lateral_m_at_30mps2": 0.0,
+      "footprint_radius_m": 1.55,
+      "engageable_at_20mps2": true,
+      "engageable_at_30mps2": true
+    },
+    {
+      "drone_speed_mps": 15.0,
+      "lateral_uncorrected_m": 61.7,
+      "extra_lateral_1000_to_1200m": 9.0,
+      "t_go_s": 4.12,
+      "lateral_accel_band_mps2": [
+        20.0,
+        30.0
+      ],
+      "residual_lateral_m_at_20mps2": 0.0,
+      "residual_lateral_m_at_30mps2": 0.0,
+      "footprint_radius_m": 1.55,
+      "engageable_at_20mps2": true,
+      "engageable_at_30mps2": true
+    },
+    {
+      "drone_speed_mps": 20.0,
+      "lateral_uncorrected_m": 82.3,
+      "extra_lateral_1000_to_1200m": 12.0,
+      "t_go_s": 4.12,
+      "lateral_accel_band_mps2": [
+        20.0,
+        30.0
+      ],
+      "residual_lateral_m_at_20mps2": 0.0,
+      "residual_lateral_m_at_30mps2": 0.0,
+      "footprint_radius_m": 1.55,
+      "engageable_at_20mps2": true,
+      "engageable_at_30mps2": true
+    },
+    {
+      "drone_speed_mps": 25.0,
+      "lateral_uncorrected_m": 102.9,
+      "extra_lateral_1000_to_1200m": 15.0,
+      "t_go_s": 4.12,
+      "lateral_accel_band_mps2": [
+        20.0,
+        30.0
+      ],
+      "residual_lateral_m_at_20mps2": 0.0,
+      "residual_lateral_m_at_30mps2": 0.0,
+      "footprint_radius_m": 1.55,
+      "engageable_at_20mps2": true,
+      "engageable_at_30mps2": true
+    },
+    {
+      "drone_speed_mps": 30.0,
+      "lateral_uncorrected_m": 123.5,
+      "extra_lateral_1000_to_1200m": 18.0,
+      "t_go_s": 4.12,
+      "lateral_accel_band_mps2": [
+        20.0,
+        30.0
+      ],
+      "residual_lateral_m_at_20mps2": 0.0,
+      "residual_lateral_m_at_30mps2": 0.0,
+      "footprint_radius_m": 1.55,
+      "engageable_at_20mps2": true,
+      "engageable_at_30mps2": true
+    },
+    {
+      "drone_speed_mps": 40.0,
+      "lateral_uncorrected_m": 164.7,
+      "extra_lateral_1000_to_1200m": 24.0,
+      "t_go_s": 4.12,
+      "lateral_accel_band_mps2": [
+        20.0,
+        30.0
+      ],
+      "residual_lateral_m_at_20mps2": 0.0,
+      "residual_lateral_m_at_30mps2": 0.0,
+      "footprint_radius_m": 1.55,
+      "engageable_at_20mps2": true,
+      "engageable_at_30mps2": true
+    },
+    {
+      "drone_speed_mps": 50.0,
+      "lateral_uncorrected_m": 205.8,
+      "extra_lateral_1000_to_1200m": 30.0,
+      "t_go_s": 4.12,
+      "lateral_accel_band_mps2": [
+        20.0,
+        30.0
+      ],
+      "residual_lateral_m_at_20mps2": 36.1,
+      "residual_lateral_m_at_30mps2": 0.0,
+      "footprint_radius_m": 1.55,
+      "engageable_at_20mps2": false,
+      "engageable_at_30mps2": true
+    }
+  ]
+}

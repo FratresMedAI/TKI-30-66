@@ -15,18 +15,14 @@ Concept art and reference imagery. Figures are **notional** until hardware exist
 
 Muzzle fitting = **combined muzzle brake / blast deflector**. See DOC-06.
 
-## Round & container (in progress)
+## Round & container (locked)
 
 | Asset | Status |
 |-------|--------|
-| [`rocket/input/radr-container-paint-schematic.png`](rocket/input/radr-container-paint-schematic.png) | User Paint schematic |
 | [`rocket/CONTAINER-SPEC.md`](rocket/CONTAINER-SPEC.md) | **CAD spec (locked)** — tank shell, load sequence, interface |
 | [`rocket/output/radr-container-authoritative.png`](rocket/output/radr-container-authoritative.png) | **Container art (locked)** — render unchanged |
-| [`rocket/ROUND-SPEC.md`](rocket/ROUND-SPEC.md) | **Rocket CAD spec** — math-checked vs trajectory script |
-| [`rocket/output/radr-round-v1-stowed-fins.png`](rocket/output/radr-round-v1-stowed-fins.png) | **Round art v1** — folded fins (review) |
-| [`rocket/output/radr-round-v2-fins-deploy.png`](rocket/output/radr-round-v2-fins-deploy.png) | **Round art v2** — fins deploying (review) |
-| [`rocket/CONTAINER-SPEC.md`](rocket/CONTAINER-SPEC.md) | Spec + workflow |
-| [`rocket/ROUND-SPEC.md`](rocket/ROUND-SPEC.md) | Bare round — after container |
-
-**Drop your Paint file here:** `visuals/rocket/input/radr-container-paint-schematic.png`  
-Then say **“Polish the container schematic.”**
+| [`rocket/ROUND-SPEC.md`](rocket/ROUND-SPEC.md) | **Rocket CAD spec (locked)** — math-checked vs trajectory script |
+| [`rocket/output/radr-round-authoritative.png`](rocket/output/radr-round-authoritative.png) | **Round art (locked)** — v1 stowed fins |
+| [`rocket/output/radr-round-v1-stowed-fins.png`](rocket/output/radr-round-v1-stowed-fins.png) | Source filename (same as authoritative) |
+| [`rocket/output/radr-round-v2-fins-deploy.png`](rocket/output/radr-round-v2-fins-deploy.png) | **Review only** — fins deploying at exit |
+| [`rocket/input/radr-container-paint-schematic.png`](rocket/input/radr-container-paint-schematic.png) | User Paint schematic (container) |

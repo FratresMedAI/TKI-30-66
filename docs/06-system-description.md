@@ -6,6 +6,8 @@
 
 Engineering detail (authoritative mechanics in annexes): [Annex F — Breech & retention](../annexes/F-employment-and-breech.md) · [G — Mass/CG](../annexes/G-mass-and-center-of-gravity.md) · [H — Motor](../annexes/H-motor-progressive-burn.md) · [I — Performance](../annexes/I-performance-modeling.md) · [J — Warhead](../annexes/J-warhead-dispersal.md) · Trajectory script: [`scripts/radr_trajectory.py`](../scripts/radr_trajectory.py)
 
+**Prototype plan:** [DOC-10 — Phase 1 gates](10-phase-1-prototype-gates.md) (breech/retention → tube continuity → fire-control UX before live ballistics). **Motor vendor:** [DOC-09](09-motor-vendor-brief.md).
+
 ---
 
 ## System Overview
@@ -67,6 +69,7 @@ flowchart TB
 ```
 
 - **Alloy protective tube** (**tank-shell**): stays in launcher; **rocket smaller than tube ID**; **pop-top** (PULL) then **load** then **unscrew breech cap in bore**; **foil contacts** → **rocket ready** when breech locks. Art unchanged: [`radr-container-authoritative.png`](../visuals/rocket/output/radr-container-authoritative.png). CAD: [`CONTAINER-SPEC.md`](../visuals/rocket/CONTAINER-SPEC.md).  
+- **Rocket** (18 in, stowed fins): authoritative art [`radr-round-authoritative.png`](../visuals/rocket/output/radr-round-authoritative.png) · [`ROUND-SPEC.md`](../visuals/rocket/ROUND-SPEC.md).  
 - **Rocket** rides inside the tube; tube rim mates **breech sealing face** and **rim contacts**.  
 - On fire, motor exhaust vents **rear** through launcher — not a closed-bore cannon.
 
@@ -163,7 +166,7 @@ flowchart LR
 | Zoom control | **+ / −** on **aft face** of foregrip — smooth zoom, same handle bus as display |
 | Launcher power | Grip battery — sight, display, zoom, fire-control |
 | Finish | Matte tactical camo (non-reflective) |
-| Round | Tank-shell tube; pop top → load → unscrew bottom in bore ([CAD](../visuals/rocket/CONTAINER-SPEC.md) · [art](../visuals/rocket/output/radr-container-authoritative.png)) |
+| Round | Tube: [CONTAINER-SPEC](../visuals/rocket/CONTAINER-SPEC.md) · [container art](../visuals/rocket/output/radr-container-authoritative.png). Rocket: [ROUND-SPEC](../visuals/rocket/ROUND-SPEC.md) · [round art](../visuals/rocket/output/radr-round-authoritative.png) |
 | Seating | Pressure sensor + electrical contacts |
 | Triggers | **Front:** same curved pistol trigger as rear, **slightly smaller** — seeker + **audible lock tone** · **Rear:** fire (front held) |
 | **Retention stop** | Mechanical bore stop — see below |

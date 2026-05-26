@@ -1,11 +1,11 @@
 ﻿# RADR — Recoilless Anti-Drone Rocket
 
-**Squad / SOF Terminal Counter-UAS — 60 mm Class**
+**Squad / SOF Mid-Range Drone Destroyer — 60 mm Class**
 
-**RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** as a **simple, rugged terminal-layer** counter-UAS weapon against **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones). It fires an **18-inch** rocket with **300 × 7 mm** dense alloy cube flak, **IR fire-and-forget** guidance, **radar or millimeter-wave proximity fuze**, and a **progressive-burn** solid motor — **speed-to-target** and **KISS** over high maneuverability.
+**RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** — a **mid-range drone destroyer** that emphasizes **speed-to-target**, **simplicity (KISS)**, **reliability**, and **one-person reload**. It engages **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones) as a **terminal-layer** weapon when machine guns fall short and SAM is too heavy to allocate.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.4.2
+**Version:** 1.6.0
 
 ![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-goodmk60.png)
 
@@ -13,13 +13,11 @@
 
 ## Core Vision
 
-RADR is a **lightweight, reusable** **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** as a **terminal-layer counter-UAS** weapon. It emphasizes **speed-to-target**, **simplicity**, **one-person reload**, and **multiple layers of safety**.
-
-Dismounted teams get a **fast, reliable, reloadable** answer when machine guns are short and SAM is too heavy to allocate. The gunner **rough-aims**, the seeker **locks** (audible tone), and the rocket **closes quickly** with **small nose-canard corrections** only. At **~20 ft**, **radar or millimeter-wave proximity** actuation (with **timed backup**) releases a **forward cone** of **300 rough-edged alloy cubes**. The burster **disperses** — the **cubes kill**.
+The gunner **rough-aims** on a fold-out viewer fed by an integrated holo (**1.5×–4×**). Holding the **front trigger** powers the round’s **100 mm IR fire-and-forget** seeker and yields a **steady lock tone**; the **rocket retention stop** disengages only then. **Pulling the rear trigger** (while holding front) launches the **18-inch** round from a **ravioli-can style protective tube**. A **mildly progressive** solid motor drives closure to **~330–350 m/s** at **1000 m**. **Moderate-maneuver nose canards** trim the flight path; **four swept spring-loaded fins** deploy at exit and **mechanically lock** open. At **~20 ft**, **radar or millimeter-wave proximity** (with **timed backup**) fires a **pyrotechnic dispersal charge** that throws **300 × 7 mm** rough-edged dense alloy cubes in a **forward-biased cone** (~**10–12 ft** wide). The cubes kill — not a kinetic rod.
 
 **Philosophy:** Speed is the primary defense · KISS + rugged · One-person reload · Honest capability ceiling.
 
-**Launcher look:** Modernized **M1 Bazooka** — **40 in** tube, matte camo, compact Gustav breech, dual **pistol-style** triggers (front slightly smaller), no shoulder stock. **Fold-out viewfinder** (~4 in wide) — **stows flush** against the tube with its **bottom edge even with the holo pod bottom**; holo feeds the panel; **+ / −** zoom on the **aft face** of the foregrip (left thumb while left index on front trigger).
+**Launcher:** Modernized **M1 Bazooka** — **40 in** tube (≤ **5.5 kg** empty), matte camo, **Gustav-style flip breech** (spring bolt + positive deadbolt lock), **dual pistol-style triggers** (front slightly smaller; **+ / −** zoom on foregrip aft face), **no shoulder stock**, **slightly rear-biased** balance.
 
 ---
 
@@ -41,26 +39,27 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 
 | Item | Spec | Status |
 |------|------|--------|
-| Caliber | 60 mm | Locked |
-| Rocket length | 18 in (457 mm) | Locked |
-| Launcher length | 40 in (1016 mm) | Locked |
-| Rocket mass (target) | ≤ 3.5 kg | Locked |
-| Launcher empty mass (target) | ≤ 5.5 kg | Locked |
-| Warhead | 300 × 7 mm dense alloy rough-edged cubes | Locked |
-| Pattern | Forward cone, ~10–12 ft wide @ ~20 ft | Locked |
-| Fuze | Radar or mm-wave proximity (primary) + timed backup | Locked |
-| Motor | Solid rocket; Evolution Space propellant; progressive grain (low 1–2 s, then ramp) | Locked |
-| Seeker | 100 mm IR fire-and-forget | Locked |
-| Guidance | Low-maneuver; small movable canards near nose | Locked |
-| Fins | 4 swept spring-loaded at base; deploy on exit | Locked |
-| Sight / power | Integrated holo **1.5×–4×**; fold-out **4 in** viewer; **+ / −** on foregrip aft face; grip battery | Locked |
-| Range goal | 1000 m effective | Locked |
-| Backblast | ≤ 10 yards (30 ft) | Locked |
-| Protective tube | Alloy tube + manual pull-off cap (soldier removes on load) | Locked |
-| Breech | Gustav-style flip; spring bolt + positive lock | Locked |
-| Controls | Front = seeker + tone; rear = fire (front held) | Locked |
-| CoG | Slightly rear-biased | Locked |
-| **Rocket retention stop** | Mechanical bore stop; disengages only when breech closed + front held + ready tone | Locked |
+| **Role** | Mid-range drone destroyer; squad / SOF terminal C-UAS | Locked |
+| **Caliber** | **60 mm** | Locked |
+| **Rocket length** | **18 in (457 mm)** maximum | Locked |
+| **Launcher length** | **40 in (1016 mm)** | Locked |
+| **Rocket mass (target)** | **≤ 3.5 kg** | Locked |
+| **Launcher empty mass (target)** | **≤ 5.5 kg** | Locked |
+| **Warhead** | **300 × 7 mm** dense alloy **rough-edged** cubes | Locked |
+| **Dispersal** | **Pyrotechnic dispersal charge** — forward-biased cone **~10–12 ft** wide @ **~20 ft** | Locked |
+| **Fuze** | **Radar or mm-wave proximity** (primary) + **timed backup** | Locked |
+| **Seeker** | **100 mm IR** fire-and-forget | Locked |
+| **Guidance** | **Moderate-maneuver**; small movable **canards near nose** | Locked |
+| **Fins** | **4** swept **spring-loaded** at base; deploy on exit; **mechanical lock** once deployed | Locked |
+| **Motor** | Mildly progressive solid; **2950–3050 N·s**; **~3.3 s**; **750–850 N** → **1050–1150 N** peak; **~330–350 m/s** @ 1000 m | Locked |
+| **Range goal** | **1000 m** effective | Locked |
+| **Backblast** | **≤ 10 yards (30 ft)** | Locked |
+| **Protective tube** | **Ravioli-can style** robust tube + **manual pull-off cap** (soldier removes on load) | Locked |
+| **Breech** | **Gustav-style flip**; spring-loaded bolt + **positive mechanical lock** (bolt-action feel) | Locked |
+| **Controls** | **Front** = seeker + audible tone; **rear** = fire (front held) | Locked |
+| **CoG** | **Slightly rear-biased** (comfortable shouldering) | Locked |
+| **Rocket retention stop** | Bore stop when slung; releases only: breech closed + front held + lock tone | Locked |
+| **Sight / power** | Integrated holo **1.5×–4×**; fold-out **~4 in** viewer; grip battery | Locked |
 
 ---
 
@@ -68,27 +67,27 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 
 | Layer | Function |
 |-------|----------|
-| **Rocket retention stop** | Blocks rocket from sliding forward in bore when slung or carried; **releases** only when breech is **fully closed**, gunner **holds front trigger**, and seeker gives **ready tone**; **re-engages** if front trigger is released |
-| **Breech deadbolt** | Positive mechanical lock when closed — no seeker or retention release until seated |
+| **Rocket retention stop** | Mechanical stop in barrel prevents round sliding forward when slung or carried; **disengages** only when breech is **fully closed**, gunner **holds front trigger**, and seeker outputs **steady lock tone**; **re-engages** if front is released |
+| **Breech deadbolt** | Positive mechanical lock when closed — no seeker or retention release until tube seated |
 | **Dual-trigger interlock** | Rear fire blocked until lock tone; front must stay held through ignition |
 | **No override** | No rear fire without tone; no seeker until tube seated |
 | **Backblast discipline** | ≤ **10 yd (30 ft)** cleared to rear before every shot and before breech re-open |
 
 ---
 
-## Operational Flow
+## Operational Sequence (Locked)
 
-1. **Open breech** (pull spring bolt, swing open)  
-2. **Remove cap** from protective tube  
-3. **Load tube** into launcher  
-4. **Close breech** — auto-locks (deadbolt)  
-5. **Hold front trigger** → seeker activates + **lock tone** (retention stop **disengages**)  
-6. **Pull rear trigger** while holding front → **fire**  
-7. **Open breech** → empty protective tube drops out  
+1. **Open breech** — pull spring-loaded bolt handle and swing breech open  
+2. **Remove cap** from ravioli-can style protective tube  
+3. **Insert tube** into launcher bore until seated  
+4. **Close breech** — release bolt handle; breech **auto-locks** (deadbolt snap)  
+5. **Hold front trigger** — seeker activates; **audible lock tone**; retention stop **disengages**  
+6. **Pull rear trigger** while holding front → **rocket fires** (recoilless vent ≤ 10 yd rear)  
+7. **Open breech** — empty protective tube **drops out** for reload  
 
-**Carry:** Launcher + one round ≤ **9.0 kg** — one person can reload. Retention stop **engaged** whenever front trigger is not held (safe carry/sling).
+**Carry:** Launcher + one round ≤ **9.0 kg** — one person can reload. Retention stop **engaged** whenever front trigger is not held.
 
-**Mechanical detail:** [Annex F — Breech](annexes/F-employment-and-breech.md#breech-mechanism) · [Retention stop](annexes/F-employment-and-breech.md#rocket-retention-stop) · [Gunner sequence](annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) · **Diagrams:** [DOC-06](docs/06-system-description.md#diagrams)
+**Authoritative detail:** [Annex F — Gunner sequence](annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) · [Breech](annexes/F-employment-and-breech.md#breech-mechanism) · [Retention stop](annexes/F-employment-and-breech.md#rocket-retention-stop) · [DOC-06 diagrams](docs/06-system-description.md#diagrams)
 
 ---
 
@@ -99,7 +98,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | Role | Terminal C-UAS flak | Multi-role | MANPADS |
 | Launcher | ≤ 5.5 kg, 40 in | ~6.6 kg | ~15 kg |
 | Round | ≤ 3.5 kg, 18 in | ~3.2 kg | ~10.1 kg |
-| Guidance | IR F&F, low-maneuver | Unguided | High-agility IR |
+| Guidance | IR F&F, moderate-maneuver | Unguided | High-agility IR |
 | Range goal | 1000 m | ammo-dependent | 4000+ m |
 | Backblast | 10 yd (30 ft) | ~60 m class | moderate |
 
@@ -138,9 +137,9 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 ## Open Questions
 
 - Live-fire Pk at 1000 m by threat class (hover vs. crossing vs. glide)  
-- Evolution Space grain geometry vs. measured backblast inside 10 yd zone  
+- Evolution Space grain geometry vs. measured backblast inside 10 yd zone (motor baseline locked; live-fire TBD)  
 - Cube alloy finalization (dense Ti/steel baseline)  
-- Retention stop mechanism detail (spring/cam vs. solenoid assist) — function locked  
+- Retention stop mechanism detail (spring/cam vs. solenoid assist) — **function locked**  
 - Fuze baseline down-select: **radar proximity** vs. **millimeter-wave proximity** (one primary per round)  
 
 ---

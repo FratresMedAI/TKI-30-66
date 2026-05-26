@@ -1,7 +1,7 @@
 # 06 — System Description
 
 **Document ID:** RADR / DOC-06  
-**Version:** 1.2.0  
+**Version:** 1.6.0  
 **Status:** Conceptual
 
 Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G](../annexes/G-mass-and-center-of-gravity.md) · [Annex H](../annexes/H-motor-progressive-burn.md)
@@ -12,8 +12,8 @@ Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G
 
 **RADR** comprises:
 
-1. **Launcher** — 40 in reusable recoilless tube (≤ 5.5 kg empty), modernized M1 Bazooka ergonomics, Gustav flip breech, dual-trigger grips, **rocket retention stop**, no shoulder stock.  
-2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in alloy protective tube: IR seeker, progressive motor, dense alloy cube flak warhead.
+1. **Launcher** — 40 in reusable recoilless tube (≤ 5.5 kg empty), modernized M1 Bazooka ergonomics, Gustav flip breech, dual-trigger grips, **rocket retention stop**, no shoulder stock, slightly rear-biased CoG.  
+2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in **ravioli-can style protective tube**: IR seeker, **moderate-maneuver** canards, mildly progressive motor, **pyrotechnic-dispersed** dense alloy cube flak warhead.
 
 ```mermaid
 flowchart LR
@@ -51,13 +51,13 @@ flowchart TB
     BreechBlock[FlipBreech_Closed]
     Vent[RecoillessVent_Rear]
   end
-  subgraph Tube [AlloyTube]
+  subgraph Tube [RavioliCan_Tube]
     CapOff[CapRemoved]
     subgraph Rocket [Rocket_18in]
       Seeker[Seeker_100mm]
       WH[Warhead_Cubes]
       Motor[Motor_297mm]
-      Fins[SpringFins]
+      Fins[SpringFins_Lock]
     end
   end
   BreechBlock --> Bore
@@ -66,7 +66,7 @@ flowchart TB
   Vent --> VentNote[10yd_DangerZone]
 ```
 
-- **Alloy tube** is the factory shipping and launch container.  
+- **Ravioli-can style protective tube** is the factory shipping and launch container (soldier removes pull-off cap before load).  
 - **Rocket** rides inside the tube; tube rim mates **breech sealing face** and **rim contacts**.  
 - On fire, motor exhaust vents **rear** through launcher — not a closed-bore cannon.
 
@@ -119,14 +119,14 @@ flowchart TD
 
 ### Post-Fire Tube Ejection
 
-After motor burnout and safe interval, the gunner clears the rear arc, unlocks the breech, and the spent alloy tube drops for the next reload cycle.
+After motor burnout and safe interval, the gunner clears the rear arc, unlocks the breech, and the spent protective tube drops for the next reload cycle.
 
 ```mermaid
 flowchart LR
   Fired[MotorBurns_RocketLeaves] --> Vent[Backblast_10yd]
   Vent --> Open[GunnerOpensBreech]
   Open --> Drop[SpentTube_DropsOut]
-  Drop --> Reload[Next_AlloyTube]
+  Drop --> Reload[Next_RavioliCan]
 ```
 
 ---
@@ -159,7 +159,7 @@ flowchart LR
 | Zoom control | **+ / −** on **aft face** of foregrip (buttons face rear) |
 | Launcher power | Grip battery — holo, display, fire-control |
 | Finish | Matte tactical camo (non-reflective) |
-| Round | Alloy tube; soldier removes **manual pull-off cap** before load |
+| Round | Ravioli-can style tube; soldier removes **manual pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
 | Triggers | **Front:** same curved pistol trigger as rear, **slightly smaller** — seeker + **audible lock tone** · **Rear:** fire (front held) |
 | **Retention stop** | Mechanical bore stop — see below |
@@ -228,11 +228,11 @@ At **1000 m**, a **~0.4 m** drone is ~**1.4 arcmin** at 1× — edge of vision. 
 | Caliber / length | 60 mm × 18 in (457 mm) max |
 | Mass | ≤ 3.5 kg (nominal **3.1 kg** — Annex G) |
 | Seeker | 100 mm IR fire-and-forget |
-| Canards | Small movable surfaces **near nose** |
-| Fins | 4 swept **spring-loaded** at **base**; deploy on exit |
-| Motor | Solid rocket; **Evolution Space** propellant; progressive grain — [Annex H](../annexes/H-motor-progressive-burn.md) |
+| Canards | Small movable surfaces **near nose**; **moderate-maneuver** trim |
+| Fins | 4 swept **spring-loaded** at **base**; deploy on exit; **mechanical lock** once deployed |
+| Motor | Solid rocket; **Evolution Space** propellant; **mildly progressive** grain — [Annex H](../annexes/H-motor-progressive-burn.md) |
 | Warhead | 300 × 7 mm **dense alloy** rough-edged cubes |
-| Dispersal | Forward cone ~10–12 ft wide @ ~20 ft |
+| Dispersal | **Pyrotechnic dispersal charge** — forward-biased cone **~10–12 ft** wide @ **~20 ft** |
 | Fuze | **Radar or millimeter-wave proximity** (primary) + **timed backup** |
 
 ### Mass (Summary)
@@ -251,13 +251,22 @@ Detail and CG: [Annex G](../annexes/G-mass-and-center-of-gravity.md).
 
 ## Motor (Summary — 1000 m Goal)
 
+| Parameter | Locked baseline |
+|-----------|-----------------|
+| Total impulse | **2950–3050 N·s** (~3000 nominal) |
+| Burn time | **~3.3 s** |
+| Grain | **Mildly progressive** — lower thrust first **1–2 s**, then ramp |
+| Initial thrust | **750–850 N** |
+| Peak thrust | **1050–1150 N** |
+| Est. velocity @ 1000 m | **330–350 m/s** |
+
 | Time (s) | Thrust (N, notional) | Phase |
 |----------|----------------------|--------|
-| 0–2.0 | ~700 avg | Low — recoil/backblast |
-| 2.0–3.2 | 750 → 1050 ramp | Progressive |
-| 3.2–3.4 | ~950 tail | Burnout |
+| 0–2.0 | 780–820 avg | Low — recoil/backblast |
+| 2.0–3.0 | 870 → 1120 ramp | Mildly progressive |
+| 3.0–3.3 | ~1050 tail | Burnout |
 
-**Total impulse:** ~2900 N·s (band 2800–3200 N·s). Full table: [Annex H](../annexes/H-motor-progressive-burn.md).
+Full table and rationale: [Annex H](../annexes/H-motor-progressive-burn.md).
 
 ---
 

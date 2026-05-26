@@ -30,7 +30,7 @@
 
 ## Propulsion (Baseline Reference)
 
-8. **Evolution Space.** High-rate tactical solid propellant families — baseline reference for RADR progressive-burn grain trades (conceptual; no endorsement implied).
+8. **Evolution Space.** High-rate tactical solid propellant families — baseline reference for RADR **mildly progressive** grain (conceptual; no endorsement implied).
 
 ---
 

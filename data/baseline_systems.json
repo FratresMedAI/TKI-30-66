@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.4.2",
+    "version": "1.6.0",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.4.2: v11 foregrip art (front trigger, aft-face zoom); alloy tube terminology."
+    "notes": "v1.6.0: Full vision sync — locked specs, ravioli-can tube, pyrotechnic dispersal, moderate-maneuver canards, fin deploy lock."
   },
   "primary_threats": [
     {
@@ -48,7 +48,8 @@
       "cube_material": "dense_alloy",
       "cube_edge_finish": "rough_edged",
       "includes_small_burster": true,
-      "burster_role": "disperser_only",
+      "burster_role": "pyrotechnic_dispersal_charge",
+      "burster_pattern": "forward_biased_cone",
       "cone_width_ft": { "min": 10, "max": 12 },
       "detonation_standoff_ft": 20
     },
@@ -59,7 +60,7 @@
     },
     "guidance": {
       "type": "onboard_ir_fire_and_forget",
-      "maneuver_class": "low_maneuver",
+      "maneuver_class": "moderate_maneuver",
       "control_surfaces": "small_movable_canards_near_nose",
       "high_off_boresight": false,
       "lock_before_launch": true,
@@ -69,20 +70,25 @@
       "count": 4,
       "type": "swept_spring_loaded",
       "location": "base",
-      "deploy": "on_exit"
+      "deploy": "on_exit",
+      "deploy_lock": "mechanical_lock_once_deployed"
     },
     "motor": {
-      "type": "solid_rocket_progressive_burn",
+      "type": "solid_rocket_mildly_progressive_burn",
       "propellant": "evolution_space_high_rate_tactical",
       "signature_goal": "low_signature_where_possible",
-      "grain": "progressive_burn_profile",
+      "grain": "mildly_progressive_burn_profile",
       "initial_phase_s": { "min": 1, "max": 2 },
-      "initial_thrust_n_avg": 700,
-      "peak_thrust_n": 1050,
+      "initial_thrust_n": { "min": 750, "max": 850 },
+      "peak_thrust_n": { "min": 1050, "max": 1150 },
+      "burn_time_s": 3.3,
+      "total_impulse_ns": { "min": 2950, "max": 3050, "nominal": 3000 },
+      "terminal_velocity_at_1000m_mps": { "min": 330, "max": 350 },
       "ramp": "increasing_to_terminal_velocity"
     },
     "round_packaging": {
-      "type": "alloy_protective_tube",
+      "type": "ravioli_can_style_protective_tube",
+      "description": "robust_sealed_shipping_and_launch_container",
       "cap": "manual_pull_off",
       "removed_by": "soldier_during_loading"
     },
@@ -304,21 +310,22 @@
     "motor_notional": {
       "grain_length_mm": 260,
       "propellant_mass_kg": 1.2,
-      "burn_time_s": 3.4,
-      "total_impulse_ns": { "nominal": 2900, "min": 2800, "max": 3200 },
-      "average_thrust_n": { "min": 850, "max": 1050 },
-      "terminal_velocity_at_1000m_mps": { "min": 330, "max": 370 },
+      "burn_time_s": 3.3,
+      "total_impulse_ns": { "nominal": 3000, "min": 2950, "max": 3050 },
+      "initial_thrust_n": { "min": 750, "max": 850 },
+      "peak_thrust_n": { "min": 1050, "max": 1150 },
+      "average_thrust_n": { "nominal": 910 },
+      "terminal_velocity_at_1000m_mps": { "min": 330, "max": 350 },
       "time_of_flight_1000m_s": { "min": 4.5, "max": 5.0 },
       "motor_thrust_profile": [
         { "t_s": 0.0, "thrust_n": 0 },
-        { "t_s": 0.5, "thrust_n": 620 },
-        { "t_s": 1.0, "thrust_n": 680 },
-        { "t_s": 1.5, "thrust_n": 700 },
-        { "t_s": 2.0, "thrust_n": 720 },
-        { "t_s": 2.5, "thrust_n": 850 },
-        { "t_s": 3.0, "thrust_n": 1000 },
-        { "t_s": 3.2, "thrust_n": 1050 },
-        { "t_s": 3.4, "thrust_n": 950 }
+        { "t_s": 0.5, "thrust_n": 780 },
+        { "t_s": 1.0, "thrust_n": 800 },
+        { "t_s": 1.5, "thrust_n": 820 },
+        { "t_s": 2.0, "thrust_n": 870 },
+        { "t_s": 2.5, "thrust_n": 1000 },
+        { "t_s": 3.0, "thrust_n": 1120 },
+        { "t_s": 3.3, "thrust_n": 1050 }
       ]
     },
     "range_m": {
@@ -344,7 +351,7 @@
       "round_mass_kg_max": 3.5,
       "round_length_mm": 457,
       "reusable": true,
-      "guidance": "onboard_ir_fire_and_forget_low_maneuver",
+      "guidance": "onboard_ir_fire_and_forget_moderate_maneuver",
       "payload": "300x7mm_dense_alloy_forward_cone_flak",
       "seeker_section_mm": 100,
       "effective_range_m": { "min": 150, "goal": 1000 },
@@ -355,7 +362,7 @@
       "breech": "gustav_flip_spring_bolt_positive_lock",
       "rocket_retention_stop": true,
       "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",
-      "round_packaging": "alloy_tube_pull_off_cap",
+      "round_packaging": "ravioli_can_style_tube_pull_off_cap",
       "primary_role": "squad_sof_terminal_c_uas",
       "typical_targets": [
         "fpv_kamikaze_drone",

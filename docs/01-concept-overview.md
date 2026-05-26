@@ -1,32 +1,34 @@
 # 01 — Concept Overview
 
 **Document ID:** RADR / DOC-01  
-**Version:** 1.2.0  
-**Status:** Conceptual
+**Version:** 1.6.0  
+**Status:** Conceptual — locked baseline
 
 ---
 
 ## Core Vision
 
-**RADR** (Recoilless Anti-Drone Rocket) is a **lightweight, reusable** **60 mm** shoulder-fired **recoilless** system for **squad and SOF** as a **simple, rugged terminal-layer** weapon against **Group 1–2 UAS** (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones). It prioritizes **speed-to-target**, **reliability**, and **KISS** over high maneuverability or complexity.
+**RADR** (Recoilless Anti-Drone Rocket) is a lightweight, reusable **60 mm** shoulder-fired **recoilless** **mid-range drone destroyer** for **squad and SOF**. It prioritizes **speed-to-target**, **reliability**, **KISS**, and **one-person reload** over high off-boresight agility or launcher-tracked guidance.
 
-The round is an **18-inch** rocket (target **≤ 3.5 kg**) with **300 × 7 mm** dense alloy cube flak, **100 mm IR fire-and-forget** seeker, **radar or millimeter-wave proximity fuze** (timed backup), and a **progressive-burn** solid motor using **Evolution Space high-rate tactical propellant**.
+The round is an **18-inch (457 mm)** rocket (target **≤ 3.5 kg**) in a **ravioli-can style protective tube** (manual pull-off cap removed on load). Payload: **300 × 7 mm** dense alloy rough-edged cubes dispersed by a **pyrotechnic dispersal charge** in a **forward-biased cone** (~**10–12 ft** wide at **~20 ft**). **100 mm IR fire-and-forget** seeker with **moderate-maneuver nose canards**. **Radar or millimeter-wave proximity fuze** (timed backup). **Mildly progressive** solid motor: **2950–3050 N·s**, **~3.3 s** burn, **750–850 N** initial → **1050–1150 N** peak, **~330–350 m/s** at **1000 m**.
+
+The launcher is **40 in**, **≤ 5.5 kg** empty, **Gustav-style flip breech**, dual triggers, **rocket retention stop**, integrated holo + fold-out viewer — **no shoulder stock**, **slightly rear-biased** CoG.
 
 ---
 
 ## Purpose
 
-RADR closes the **150–1000 m** engagement band against **close-in UAS** when organic machine guns lack reach and SAM systems are not appropriate for the tactical moment. It is a **specialist** weapon — issued to teams that need it, not every rifleman.
+RADR closes the **150–1000 m** engagement band against **close-in UAS** when organic machine guns lack reach and SAM systems are not appropriate. **Specialist** issue — teams that need terminal C-UAS, not every rifleman.
 
 ---
 
 ## Primary Threats
 
-1. **FPV kamikaze drones** — terminal dive and chase profiles  
-2. **Small-to-medium quadcopters** — ISR, relay, and light attack  
-3. **Loitering munitions** — orbit, hover, and commit-to-target  
-4. **Terrain-matching / GPS-denied gliding drones** — low thermal/radar signature (e.g. Hornet / “Martian” type)  
-5. **Other Group 1–2 UAS** — swarm and interdiction in the close fight  
+1. **FPV kamikaze drones**  
+2. **Small-to-medium quadcopters**  
+3. **Loitering munitions**  
+4. **Terrain-matching / GPS-denied gliding drones** (e.g. Hornet / “Martian” class)  
+5. **Other Group 1–2 UAS** — swarm and interdiction  
 
 ---
 
@@ -35,11 +37,10 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 | Principle | Application |
 |-----------|-------------|
 | **Speed-to-target** | Primary defense against evasion |
-| **Low-maneuver guidance** | Rough aim + lock + small nose-canard trim |
-| **Not high off-boresight** | No snap-shot outside seeker envelope |
-| **KISS + rugged** | Alloy tube round; flip breech; dual-trigger |
+| **Moderate-maneuver guidance** | Rough aim + IR lock + nose-canard trim — not high OBA |
+| **KISS + rugged** | Ravioli-can tube; flip breech; dual-trigger |
 | **Safety in depth** | Retention stop, breech lock, dual-trigger interlocks |
-| **Terminal flak** | Forward cone of rough-edged cubes; burster disperses only |
+| **Terminal flak** | Pyrotechnic dispersal → forward cone of cubes |
 | **Honest** | 1000 m and Pk are goals until live fire |
 
 ---
@@ -48,47 +49,53 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 
 | Item | Value |
 |------|--------|
-| Caliber | 60 mm |
-| Rocket | 18 in (457 mm); ≤ 3.5 kg |
-| Launcher | 40 in; ≤ 5.5 kg empty |
-| Warhead | 300 × 7 mm dense alloy rough-edged cubes |
-| Pattern | Forward cone ~10–12 ft @ ~20 ft |
+| Caliber | **60 mm** |
+| Rocket | **18 in (457 mm)**; **≤ 3.5 kg** |
+| Launcher | **40 in**; **≤ 5.5 kg** empty |
+| Warhead | **300 × 7 mm** dense alloy rough-edged cubes |
+| Dispersal | **Pyrotechnic charge**; forward cone **~10–12 ft** @ **~20 ft** |
 | Fuze | Radar or mm-wave proximity (primary) + timed backup |
-| Seeker | 100 mm IR F&F |
-| Guidance | Small movable canards near nose |
-| Fins | 4 swept spring-loaded at base |
-| Motor | Solid rocket; Evolution Space propellant; progressive grain (low 1–2 s, ramp) |
-| Range goal | 1000 m effective |
-| Backblast | ≤ 10 yards (30 ft) |
-| Tube | Alloy tube; pull-off cap on load |
+| Seeker | **100 mm IR** F&F |
+| Guidance | **Moderate-maneuver**; canards **near nose** |
+| Fins | **4** swept spring-loaded at **base**; **mechanical lock** when deployed |
+| Motor | Mildly progressive; **2950–3050 N·s**; **~3.3 s**; **750–850 → 1050–1150 N**; **330–350 m/s** @ 1000 m |
+| Range | **1000 m** effective (goal) |
+| Backblast | **≤ 10 yd (30 ft)** |
+| Tube | **Ravioli-can style** + pull-off cap on load |
 | Breech | Gustav flip + spring bolt + positive lock |
 | Controls | Front = seeker/tone; rear = fire (front held) |
-| Sight | Integrated holo **1.5×–4×**; fold-out **~4 in** viewer; **+ / −** on foregrip aft face |
+| Retention stop | Engaged unless closed breech + front held + lock tone |
 | CoG | Slightly rear-biased |
-| **Retention stop** | Bore stop when carried; releases with closed breech + front held + ready tone |
+| Sight | Holo **1.5×–4×**; fold-out **~4 in** viewer; foregrip **+ / −** |
 
 ---
 
 ## Launcher Concept (Locked Silhouette)
 
-Modernized **M1 Bazooka** layout: long slim **40 in** tube, **matte multicam**, **compact flip breech** at rear, **forward vertical foregrip** (between muzzle and sight) with **pistol-style seeker trigger** (same form as rear, slightly smaller), **rear pistol grip** with fire trigger, **rear padding** from grip to breech only, **no shoulder stock**, **integrated holo (1.5×–4×)** feeding a **fold-out ~4 in camcorder-style viewer**; **+ / −** zoom on the **aft face** of the foregrip (buttons face rear — left index on front trigger, left thumb on zoom). Grip battery powers optics, display, and fire-control.
+Modernized **M1 Bazooka**: **40 in** matte multicam tube; **forward foregrip** (pistol-style seeker trigger, smaller than rear; zoom **+ / −** on aft face); **rear pistol grip**; padding grip→breech only; **integrated holo** feeding **fold-out ~4 in** viewer (stows flush, bottom even with holo pod).
 
 ![Launcher concept](../visuals/launcher/output/radr-bazooka-goodmk60.png)
 
 ---
 
-## Operational Flow
+## Operational Sequence (Locked)
 
-Open breech → Remove cap from tube → Load tube → Close breech (locks) → Hold front trigger (seeker + tone; retention stop releases) → Pull rear trigger while holding front → Fire → Open breech → Empty tube drops out.
+1. Open breech (pull spring bolt, swing open)  
+2. Remove cap from protective tube  
+3. Insert tube into launcher  
+4. Close breech (auto-locks)  
+5. Hold front trigger → seeker + tone (retention stop disengages)  
+6. Pull rear trigger while holding front → fire  
+7. Open breech → empty tube drops out  
 
-**Engineering annexes:** [F — Employment & breech](../annexes/F-employment-and-breech.md) ([sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) · [retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop) · [breech](../annexes/F-employment-and-breech.md#breech-mechanism)) · [G — Mass/CG](../annexes/G-mass-and-center-of-gravity.md) · [H — Motor](../annexes/H-motor-progressive-burn.md)
+**Annexes:** [F — Employment](../annexes/F-employment-and-breech.md) · [G — Mass/CG](../annexes/G-mass-and-center-of-gravity.md) · [H — Motor](../annexes/H-motor-progressive-burn.md)
 
 ---
 
 ## What RADR Is / Is Not
 
-**Is:** Squad/SOF terminal C-UAS flak · Speed-first · One-person reload · Layered mechanical/electrical safety  
-**Is not:** Stinger replacement · MANPADS · Kinetic rod · Beam-riding · Validated fielded system
+**Is:** Squad/SOF mid-range drone destroyer · Speed-first · One-person reload · Layered safety  
+**Is not:** Stinger replacement · MANPADS · Kinetic rod · Beam-riding · Fielded product
 
 ---
 

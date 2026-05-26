@@ -1,7 +1,7 @@
 # 02 — Operational Requirements
 
 **Document ID:** RADR / DOC-02  
-**Version:** 1.2.0  
+**Version:** 1.6.0  
 **Status:** Conceptual
 
 Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
@@ -10,7 +10,7 @@ Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
 
 ## Primary Mission
 
-Provide **squad and SOF** units a **terminal-layer** defeat capability against **Group 1–2 UAS** at **150–1000 m** using a **speed-first** guided flak rocket.
+Provide **squad and SOF** a **mid-range drone destroyer** — terminal-layer defeat of **Group 1–2 UAS** at **150–1000 m** using a **speed-first** guided flak rocket with **one-person reload**.
 
 ---
 
@@ -40,16 +40,16 @@ The system shall be designed to engage:
 | Launcher OAL | 1016 mm (40 in) | Locked |
 | Launcher mass (empty) | ≤ 5.5 kg | Locked |
 | System mass (launcher + 1 round) | ≤ 9.0 kg | Locked |
-| Warhead | 300 × 7 mm dense alloy cubes | Locked |
-| Pattern | Forward cone @ ~20 ft | ~10–12 ft wide |
+| Warhead | 300 × 7 mm dense alloy rough-edged cubes | Locked |
+| Dispersal | Pyrotechnic charge; forward cone @ ~20 ft | ~10–12 ft wide |
 | Fuze | Radar or mm-wave proximity + timed backup | Locked |
 | Seeker | 100 mm IR F&F | Lock before launch |
-| Guidance | Low-maneuver nose canards | Not high OBA |
-| Fins | 4 spring-loaded swept | Deploy on exit |
-| Motor | Evolution Space propellant; progressive burn (low 1–2 s, ramp) | Locked |
+| Guidance | **Moderate-maneuver** nose canards | Not high OBA |
+| Fins | 4 spring-loaded swept; **mechanical lock** when deployed | Deploy on exit |
+| Motor | Evolution Space propellant; **mildly progressive** burn (**750–850 N** first **1–2 s**, ramp to **1050–1150 N**); **2950–3050 N·s**; **~3.3 s** | Locked |
 | Range | ≥ 800 m | **1000 m** effective |
 | Backblast | ≤ 10 yd (30 ft) | Locked |
-| Tube | Alloy tube, pull-off cap | Locked |
+| Tube | **Ravioli-can style** protective tube; pull-off cap | Locked |
 | Breech | Gustav flip + positive lock | Locked |
 | Controls | Dual-trigger + lock tone | Locked |
 | CoG | Rear-biased | Locked |
@@ -103,7 +103,7 @@ The system shall be designed to engage:
 ## Assumptions
 
 - Gunner can rough-aim within seeker FOV  
-- Progressive motor achieves 1000 m class closure speed  
+- Progressive motor achieves **~330–350 m/s** class closure at **1000 m** (locked baseline)
 - Radar or mm-wave proximity + timed backup covers fuze reliability for forward-cone geometry at ~20 ft  
 
 ---

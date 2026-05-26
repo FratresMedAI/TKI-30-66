@@ -1,7 +1,7 @@
 # Annex F — Employment Sequence and Breech Mechanism
 
 **Document ID:** RADR / ANX-F  
-**Version:** 1.7.0  
+**Version:** 1.7.1  
 **Status:** Conceptual — locked baseline (notional until prototype)
 
 Traceability: [06 — System Description](../docs/06-system-description.md) · [04 — CONOPS](../docs/04-conops-use-cases.md)
@@ -173,7 +173,19 @@ flowchart TD
 
 The retention stop prevents the loaded rocket (inside its protective tube) from sliding **forward** in the smoothbore when the launcher is **slung, carried, or bumped**. It provides a **mechanical carry-safe default** that does not depend on battery state or software alone.
 
-Typical failure modes without a stop: tube creep toward muzzle on sling transition, muzzle-down carry, or movement before engagement — risking misalignment, damaged contacts, or unintended forward displacement.
+Typical failure modes without a stop: tube creep toward muzzle on sling transition, muzzle-down carry, or movement before engagement — risking misalignment, damaged rim contacts, broken seeker dome clearance, or unintended forward displacement into the muzzle brake zone.
+
+### Physical location and what it blocks
+
+| Item | Detail |
+|------|--------|
+| **Where** | Inside the **60 mm smoothbore**, in a **fixed pocket** in the lower bore wall, **forward of the breech sealing face** and **aft of the tube’s forward travel limit** |
+| **Orientation** | **Radial finger** — protrudes inward toward bore centerline (~2–3 mm intrusion at tip) |
+| **Contact** | Hardened pad bears on the **aft external shoulder** of the seated ravioli-can tube (the rim step just forward of the breech interface) |
+| **Blocked motion** | **Forward translation** of the tube+rocket assembly along the bore (toward muzzle). Does **not** block rearward ejection when breech opens |
+| **Independent of** | Breech hinge angle (except interlock logic); rear trigger; launcher optics |
+
+When the tube is seated and the breech is closed, the tube rim is clamped between the **breech sealing face** (rear) and the **retention finger** (forward on the shoulder). The finger is the anti-slide element; the breech block is the anti-rearward / gas-seal element.
 
 ### Baseline mechanism (locked concept)
 
@@ -238,6 +250,36 @@ flowchart TB
 
 **Cross-section (conceptual):** Radial finger (~6–8 mm wide contact on tube aft shoulder) projects from a pocket in the lower bore wall. Return spring **~8–12 N** at finger tip keeps engagement. Cam profile lifts finger against spring when all AND conditions true.
 
+### How disengagement works (front trigger + seeker tone)
+
+Disengagement is **not** manual. The gunner does not flip a separate stop lever.
+
+| Step | Gunner / system | Stop physical state |
+|------|-----------------|---------------------|
+| 1 | Breech closed, deadbolt snapped, tube seated | Finger **engaged** on shoulder (spring force) |
+| 2 | Gunner **presses front trigger** (seeker powers) | Finger **still engaged** — search phase |
+| 3 | Seeker achieves lock; **steady tone** in grip | Fire-control asserts `SEEKER_LOCKED` |
+| 4 | Interlock energizes **release cam actuator** (solenoid or rotary solenoid on linkage) | Cam rotates **~15–25°** |
+| 5 | Cam lobe lifts finger carrier against return spring | Finger retracts **~2–4 mm** into pocket — **flush with bore wall** |
+| 6 | Tube shoulder clears finger; round free to accelerate on fire | Stop **disengaged** while tone + front held |
+| 7 | Front trigger **released** (or tone lost) | Cam de-energizes; spring drives finger **re-engaged** immediately |
+
+**Rear trigger:** Closes ignition circuit only. It has **no** mechanical linkage to the finger. If tone is active but front is released, the stop re-engages **before** rear input can matter.
+
+**Breech open:** Interlock forces cam to safe position; finger **engaged** regardless of trigger state.
+
+### Integration with breech (mechanical + logical)
+
+| Breech state | Retention stop | Why |
+|--------------|----------------|-----|
+| Open | **Engaged** | No tube capture; prevent any partial insert creep |
+| Closing / closed, not locked | **Engaged** | Rim not yet confirmed on sealing face |
+| `LOCKED_SEATED` | **Engaged** (default) | Safe until arm sequence complete |
+| `SEEKER_LOCKED` | **Disengaged** | All AND conditions met |
+| After fire, breech opened | **Engaged** | Spent tube drops; bore clear for reload |
+
+The breech **deadbolt** and retention **finger** solve different problems: deadbolt prevents block blow-open; finger prevents in-bore forward slide during carry.
+
 ### Failure modes
 
 | Failure | Symptom | Safe default |
@@ -252,6 +294,65 @@ flowchart TB
 ## Breech Mechanism
 
 Gustav **heritage** flip breech with RADR **spring bolt handle**, **unlock cam**, and **positive deadbolt**. Notional mechanical description — not production CAD.
+
+### Assembly overview (rear of launcher)
+
+The breech is a **rear-hinged flip block** that replaces the M1 Bazooka wire tailcap. Major pieces:
+
+1. **Breech block** — steel housing with **bore sealing face**, **recoilless vent passages**, and **rim contact pads**  
+2. **Hinge axis** — pin through launcher rear lugs; block swings **~90°** down for loading  
+3. **Bolt handle** — external lever on the right side of the block (mirrors bolt-action rifles visually)  
+4. **Handle return spring** — compression spring in the grip housing pushes handle **forward** when released  
+5. **Unlock cam** — internal plate tied to handle; lifts deadbolt when handle pulled **rearward**  
+6. **Deadbolt detent** — hardened pin or cam nose that drops into a **machined notch** in the launcher receiver when handle is forward  
+
+```mermaid
+flowchart LR
+  Handle[BoltHandle] --> UnlockCam[UnlockCam]
+  UnlockCam -->|pull_rearward| DeadboltUp[Deadbolt_Clear]
+  DeadboltUp --> Swing[Block_Swings_on_Hinge]
+  Swing --> Close[SealingFace_Mates_Rim]
+  Close --> Release[Handle_Released_Forward]
+  Release --> DeadboltSnap[Deadbolt_Drops_into_Notch]
+```
+
+### How the spring-loaded bolt works
+
+| Phase | Handle position | Internal mechanics |
+|-------|-----------------|-------------------|
+| **Locked (carry/fire-ready)** | Handle **full forward** against receiver stop | Deadbolt engaged in notch; unlock cam relaxed; block cannot pivot |
+| **Unlock (gunner pull)** | Handle moves **15–25 mm aft** against spring | Unlock cam rotates; cam face lifts deadbolt **~2–3 mm** clear of notch; pivot unlocked |
+| **Open** | Handle held aft or released mid-swing | Block rotates on hinge; **open detent** ball catches block at ~90° |
+| **Close** | Gunner swings block up | Sealing face approaches tube rim; alignment taper guides rim |
+| **Re-lock** | Gunner releases handle | Return spring drives handle forward; deadbolt rolls/slides into notch with **audible snap** |
+
+The gunner **never** rotates a separate safety tab — the **bolt handle is the primary manual safety** for breech opening, similar in muscle memory to a rifle bolt.
+
+### How the breech locks when closed
+
+Locking is **mechanical positive stop**, not friction alone:
+
+| Lock element | Function |
+|--------------|----------|
+| **Deadbolt into receiver notch** | Prevents block from pivoting open under launch pressure or sling bumps |
+| **Sealing face compression** | O-ring or crush gasket line on tube rim — gas seal for recoilless event |
+| **Rim electrical contacts** | Spring pins wipe on tube rim only when fully seated |
+| **Pressure port** | Transducer sees bore pressurization only when tube seals |
+
+Until the deadbolt snaps, the fire-control treats the weapon as **not seated** (`CLOSING` state). Seeker power and retention release remain blocked.
+
+### User feel (bolt-action style)
+
+| Sensation | Meaning for the gunner |
+|-----------|------------------------|
+| **Spring resistance** on first pull | You are defeating the return spring — not yet open |
+| **Small click** mid-travel | Deadbolt cleared — block is free to swing |
+| **Detent at full open** | Hands-free loading — block stays up |
+| **Solid thunk on close** | Sealing face met rim — alignment good |
+| **Sharp snap on handle release** | Deadbolt locked — same certainty as a rifle bolt closing |
+| **No snap** | Do not arm — check seating; retention stop stays engaged |
+
+The intended emotional model: **“closed” is not enough — “snapped” is closed.**
 
 ### Operating principle
 

@@ -182,7 +182,7 @@ Visual intent: [visuals/README.md](../visuals/README.md). Concept art (Goodmk60)
 
 ### Rocket Retention Stop
 
-A **spring-biased radial bore finger** bears on the protective tube aft shoulder and blocks forward slide during sling carry and movement. The stop **disengages** only when the breech is deadbolt-locked, the gunner holds the **front trigger**, and the seeker outputs **steady lock tone**. Releasing the front trigger **re-engages** the stop immediately. The **rear trigger never** retracts the stop.
+A **spring-biased radial bore finger** in the lower bore wall bears on the protective tube **aft shoulder** and blocks **forward slide** toward the muzzle during sling carry. The breech sealing face holds the tube rearward; the finger is the anti-creep element. The stop **disengages** only when: breech **deadbolt-locked**, gunner holds **front trigger**, and seeker outputs **steady lock tone** — then a **release cam** retracts the finger **~2–4 mm** flush to the bore. Releasing the front trigger **re-engages** immediately. The **rear trigger never** drives the stop.
 
 | State | Retention stop |
 |-------|----------------|
@@ -196,9 +196,9 @@ Full mechanism and causality table: [Annex F § Rocket Retention Stop](../annexe
 
 ### Breech (Summary)
 
-**Gustav-style flip block** on a rear hinge (~90° open). Pull the **spring-return bolt handle** to clear a **deadbolt**; swing open; insert tube; close; **release** handle for **deadbolt snap** and `SEATED` confirm. Positive mechanical lock — bolt-action feel — before seeker or retention release.
+**Gustav-style flip block** on a rear hinge (~90° open). Pull the **spring-return bolt handle** **15–25 mm** aft — **unlock cam** lifts the **deadbolt**; swing open on detent; insert tube; close; **release** handle so the return spring drives the deadbolt into the receiver notch with an audible **snap**. That snap is the positive lock (bolt-action feel). `SEATED` confirm via pressure + rim contacts gates seeker and retention logic.
 
-Full operating principle, components, and state machine: [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
+Full mechanical detail (bolt kinematics, lock elements, user feel): [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
 
 ### Integrated Sight, Fold-Out Viewer, and Controls
 
@@ -258,7 +258,7 @@ At **1000 m**, a **~0.4 m** drone is ~**1.4 arcmin** at 1× — edge of vision. 
 | Structure, fins, canards | 0.20 |
 | **Total** | **3.10** |
 
-Detail and CG: [Annex G](../annexes/G-mass-and-center-of-gravity.md).
+Component-level mass budget, axial distribution, and CG sensitivity: [Annex G](../annexes/G-mass-and-center-of-gravity.md).
 
 ---
 

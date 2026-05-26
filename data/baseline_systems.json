@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.7.0: Mid-range framing; Annex I performance, J warhead; expanded F/G; one-pager and pitch deck."
+    "notes": "v1.7.1: Expanded breech/retention mechanical detail and rocket mass/CG budget in Annex F/G."
   },
   "primary_threats": [
     {

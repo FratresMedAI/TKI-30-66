@@ -34,11 +34,13 @@ This annex is the **authoritative** reference for breech mechanics, the rocket r
 |---------|----------|-----------|
 | **Front trigger** | Powers seeker search; **steady audible tone** = target lock / ready | Retention stop **disengages** only while front is held **and** tone is active |
 | **Rear trigger** | Initiates launch (motor ignition) | **Blocked** until lock tone; **blocked** if front trigger released; **never** operates retention stop |
-| **Zoom + / −** | Steps holo **1.5× → 4×** on fold-out viewer | On **aft face** of forward foregrip (buttons face rear) |
+| **Zoom + / −** | **Smooth continuous 1×–20×** on fold-out display (digital sight) | On **aft face** of forward foregrip (buttons face rear); wired to sight + screen |
 
 **Trigger form (locked):** Both triggers use the same **curved pistol-style trigger and guard**. The **front (foregrip) trigger is the same design, scaled slightly smaller** than the rear fire trigger.
 
 **Support-hand ergonomics (right-handed gunner):** **Left index finger** on the front seeker trigger; **left thumb** on **+ / −** on the aft face of the foregrip — zoom without shifting the firing-hand grip on the rear pistol grip.
+
+**Sighting (locked):** **Digital camera-style** sight — not a traditional look-down optic. Gunner uses the **fold-out display** at arm’s length (**RPG-style shouldering**); **no cheek weld** required. **Front trigger** = seeker + tone · **Rear trigger** = fire (front held + tone).
 
 **Shoulder bar (locked):** **~12 mm** rod; hinge on **forward black sleeve**; [stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed 12→6](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png). Recoil shared with motor + grips + launcher body. **Shoulder-fired.**
 
@@ -62,7 +64,7 @@ Seven phases from the gunner’s perspective. Each phase lists what you do, what
 
 | | |
 |--|--|
-| **Gunner action** | Pull off the **ravioli-can style protective tube** pull-tab cap; visually inspect seeker dome and tube mouth. |
+| **Gunner action** | Pull off the **alloy protective tube** pull-tab cap; visually inspect seeker dome and tube mouth. |
 | **Hear / feel** | Cap separates cleanly; no tools. |
 | **System response** | Round exposed **outside** launcher; not yet in bore. |
 | **Interlock** | — |
@@ -126,7 +128,7 @@ Seven phases from the gunner’s perspective. Each phase lists what you do, what
 |------|--------|-------------------|--------|
 | 1 | Pull spring bolt handle; swing breech ~90° open | Breech holds open on detent | Stand in backblast cone |
 | 2 | Verify bore clear; eject spent tube if present | Empty bore | Load with cap on |
-| 3 | Pull-off cap from ravioli-can style protective tube | Dome and cube pack visible | Force cap; damage dome |
+| 3 | Pull-off cap from alloy protective tube | Dome and cube pack visible | Force cap; damage dome |
 | 4 | Slide tube into bore until fully home | Light detent feel | Slam tube; skip alignment |
 | 5 | Swing breech closed; release bolt handle | **Deadbolt snap** — positive lock | Close without full insert |
 | 6 | Wait for seat confirm (pressure + contacts) | Seat logic OK | Arm seeker if not seated |
@@ -201,7 +203,7 @@ Typical failure modes without a stop: tube creep toward muzzle on sling transiti
 |------|--------|
 | **Where** | Inside the **60 mm smoothbore**, in a **fixed pocket** in the lower bore wall, **forward of the breech sealing face** and **aft of the tube’s forward travel limit** |
 | **Orientation** | **Radial finger** — protrudes inward toward bore centerline (~2–3 mm intrusion at tip) |
-| **Contact** | Hardened pad bears on the **aft external shoulder** of the seated ravioli-can tube (the rim step just forward of the breech interface) |
+| **Contact** | Hardened pad bears on the **aft external shoulder** of the seated alloy tube (the rim step just forward of the breech interface) |
 | **Blocked motion** | **Forward translation** of the tube+rocket assembly along the bore (toward muzzle). Does **not** block rearward ejection when breech opens |
 | **Independent of** | Breech hinge angle (except interlock logic); rear trigger; launcher optics |
 
@@ -266,7 +268,7 @@ Opening the breech clears the mechanical load path; stop returns to **engaged** 
 ```mermaid
 flowchart TB
   subgraph bore [Bore_60mm]
-    Tube[RavioliCan_Tube_Rim]
+    Tube[AlloyTube_Rim]
     Finger[RetentionFinger]
   end
   subgraph breech [Breech_Closed]
@@ -414,7 +416,7 @@ The intended emotional model: **“closed” is not enough — “snapped” is 
 |------|-----------|--------|
 | **Unlock** | Gunner pulls **bolt handle** rearward (~15–25 mm) against a compression spring | **Unlock cam** lifts **deadbolt detent** off breech block |
 | **Open** | Block pivots **~90°** on rear **hinge axis** | Bore and recoilless vent exposed; detent holds block open |
-| **Load** | Ravioli-can style protective tube (cap removed) slides in until **rim seats** on **sealing face** | Tube aligned for contacts and pressure port |
+| **Load** | Alloy protective tube (cap removed) slides in until **rim seats** on **sealing face** | Tube aligned for contacts and pressure port |
 | **Close** | Block swung forward; sealing face mates tube rim | Bore closed mechanically |
 | **Lock** | Gunner **releases** handle; return spring drives handle forward | **Deadbolt cam** drops into machined detent — **positive stop** |
 | **Confirm** | Pressure transducer + rim electrical contacts | `SEATED` asserted — gates seeker and retention logic |
@@ -446,7 +448,7 @@ The breech cannot return to open until the gunner performs another deliberate **
 
 ### Heritage: M1 Bazooka and Carl-Gustaf
 
-RADR keeps the **long-tube, rear-load** operator model familiar from the **M1 Bazooka**, but replaces the WWII **wire rear cage** with a **compact flip block** and **deadbolt**. Loading follows the **Carl-Gustaf** pattern (open rear, insert round container, close, fire), but RADR uses a **sealed ravioli-can style protective tube** at **60 mm / 40 in** scale — not a bare HEAT round and not an 84 mm crew-served mass class.
+RADR keeps the **long-tube, rear-load** operator model familiar from the **M1 Bazooka**, but replaces the WWII **wire rear cage** with a **compact flip block** and **deadbolt**. Loading follows the **Carl-Gustaf** pattern (open rear, insert round container, close, fire), but RADR uses a **sealed alloy protective tube** at **60 mm / 40 in** scale — not a bare HEAT round and not an 84 mm crew-served mass class.
 
 ### Breech state machine
 
@@ -477,7 +479,7 @@ stateDiagram-v2
 
 1. **Unlock:** Pull bolt handle (compress return spring; unlock cam clears deadbolt).  
 2. **Open:** Swing block ~90° on hinge.  
-3. **Load:** Insert ravioli-can style protective tube (cap already removed).  
+3. **Load:** Insert alloy protective tube (cap already removed).  
 4. **Close:** Swing block to closed; sealing face mates rim.  
 5. **Lock:** Release handle; deadbolt cam engages — **snap**.  
 6. **Confirm:** Pressure + contacts → `SEATED`.  

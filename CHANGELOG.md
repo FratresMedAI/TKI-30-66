@@ -29,3 +29,9 @@
 ### Locked specs unchanged
 
 - **300 × 7 mm** @ **1000 m**; **330–350 m/s**; motor impulse **2950–3050 N·s**; launcher/round mass caps.
+
+## v1.8.1 — Digital sight (2026-05-25)
+
+- Replaced holographic **1.5×–4×** optic with **digital camera-style sight**, **smooth 1×–20×** zoom.
+- **+ / −** on foregrip wired to sight + fold-out display; **RPG-style shouldering** (no cheek weld).
+- Updated README, DOC-01/02/03/05/06, Annex F/G/I/J, `baseline_systems.json`, pitch deck draft.

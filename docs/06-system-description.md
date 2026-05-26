@@ -13,7 +13,7 @@ Engineering detail (authoritative mechanics in annexes): [Annex F — Breech & r
 **RADR** comprises:
 
 1. **Launcher** — 40 in reusable recoilless tube (≤ 5.5 kg empty), modernized M1 Bazooka ergonomics, Gustav flip breech, dual-trigger grips, **rocket retention stop**, no shoulder stock, slightly rear-biased CoG.  
-2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in **ravioli-can style protective tube**: IR seeker, **moderate-maneuver** canards, mildly progressive motor, **pyrotechnic-dispersed** dense alloy cube flak warhead.
+2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in an **alloy protective tube**: IR seeker, **moderate-maneuver** canards, mildly progressive motor, **pyrotechnic-dispersed** dense alloy cube flak warhead.
 
 ```mermaid
 flowchart LR
@@ -51,7 +51,7 @@ flowchart TB
     BreechBlock[FlipBreech_Closed]
     Vent[RecoillessVent_Rear]
   end
-  subgraph Tube [RavioliCan_Tube]
+  subgraph Tube [AlloyProtectiveTube]
     CapOff[CapRemoved]
     subgraph Rocket [Rocket_18in]
       Seeker[Seeker_100mm]
@@ -66,7 +66,7 @@ flowchart TB
   Vent --> VentNote[10yd_DangerZone]
 ```
 
-- **Ravioli-can style protective tube** is the factory shipping and launch container (soldier removes pull-off cap before load).  
+- **Alloy protective tube** is the factory shipping and launch container (soldier removes pull-off cap before load).  
 - **Rocket** rides inside the tube; tube rim mates **breech sealing face** and **rim contacts**.  
 - On fire, motor exhaust vents **rear** through launcher — not a closed-bore cannon.
 
@@ -126,7 +126,7 @@ flowchart LR
   Fired[MotorBurns_RocketLeaves] --> Vent[Backblast_10yd]
   Vent --> Open[GunnerOpensBreech]
   Open --> Drop[SpentTube_DropsOut]
-  Drop --> Reload[Next_RavioliCan]
+  Drop --> Reload[Next_AlloyTube]
 ```
 
 ---
@@ -155,14 +155,15 @@ flowchart LR
 | Mass (empty) | ≤ 5.5 kg (nominal **4.95 kg** — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
 | Bore | 60 mm smoothbore (baseline) |
 | Layout | Modernized **M1 Bazooka** — long slim tube; **no fixed shoulder stock** |
-| Grips | Forward vertical foregrip (between muzzle and sight) with **pistol-style seeker trigger**; **rear pistol grip just aft of holo** (fire trigger) |
+| Grips | Forward vertical foregrip (between muzzle and sight) with **pistol-style seeker trigger** and **+ / −** zoom; **rear pistol grip** just aft of sight module (fire trigger) |
 | **Shoulder bar** | **6 in** thin rod; hinge on **forward black sleeve**; [stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png) |
 | Padding | Rear section only (**aft of rear grip** → breech) |
-| Sight | Integrated holo **1.5×–4×** + fold-out **~4 in** viewer |
-| Zoom control | **+ / −** on **aft face** of foregrip (buttons face rear) |
-| Launcher power | Grip battery — holo, display, fire-control |
+| Sight | Integrated **digital camera-style** sight; **smooth 1×–20×** zoom |
+| Display | Fold-out **~4 in** panel — wired to sight (not a look-down optic) |
+| Zoom control | **+ / −** on **aft face** of foregrip — smooth zoom, same handle bus as display |
+| Launcher power | Grip battery — sight, display, zoom, fire-control |
 | Finish | Matte tactical camo (non-reflective) |
-| Round | Ravioli-can style tube; soldier removes **manual pull-off cap** before load |
+| Round | Alloy protective tube; soldier removes **manual pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
 | Triggers | **Front:** same curved pistol trigger as rear, **slightly smaller** — seeker + **audible lock tone** · **Rear:** fire (front held) |
 | **Retention stop** | Mechanical bore stop — see below |
@@ -191,7 +192,7 @@ Optional **shoulder support** — not a fixed stock. The bar is one part of a **
 |-------|----------|
 | **Stowed** | **~12 mm** rod **flush** in sleeve channel — [authoritative stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) |
 | **Deployed** | **12→6** vertical — [authoritative deployed](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png) |
-| **Firing** | **Shoulder-fired** baseline — bar against shoulder or upper chest; cheek may contact rear pad. **Not** a hip-fire employment mode |
+| **Firing** | **Shoulder-fired** baseline — bar against shoulder or upper chest; **RPG-style** aim on fold-out display at arm’s length. **No cheek weld** required. **Not** hip-fire |
 
 Cross-section stays **soft and rounded** (same diamond pad texture as the rear wrap) — no sharp corners or add-on end stopper.
 
@@ -215,37 +216,43 @@ Full mechanism and causality table: [Annex F § Rocket Retention Stop](../annexe
 
 Full mechanical detail (bolt kinematics, lock elements, user feel): [Annex F § Breech Mechanism](../annexes/F-employment-and-breech.md#breech-mechanism).
 
-### Integrated Sight, Fold-Out Viewer, and Controls
+### Digital Sight, Fold-Out Display, and Controls (Locked)
 
 | Element | Baseline |
 |---------|----------|
-| **Optics module** | Low-profile **variable holo/optics pod** (**1.5×–4×**) **integrated** on the tube — not a rail-mounted aftermarket sight |
-| **Fold-out viewer** | **~4 in (102 mm) wide** panel on a side hinge; **stowed:** folds **flush** against the tube — **bottom edge aligned with bottom of holo pod** (no step, no overhang) |
-| **Display** | Panel shows the holo/optics picture + reticle when **deployed** (~barrel-height swing out) |
-| **Zoom** | **+** and **−** on the **aft-facing (rear) face** of the forward foregrip — buttons face rear; right-handed gunner uses **left index** on front trigger, **left thumb** on zoom — steps through **1.5× → 4×** (default **1.5×** on power-up) |
-| **Battery** | Rechargeable cell in the **pistol grip** powers holo, display, zoom logic, triggers, and tone |
-| **Round seeker** | **100 mm IR F&F** on the rocket; powered via **rim contacts** when seated — **seeker lock** at endgame, not the launcher camera |
+| **Sight sensor** | **Digital camera-style** module on the tube — **not** a traditional holographic or look-down optic |
+| **Magnification** | **Smooth continuous zoom 1×–20×** (software-driven; no stepped detents) |
+| **Fold-out display** | **~4 in (102 mm)** panel on a side hinge; **stowed:** flush against tube — bottom edge aligned with sight housing |
+| **Wiring** | Sight sensor, display, and foregrip **+ / −** share one integrated launcher AV bus (same handle cluster) |
+| **Zoom** | **+** and **−** on the **aft face** of the forward foregrip; right-handed gunner: **left index** on front trigger, **left thumb** on zoom |
+| **Battery** | Rechargeable cell in **pistol grip** powers sight, display, zoom, triggers, and tone |
+| **Round seeker** | **100 mm IR F&F** on the rocket via rim contacts — **lock tone** = round seeker, not launcher video |
+
+#### RPG-style shouldering (not precision rifle optics)
+
+| Principle | RADR approach |
+|-----------|----------------|
+| **Sight picture** | Glance at **fold-out display** at **arm’s length** while shouldering — like **RPG / Bazooka** rough aim |
+| **Cheek weld** | **Not required** — gunner may use rear pad for comfort but aiming does not depend on it |
+| **Traditional optic** | **Rejected** — no squinting through a small glass channel at 1000 m |
+| **Front / rear triggers** | **Front** = seeker power + **audible lock tone** (retention releases) · **Rear** = fire only with front held + tone |
 
 #### Stowed vs. deployed
 
 | State | Configuration |
 |-------|----------------|
-| **Carry / sling** | Viewer **folded flush** — panel face against tube; **lower edge coplanar with holo housing lower edge** |
-| **Engage** | Flip viewer out on hinge; bottom was flush with holo baseline — panel swings out to viewing angle |
-| **Fire** | Hold front trigger for seeker tone while keeping threat in view on panel; rear trigger when tone steady |
+| **Carry / sling** | Display **folded flush** — panel coplanar with sight housing lower edge |
+| **Engage** | Flip display out; dial **+ / −** to frame threat (**1×** wide search → **up to 20×** for small UAS at range) |
+| **Fire** | Hold **front trigger** for tone while keeping threat on screen; **rear trigger** when tone steady |
 
-#### Why fold-out + foregrip zoom (not 40×, not rail scope)
+#### Why digital 1×–20× + fold-out (KISS)
 
-- **4 in panel** gives a **stable view** at arm’s length — easier than squinting through a tiny optic at 1000 m.  
-- **1.5×–4×** stays inside **rough-aim + seeker FOV** discipline (~2–4° notional seeker cone).  
-- **Foregrip + / −** on the **aft face** keeps zoom on the **support-hand thumb** while the **index finger** stays on the seeker trigger — no grip shift on the firing hand.  
-- **Not** the rocket IR feed on the screen pre-lock — launcher optics only. **Lock tone** = round seeker; avoids wiring/video from disposable round.
+- **1×** supports quick acquisition and peripheral context at arm’s length.  
+- **Smooth zoom to 20×** helps identify small Group 1–2 UAS out to the **1000 m** goal without a rail-mounted scope stack.  
+- **Foregrip + / −** keeps zoom on the **support hand**; firing hand stays on rear grip.  
+- **Not** rocket IR video on the launcher display pre-lock — **lock tone** still comes from the **round seeker** (disposable round, simple interface).
 
-#### Human eye vs. mag (unchanged rationale)
-
-At **1000 m**, a **~0.4 m** drone is ~**1.4 arcmin** at 1× — edge of vision. **4×** on the panel ≈ **5.5 arcmin** — enough to **center the reticle** before seeker search. Rotor detail still comes from **IR seeker**, not the holo.
-
-**KISS boundary:** No 40× optical stack; no seeker video on launcher display until a future variant. Panel + holo + grip battery stay one integrated launcher subsystem.
+**KISS boundary:** One integrated sight + display subsystem; no seeker feed on launcher screen until a future variant.
 
 ---
 

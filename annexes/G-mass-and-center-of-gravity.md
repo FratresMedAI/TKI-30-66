@@ -65,7 +65,7 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 | Main tube (60 mm bore, 40 in) | 2.55 | Includes **~0.20 kg** muzzle brake / blast deflector forward fitting |
 | Breech block + hinge + deadbolt | 0.90 | Gustav-class steel |
 | Triggers, contacts, pressure sensor | 0.30 | Grip electronics |
-| Foregrip, holo, fold-out viewer, seeker trigger, zoom buttons | 0.72 | Split from legacy single “grips” row |
+| Foregrip, digital sight, fold-out display, seeker trigger, zoom **+ / −** | 0.72 | Wired sight + screen on foregrip handle |
 | Rear pistol grip, pad, grip battery | 0.33 | Firing hand + FC power |
 | **Shoulder bar + hinge** (forward black sleeve) | **0.06** | ~12 mm rod; [SHOULDER-BAR-SPEC](../visuals/launcher/SHOULDER-BAR-SPEC.md) |
 | **Retention stop + release cam** | **0.04** | Launcher-only — not round mass |

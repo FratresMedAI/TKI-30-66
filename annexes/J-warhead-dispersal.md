@@ -132,7 +132,7 @@ sequenceDiagram
 
 - One primary proximity path per round (radar **or** mm-wave — engineering down-select).  
 - No command link, no midcourse retarget of burster.  
-- No launcher video of cube pattern — gunner uses holo + tone only pre-launch.
+- No launcher video of cube pattern — gunner uses **digital sight display** + **lock tone** only pre-launch.
 
 ---
 

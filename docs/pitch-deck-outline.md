@@ -24,7 +24,7 @@
 
 ## Slide 3 — System overview
 
-- **Reusable launcher** (40 in, ≤ 5.5 kg) + **sealed round** in ravioli-can tube (≤ 3.5 kg)  
+- **Reusable launcher** (40 in, ≤ 5.5 kg) + **sealed round** in alloy tube (≤ 3.5 kg)  
 - **IR fire-and-forget** + moderate canards  
 - **Cube flak** — not a rod, not beam-riding  
 - Diagram: launcher + round block diagram (from DOC-06 mermaid)  
@@ -71,7 +71,7 @@
 ## Slide 8 — Mass and ergonomics
 
 - System **8.05 kg** nominal loaded · one-person reload  
-- Rear-biased CG · holo + fold-out viewer · foregrip zoom  
+- Rear-biased CG · digital sight 1×–20× · fold-out display · foregrip + / −  
 - Forward **muzzle brake / blast deflector**  
 - Ref: [Annex G](../annexes/G-mass-and-center-of-gravity.md)  
 

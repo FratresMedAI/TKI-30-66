@@ -10,9 +10,9 @@
 
 **RADR** (Recoilless Anti-Drone Rocket) is a lightweight, reusable **60 mm** shoulder-fired **recoilless** **mid-range drone destroyer** for **squad and SOF**. It prioritizes **speed-to-target**, **reliability**, **KISS**, and **one-person reload** over high off-boresight agility or launcher-tracked guidance.
 
-The round is an **18-inch (457 mm)** rocket (target **≤ 3.5 kg**) in a **ravioli-can style protective tube** (manual pull-off cap removed on load). Payload: **300 × 7 mm** dense alloy rough-edged cubes dispersed by a **pyrotechnic dispersal charge** in a **forward-biased cone** (~**10–12 ft** wide at **~20 ft**). **100 mm IR fire-and-forget** seeker with **moderate-maneuver nose canards**. **Radar or millimeter-wave proximity fuze** (timed backup). **Mildly progressive** solid motor: **2950–3050 N·s**, **~3.3 s** burn, **750–850 N** initial → **1050–1150 N** peak, **~330–350 m/s** at **1000 m**.
+The round is an **18-inch (457 mm)** rocket (target **≤ 3.5 kg**) in an **alloy protective tube** (manual pull-off cap removed on load). Payload: **300 × 7 mm** dense alloy rough-edged cubes dispersed by a **pyrotechnic dispersal charge** in a **forward-biased cone** (~**10–12 ft** wide at **~20 ft**). **100 mm IR fire-and-forget** seeker with **moderate-maneuver nose canards**. **Radar or millimeter-wave proximity fuze** (timed backup). **Mildly progressive** solid motor: **2950–3050 N·s**, **~3.3 s** burn, **750–850 N** initial → **1050–1150 N** peak, **~330–350 m/s** at **1000 m**.
 
-The launcher is **40 in**, **≤ 5.5 kg** empty, **Gustav-style flip breech**, dual triggers, **rocket retention stop**, **fold-down rounded shoulder bar** (stows flush; deploys **12→6**), integrated holo + fold-out viewer — **no fixed shoulder stock**, **slightly rear-biased** CoG.
+The launcher is **40 in**, **≤ 5.5 kg** empty, **Gustav-style flip breech**, dual triggers, **rocket retention stop**, **fold-down rounded shoulder bar** (stows flush; deploys **12→6**), integrated **digital sight (1×–20× smooth zoom)** + fold-out display — **RPG-style shouldering**, **no fixed shoulder stock**, **slightly rear-biased** CoG.
 
 ---
 
@@ -38,7 +38,7 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 |-----------|-------------|
 | **Speed-to-target** | Primary defense against evasion |
 | **Moderate-maneuver guidance** | Rough aim + IR lock + nose-canard trim — not high OBA |
-| **KISS + rugged** | Ravioli-can tube; flip breech; dual-trigger |
+| **KISS + rugged** | Alloy tube; flip breech; dual-trigger |
 | **Safety in depth** | Retention stop, breech lock, dual-trigger interlocks |
 | **Mid-range flak** | Pyrotechnic dispersal → forward kill cone of cubes |
 | **Honest** | 1000 m and Pk are goals until live fire |
@@ -61,18 +61,18 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 | Motor | Mildly progressive; **2950–3050 N·s**; **~3.3 s**; **750–850 → 1050–1150 N**; **330–350 m/s** @ 1000 m |
 | Range | **1000 m** effective (goal) |
 | Backblast | **≤ 10 yd (30 ft)** |
-| Tube | **Ravioli-can style** + pull-off cap on load |
+| Tube | **Alloy protective tube** + pull-off cap on load |
 | Breech | Gustav flip + spring bolt + positive lock |
 | Controls | Front = seeker/tone; rear = fire (front held) |
 | Retention stop | Engaged unless closed breech + front held + lock tone |
 | CoG | Slightly rear-biased |
-| Sight | Holo **1.5×–4×**; fold-out **~4 in** viewer; foregrip **+ / −** |
+| Sight | **Digital cam sight**; **smooth 1×–20×**; fold-out **~4 in** display; foregrip **+ / −** (wired) |
 
 ---
 
 ## Launcher Concept (Locked Silhouette)
 
-Modernized **M1 Bazooka**: **40 in** matte multicam tube; **forward foregrip** (pistol-style seeker trigger, smaller than rear; zoom **+ / −** on aft face); **rear pistol grip**; padding grip→breech only; **integrated holo** feeding **fold-out ~4 in** viewer (stows flush, bottom even with holo pod).
+Modernized **M1 Bazooka**: **40 in** matte multicam tube; **forward foregrip** (seeker trigger + **+ / −** zoom wired to sight/display); **rear pistol grip**; padding grip→breech only; **integrated digital sight** feeding **fold-out ~4 in** display (stows flush). **RPG-style** aim — no cheek weld.
 
 ![Launcher — shoulder bar stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png)
 

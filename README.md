@@ -5,7 +5,7 @@
 **RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** — a **mid-range drone destroyer** that emphasizes **speed-to-target**, **simplicity (KISS)**, **reliability**, and **one-person reload**. It engages **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones) as a **mid-range counter-UAS** weapon when machine guns fall short and SAM is too heavy to allocate.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.8.0
+**Version:** 1.8.1
 
 ## Launcher concept art
 
@@ -19,11 +19,11 @@ Thin **~6 in** fold-down bar on the forward black sleeve; **visible hinge**; no 
 
 ## Core Vision
 
-The gunner **rough-aims** on a fold-out viewer fed by an integrated holo (**1.5×–4×**). Holding the **front trigger** powers the round’s **100 mm IR fire-and-forget** seeker and yields a **steady lock tone**; the **rocket retention stop** disengages only then. **Pulling the rear trigger** (while holding front) launches the **18-inch** round from a **ravioli-can style protective tube**. A **mildly progressive** solid motor drives closure to **~330–350 m/s** at **1000 m**. **Moderate-maneuver nose canards** trim the flight path; **four swept spring-loaded fins** deploy at exit and **mechanically lock** open. At **~20 ft**, **radar or millimeter-wave proximity** (with **timed backup**) fires a **pyrotechnic dispersal charge** that throws **300 × 7 mm** rough-edged dense alloy cubes in a **forward-biased cone** (~**10–12 ft** wide). The cubes kill — not a kinetic rod.
+The gunner **rough-aims** on a fold-out **display** fed by an integrated **digital camera-style sight** (**smooth 1×–20× zoom** via foregrip **+ / −**). **RPG-style shouldering** — arm’s-length view on the panel; **no cheek weld** or perfect sight picture required. Holding the **front trigger** powers the round’s **100 mm IR fire-and-forget** seeker and yields a **steady lock tone**; the **rocket retention stop** disengages only then. **Pulling the rear trigger** (while holding front) launches the **18-inch** round from an **alloy protective tube**. A **mildly progressive** solid motor drives closure to **~330–350 m/s** at **1000 m**. **Moderate-maneuver nose canards** trim the flight path; **four swept spring-loaded fins** deploy at exit and **mechanically lock** open. At **~20 ft**, **radar or millimeter-wave proximity** (with **timed backup**) fires a **pyrotechnic dispersal charge** that throws **300 × 7 mm** rough-edged dense alloy cubes in a **forward-biased cone** (~**10–12 ft** wide). The cubes kill — not a kinetic rod.
 
 **Philosophy:** Speed is the primary defense · KISS + rugged · One-person reload · Honest capability ceiling.
 
-**Launcher:** Modernized **M1 Bazooka** — **40 in** tube (≤ **5.5 kg** empty), matte camo, **Gustav-style flip breech** (spring bolt + positive deadbolt lock), **dual pistol-style triggers** (rear grip **just aft of holo**; front slightly smaller; **+ / −** on foregrip aft face), **6 in fold-down shoulder bar** (slim **rounded** pad, stows **flush** on barrel; deploys **12→6** vertical — **no add-on end cap**), **no fixed shoulder stock**, **slightly rear-biased** balance.
+**Launcher:** Modernized **M1 Bazooka** — **40 in** tube (≤ **5.5 kg** empty), matte camo, **Gustav-style flip breech** (spring bolt + positive deadbolt lock), **dual pistol-style triggers** (rear grip **just aft of sight module**; front slightly smaller; **+ / −** zoom on foregrip aft face, wired to sight + display), **6 in fold-down shoulder bar** (slim **rounded** pad, stows **flush** on barrel; deploys **12→6** vertical — **no add-on end cap**), **no fixed shoulder stock**, **slightly rear-biased** balance.
 
 ---
 
@@ -60,13 +60,13 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | **Motor** | Mildly progressive solid; **2950–3050 N·s**; **~3.3 s**; **750–850 N** → **1050–1150 N** peak; **~330–350 m/s** @ 1000 m | Locked |
 | **Range goal** | **1000 m** effective | Locked |
 | **Backblast** | **≤ 10 yards (30 ft)** | Locked |
-| **Protective tube** | **Ravioli-can style** robust tube + **manual pull-off cap** (soldier removes on load) | Locked |
+| **Protective tube** | **Alloy** robust tube + **manual pull-off cap** (soldier removes on load) | Locked |
 | **Breech** | **Gustav-style flip**; spring-loaded bolt + **positive mechanical lock** (bolt-action feel) | Locked |
 | **Controls** | **Front** = seeker + audible tone; **rear** = fire (front held) | Locked |
 | **Shoulder bar** | **6 in** thin rod; hinge on **forward black sleeve**; [stowed](visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed](visuals/launcher/output/radr-bazooka-authoritative-deployed.png) | Locked |
 | **CoG** | **Slightly rear-biased** (comfortable shouldering) | Locked |
 | **Rocket retention stop** | Bore stop when slung; releases only: breech closed + front held + lock tone | Locked |
-| **Sight / power** | Integrated holo **1.5×–4×**; fold-out **~4 in** viewer; grip battery | Locked |
+| **Sight / power** | Integrated **digital cam sight**; **smooth 1×–20×** zoom (**+ / −** on foregrip); fold-out **~4 in** display; grip battery | Locked |
 
 ---
 
@@ -85,7 +85,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 ## Operational Sequence (Locked)
 
 1. **Open breech** — pull spring-loaded bolt handle and swing breech open  
-2. **Remove cap** from ravioli-can style protective tube  
+2. **Remove cap** from alloy protective tube  
 3. **Insert tube** into launcher bore until seated  
 4. **Close breech** — release bolt handle; breech **auto-locks** (deadbolt snap)  
 5. **Hold front trigger** — seeker activates; **audible lock tone**; retention stop **disengages**  

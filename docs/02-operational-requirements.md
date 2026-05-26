@@ -49,9 +49,11 @@ The system shall be designed to engage:
 | Motor | Evolution Space propellant; **mildly progressive** burn (**750–850 N** first **1–2 s**, ramp to **1050–1150 N**); **2950–3050 N·s**; **~3.3 s** | Locked |
 | Range | ≥ 800 m | **1000 m** effective |
 | Backblast | ≤ 10 yd (30 ft) | Locked |
-| Tube | **Ravioli-can style** protective tube; pull-off cap | Locked |
+| Tube | **Alloy** protective tube; pull-off cap | Locked |
 | Breech | Gustav flip + positive lock | Locked |
-| Controls | Dual-trigger + lock tone | Locked |
+| Controls | Dual-trigger + lock tone; **front** = seeker/tone, **rear** = fire | Locked |
+| Sight | **Digital cam sight**; **smooth 1×–20×**; **+ / −** on foregrip; fold-out display | Locked |
+| Sighting | **RPG-style shouldering**; display at arm’s length; **no cheek weld** | Locked |
 | CoG | Rear-biased | Locked |
 | Rocket retention stop | Engaged when not armed; releases per interlock table | Locked |
 | One-person reload | Required | — |

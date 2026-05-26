@@ -17,7 +17,7 @@ Squad and SOF need a **mid-range drone destroyer** between a machine gun and a S
 - **Gustav flip breech** · dual-trigger · **rocket retention stop**  
 
 **What it looks like**  
-Modernized **M1 Bazooka** — holo + fold-out viewer, pistol-style dual triggers, foregrip **+ / −**.
+Modernized **M1 Bazooka** — digital sight **1×–20×** + fold-out display, pistol-style dual triggers, foregrip **+ / −** zoom.
 
 https://github.com/FratresMedAI/RADR-mk.60
 

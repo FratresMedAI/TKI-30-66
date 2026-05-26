@@ -20,9 +20,10 @@
 | Motor | **Evolution Space propellant; mildly progressive grain** | **2950–3050 N·s**, low initial thrust, **330–350 m/s** @ 1000 m |
 | Caliber | **60 mm** | Payload + motor + seeker balance |
 | Launcher | **40 in M1 Bazooka layout + Gustav breech** | Familiar silhouette; reload; 10 yd backblast |
-| Round | **Ravioli-can style tube + pull cap** | Rugged field handling |
+| Round | **Alloy protective tube + pull cap** | Rugged field handling |
 | Fins | **Spring deploy + mechanical lock** | Stable boost phase |
 | Controls | **Dual-trigger + tone** | Safe seeker/arm sequence |
+| Sight | **Digital cam 1×–20× smooth zoom** + fold-out display | RPG-style rough aim; not holo / look-down optic |
 | Carry safety | **Rocket retention stop** | Mechanical anti-slide when slung; releases only when armed |
 
 ---

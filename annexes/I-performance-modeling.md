@@ -166,7 +166,7 @@ From `radr_trajectory.py` (`run_sensitivity`) — Δ velocity @ **1000 m** vs no
 
 ## Open Questions
 
-- Loft angle field variation (2–5°) vs. holo aim — TOF and intercept velocity spread.  
+- Loft angle field variation (2–5°) vs. display-based rough aim — TOF and intercept velocity spread.  
 - Fin deploy transient: step CdA not time-resolved in script.  
 - Sea-level \(\rho\) only — altitude/temperature not modeled.  
 - 1200 m / 275-cube closure requires live-fire or 6-DOF before any KPP change.

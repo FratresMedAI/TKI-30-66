@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.8.0",
+    "version": "1.8.1",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.8.0: Trajectory script, performance model sync, mass/CG depth, motor/warhead annexes, mechanical polish."
+    "notes": "v1.8.1: Digital cam sight 1x-20x smooth zoom; RPG-style shouldering. v1.8.0: trajectory, mass/CG, annex depth."
   },
   "primary_threats": [
     {
@@ -87,7 +87,7 @@
       "ramp": "increasing_to_terminal_velocity"
     },
     "round_packaging": {
-      "type": "ravioli_can_style_protective_tube",
+      "type": "alloy_protective_tube",
       "description": "robust_sealed_shipping_and_launch_container",
       "cap": "manual_pull_off",
       "removed_by": "soldier_during_loading"
@@ -227,27 +227,43 @@
       "forward_grip": "vertical_foregrip_aft_of_muzzle_before_sight",
       "rear_grip": {
         "type": "pistol_grip_with_fire_trigger",
-        "position": "just_aft_of_integrated_holo_sight"
+        "position": "just_aft_of_integrated_digital_sight_module"
       },
       "padding": "rear_only_aft_of_rear_grip_to_breech",
-      "sight": "integrated_holographic_pod_1.5x_to_4x",
-      "sight_magnification": { "min": 1.5, "max": 4.0, "unit": "x" },
+      "sight": "integrated_digital_cam_sight_smooth_zoom_1x_to_20x",
+      "sight_type": "digital_camera_style_not_traditional_look_down_optic",
+      "sight_magnification": {
+        "min": 1.0,
+        "max": 20.0,
+        "unit": "x",
+        "zoom_type": "smooth_continuous",
+        "default_on_power_up": 1.0
+      },
       "viewfinder": {
         "type": "fold_out_lcd_panel",
         "width_in": 4,
         "width_mm": 102,
         "stowed": "flush_against_tube",
-        "stowed_alignment": "panel_bottom_edge_even_with_holo_pod_bottom",
-        "deployed_height": "approx_barrel_od"
+        "stowed_alignment": "panel_bottom_edge_even_with_sight_housing_bottom",
+        "deployed_height": "approx_barrel_od",
+        "feed": "wired_digital_sight_same_handle_as_zoom_buttons"
       },
       "zoom_controls": {
         "location": "forward_foregrip_aft_face",
         "button_orientation": "faces_rear",
         "buttons": ["plus", "minus"],
+        "function": "smooth_continuous_zoom_1x_to_20x",
+        "wired_to": ["digital_sight_sensor", "fold_out_display"],
         "support_hand_ergonomics": "right_handed_gunner_left_index_on_front_trigger_left_thumb_on_zoom"
       },
-      "display_feed": "launcher_holo_optics_module",
-      "launcher_battery": "pistol_grip_cell_powers_sight_and_fire_control",
+      "sighting_employment": {
+        "style": "rpg_style_shouldering",
+        "cheek_weld_required": false,
+        "perfect_sight_picture_required": false,
+        "notes": "Gunner views threat on fold-out display at arm's length; shoulder bar + grips share recoil"
+      },
+      "display_feed": "launcher_digital_sight_sensor",
+      "launcher_battery": "pistol_grip_cell_powers_sight_display_zoom_and_fire_control",
       "finish": "matte_tactical_camo",
       "forward_device": {
         "type": "muzzle_brake_blast_deflector_combined",
@@ -426,7 +442,7 @@
         { "id": "main_tube", "mass_kg": 2.50, "cg_mm": 600 },
         { "id": "breech_hinge_deadbolt", "mass_kg": 0.90, "cg_mm": 720 },
         { "id": "triggers_sensors", "mass_kg": 0.30, "cg_mm": 480 },
-        { "id": "foregrip_sight_viewer", "mass_kg": 0.72, "cg_mm": 380 },
+        { "id": "foregrip_digital_sight_display", "mass_kg": 0.72, "cg_mm": 380, "note": "Foregrip, 1-20x digital sight, fold-out display, zoom +/- " },
         { "id": "rear_grip_pad_battery", "mass_kg": 0.33, "cg_mm": 650 },
         { "id": "shoulder_bar_hinge", "mass_kg": 0.06, "cg_mm": 200, "note": "Forward black sleeve, 6 in deploy" },
         { "id": "retention_stop_cam", "mass_kg": 0.04, "cg_mm": 420 },
@@ -476,7 +492,7 @@
       "breech": "gustav_flip_spring_bolt_positive_lock",
       "rocket_retention_stop": true,
       "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",
-      "round_packaging": "ravioli_can_style_tube_pull_off_cap",
+      "round_packaging": "alloy_tube_pull_off_cap",
       "primary_role": "squad_sof_mid_range_drone_destroyer",
       "typical_targets": [
         "fpv_kamikaze_drone",

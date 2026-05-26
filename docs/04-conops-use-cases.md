@@ -10,7 +10,7 @@
 
 ## Standard Engagement
 
-Summary: open breech → remove cap from **ravioli-can style** tube → load → close (locks) → front trigger (tone; retention stop releases) → rear trigger → fire → open breech → empty tube drops.
+Summary: open breech → remove cap from **alloy** tube → load → close (locks) → **rough-aim on fold-out display** (digital sight **1×–20×**, foregrip **+ / −**) → **front trigger** (tone; retention stop releases) → **rear trigger** → fire → open breech → empty tube drops.
 
 **Authoritative sequence** (interlocks, abort rules, breech states): [Annex F](../annexes/F-employment-and-breech.md).
 

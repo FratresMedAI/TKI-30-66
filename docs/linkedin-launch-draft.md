@@ -1,6 +1,6 @@
 # LinkedIn Launch — Draft Post
 
-Copy, edit voice as needed. Attach: `visuals/launcher/output/radr-bazooka-goodmk60.png`
+Copy, edit voice as needed. Attach: `visuals/output/radr-system-triptych-landscape.png` (Round | Launcher | Tube — regenerate: `python scripts/make_system_triptych.py`)
 
 ---
 
@@ -27,4 +27,12 @@ https://github.com/FratresMedAI/RADR-mk.60
 
 ---
 
-**Suggested first comment:** Gunner sequence + retention stop → `annexes/F-employment-and-breech.md`
+**Suggested first comment (paste as first reply):**
+
+Gunner load/fire sequence + retention stop (authoritative mechanics):
+
+https://github.com/FratresMedAI/RADR-mk.60/blob/main/annexes/F-employment-and-breech.md
+
+Validated vs notional traceability (what’s locked vs modeled vs test-TBD):
+
+https://github.com/FratresMedAI/RADR-mk.60/blob/main/annexes/I-performance-modeling.md#validated-vs-notional-traceability

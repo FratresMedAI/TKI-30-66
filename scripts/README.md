@@ -64,6 +64,15 @@ Weighted CG from `baseline_systems.json` components; validates cube fragment mas
 python scripts/mass_cg_calc.py
 ```
 
+## `make_system_triptych.py`
+
+Landscape **Round | Launcher | Container** (horizontal L-R) for LinkedIn/pitch. Uses authoritative PNGs only (no AI regen).
+
+```bash
+python scripts/make_system_triptych.py
+# -> visuals/output/radr-system-triptych-landscape.png
+```
+
 ## Visual scripts
 
 | Script | Purpose |

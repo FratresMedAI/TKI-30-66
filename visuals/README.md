@@ -11,6 +11,12 @@ Concept art and reference imagery. Figures are **notional** until hardware exist
 | [`launcher/SHOULDER-BAR-SPEC.md`](launcher/SHOULDER-BAR-SPEC.md) | Spec summary |
 | [`launcher/output/radr-bazooka-goodmk60.png`](launcher/output/radr-bazooka-goodmk60.png) | Base launcher (no bar) |
 
+## System line (LinkedIn / pitch)
+
+| Asset | Role |
+|-------|------|
+| [`output/radr-system-triptych-landscape.png`](output/radr-system-triptych-landscape.png) | **Round \| Launcher \| Container** (all horizontal L-R) — `python scripts/make_system_triptych.py` |
+
 ## Forward device (locked)
 
 Muzzle fitting = **combined muzzle brake / blast deflector**. See DOC-06.

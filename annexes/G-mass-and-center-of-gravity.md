@@ -1,7 +1,7 @@
 # Annex G — Mass Budget and Center of Gravity
 
 **Document ID:** RADR / ANX-G  
-**Version:** 1.7.1  
+**Version:** 1.8.0  
 **Status:** Conceptual — notional mass properties
 
 *All values are engineering estimates — not measured on hardware.*
@@ -65,9 +65,14 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 | Main tube (60 mm bore, 40 in) | 2.55 | Includes **~0.20 kg** muzzle brake / blast deflector forward fitting |
 | Breech block + hinge + deadbolt | 0.90 | Gustav-class steel |
 | Triggers, contacts, pressure sensor | 0.30 | Grip electronics |
-| Grips, integrated sight, fold-out viewer, rear pad, retention stop, grip battery | 1.05 | Foregrip w/ pistol-style seeker trigger + aft-face zoom buttons; holo + ~4 in panel |
+| Foregrip, holo, fold-out viewer, seeker trigger, zoom buttons | 0.72 | Split from legacy single “grips” row |
+| Rear pistol grip, pad, grip battery | 0.33 | Firing hand + FC power |
+| **Shoulder bar + hinge** (forward black sleeve) | **0.06** | ~12 mm rod; [SHOULDER-BAR-SPEC](../visuals/launcher/SHOULDER-BAR-SPEC.md) |
+| **Retention stop + release cam** | **0.04** | Launcher-only — not round mass |
 | Misc hardware (slings, pins) | 0.20 | — |
 | **Nominal total** | **4.95** | — |
+
+*Retention stop mass is launcher hardware; the round budget lists igniter, fin locks, and bore liner only.*
 
 ### Component-Level Rocket Budget (Detail)
 
@@ -134,7 +139,10 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 | Motor case | 0.35 | 390 |
 | Propellant grain | 1.20 | 380 |
 | Nozzle | 0.08 | 440 |
-| Fins, canards, deploy locks | 0.20 | 430 |
+| Fins + canards | 0.11 | 430 |
+| Fin deploy locks | 0.04 | 448 |
+| Tube liner (round) | 0.03 | 320 |
+| Igniter | 0.02 | 400 |
 | Tail structure | 0.08 | 450 |
 | **Total** | **3.10** | **248** (weighted) |
 
@@ -160,6 +168,18 @@ The rocket is **not** nose-heavy: motor and propellant pull the CG to **~248 mm*
 | Seeker +10% | **−3** | Minor forward shift |
 
 Nominal CG **248 mm** remains inside acceptable band for fin-stabilized launch if perturbations stay within **±10%** per section.
+
+### CG Sensitivity (±15% warhead and motor)
+
+| Perturbation | Δ CG from nose (mm) | Mass (kg) | vs. 3.5 kg cap |
+|--------------|---------------------|-----------|----------------|
+| Warhead +15% | **+9** | 3.26 | Pass |
+| Warhead −15% | **−9** | 2.94 | Pass |
+| Motor +15% | **+21** | 3.28 | Pass |
+| Motor −15% | **−21** | 2.92 | Pass |
+| **Combined worst heavy** (warhead +15%, motor +15%, seeker +10%) | **+12** | **~3.38** | **Pass** |
+
+`python scripts/mass_cg_calc.py` rolls up [`rocket_mass_budget`](../data/baseline_systems.json) and flags drift vs JSON nominal.
 
 ### Balance if sections run heavy or light
 
@@ -189,9 +209,15 @@ Priority if over budget: reduce cube count only as last resort (locked 300); pre
 
 Reference point: **rear pistol grip** on tube.
 
+| Configuration | CG from grip (mm) | Notes |
+|---------------|-------------------|-------|
+| Empty, shoulder bar **stowed** | **~545** | Bar mass forward on black sleeve — slight aft shift vs deployed |
+| Empty, bar **deployed** | **~540** | Bar extended — few mm forward |
+| **Loaded** (round seated, breech locked) | **~480** | Round mass in forward bore |
+
 | Estimate | Value | Notes |
 |----------|-------|-------|
-| CG aft of pistol grip | ~550 mm | ~60% of OAL aft along tube |
+| CG aft of pistol grip (empty nominal) | ~550 mm | ~60% of OAL aft along tube |
 | Effect | Rear-biased carry | Balances with loaded round |
 
 *Launcher CG with round loaded shifts forward — system CG addressed below.*

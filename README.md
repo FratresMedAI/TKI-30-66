@@ -5,7 +5,7 @@
 **RADR** is a lightweight, reusable **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** — a **mid-range drone destroyer** that emphasizes **speed-to-target**, **simplicity (KISS)**, **reliability**, and **one-person reload**. It engages **Group 1–2** threats (FPV, quadcopters, loitering munitions, terrain-matching/gliding drones) as a **mid-range counter-UAS** weapon when machine guns fall short and SAM is too heavy to allocate.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 1.7.0
+**Version:** 1.8.0
 
 ## Launcher concept art
 

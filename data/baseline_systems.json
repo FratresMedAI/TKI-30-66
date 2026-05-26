@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "1.7.1",
+    "version": "1.8.0",
     "status": "conceptual",
     "last_updated": "2026-05-25",
-    "notes": "v1.7.1: Expanded breech/retention mechanical detail and rocket mass/CG budget in Annex F/G."
+    "notes": "v1.8.0: Trajectory script, performance model sync, mass/CG depth, motor/warhead annexes, mechanical polish."
   },
   "primary_threats": [
     {
@@ -372,16 +372,23 @@
     },
     "performance_model": {
       "status": "notional_point_mass",
+      "model_script": "scripts/radr_trajectory.py",
       "launch_mass_kg": 3.1,
       "cd_a_m2": { "nominal": 0.35, "min": 0.32, "max": 0.42 },
-      "burnout_velocity_mps": { "nominal": 395, "min": 360, "max": 430 },
+      "burnout_velocity_mps": { "nominal": 339, "min": 360, "max": 430 },
+      "burnout_downrange_m": 726,
       "mean_boost_acceleration_mps2": 293,
-      "velocity_at_1000m_mps": { "min": 330, "max": 350, "nominal": 340 },
-      "time_of_flight_1000m_s": { "min": 4.5, "max": 5.0, "nominal": 4.7 },
+      "velocity_at_1000m_mps": { "min": 330, "max": 350, "nominal": 335 },
+      "velocity_at_1200m_mps": { "nominal": 332, "status": "stretch_trade_study_not_locked" },
+      "time_of_flight_1000m_s": { "min": 4.0, "max": 5.0, "nominal": 4.12 },
+      "time_of_flight_1200m_s": { "nominal": 4.72, "status": "stretch_trade_study_not_locked" },
       "sensitivity": {
-        "mass_plus_5pct_velocity_delta_mps": -15,
-        "impulse_minus_3pct_velocity_delta_mps": -10,
-        "cd_a_plus_10pct_velocity_delta_mps": -18
+        "mass_plus_5pct_velocity_delta_mps": -1,
+        "mass_minus_5pct_velocity_delta_mps": 1,
+        "impulse_minus_3pct_velocity_delta_mps": -6,
+        "impulse_plus_3pct_velocity_delta_mps": 6,
+        "cd_a_plus_10pct_velocity_delta_mps": -16,
+        "cd_a_minus_10pct_velocity_delta_mps": 18
       }
     },
     "rocket_mass_budget": {
@@ -389,28 +396,51 @@
       "cap_kg": 3.5,
       "cg_mm_from_nose": 248,
       "components": [
-        { "id": "seeker_dome", "mass_kg": 0.22, "cg_mm": 45 },
-        { "id": "seeker_core_mount", "mass_kg": 0.28, "cg_mm": 55 },
-        { "id": "fuze_electronics", "mass_kg": 0.08, "cg_mm": 90 },
-        { "id": "forward_bulkhead", "mass_kg": 0.12, "cg_mm": 110 },
-        { "id": "pyrotechnic_burster", "mass_kg": 0.10, "cg_mm": 130 },
-        { "id": "cube_pack", "mass_kg": 0.72, "cg_mm": 165 },
-        { "id": "warhead_casing", "mass_kg": 0.15, "cg_mm": 155 },
-        { "id": "avionics_battery", "mass_kg": 0.15, "cg_mm": 220 },
-        { "id": "body_structure", "mass_kg": 0.12, "cg_mm": 300 },
-        { "id": "motor_case", "mass_kg": 0.35, "cg_mm": 390 },
-        { "id": "propellant_grain", "mass_kg": 1.20, "cg_mm": 380 },
-        { "id": "nozzle", "mass_kg": 0.08, "cg_mm": 440 },
-        { "id": "fins_canards_locks", "mass_kg": 0.20, "cg_mm": 430 },
-        { "id": "tail_structure", "mass_kg": 0.08, "cg_mm": 450 }
+        { "id": "seeker_section", "mass_kg": 0.50, "cg_mm": 50, "detail": "dome, core, fuze forward" },
+        { "id": "warhead_section", "mass_kg": 1.05, "cg_mm": 160, "detail": "burster, 300 cubes, casing" },
+        { "id": "avionics_section", "mass_kg": 0.15, "cg_mm": 220 },
+        { "id": "motor_section", "mass_kg": 1.20, "cg_mm": 380, "detail": "1.20 kg propellant in case" },
+        { "id": "structure_aero", "mass_kg": 0.20, "cg_mm": 430, "detail": "body, fins, canards, locks, nozzle, igniter" }
       ],
+      "components_detail_ref": "annexes/G-mass-and-center-of-gravity.md#roll-up-verification",
       "cg_sensitivity": [
         { "perturbation": "warhead_plus_10pct", "delta_cg_mm": 6 },
         { "perturbation": "warhead_minus_10pct", "delta_cg_mm": -6 },
+        { "perturbation": "warhead_plus_15pct", "delta_cg_mm": 9 },
+        { "perturbation": "warhead_minus_15pct", "delta_cg_mm": -9 },
         { "perturbation": "motor_plus_10pct", "delta_cg_mm": 14 },
         { "perturbation": "motor_minus_10pct", "delta_cg_mm": -14 },
-        { "perturbation": "seeker_plus_10pct", "delta_cg_mm": -3 }
+        { "perturbation": "motor_plus_15pct", "delta_cg_mm": 21 },
+        { "perturbation": "motor_minus_15pct", "delta_cg_mm": -21 },
+        { "perturbation": "seeker_plus_10pct", "delta_cg_mm": -3 },
+        { "perturbation": "combined_worst_heavy", "mass_kg": 3.38, "cg_mm": 258, "under_cap": true }
+      ],
+      "note_retention_stop": "Rocket retention stop is launcher hardware — not in round budget."
+    },
+    "launcher_mass_budget": {
+      "total_nominal_kg": 4.95,
+      "cap_kg": 5.5,
+      "cg_reference": "pistol_grip",
+      "cg_mm_from_grip": 550,
+      "components": [
+        { "id": "main_tube", "mass_kg": 2.50, "cg_mm": 600 },
+        { "id": "breech_hinge_deadbolt", "mass_kg": 0.90, "cg_mm": 720 },
+        { "id": "triggers_sensors", "mass_kg": 0.30, "cg_mm": 480 },
+        { "id": "foregrip_sight_viewer", "mass_kg": 0.72, "cg_mm": 380 },
+        { "id": "rear_grip_pad_battery", "mass_kg": 0.33, "cg_mm": 650 },
+        { "id": "shoulder_bar_hinge", "mass_kg": 0.06, "cg_mm": 200, "note": "Forward black sleeve, 6 in deploy" },
+        { "id": "retention_stop_cam", "mass_kg": 0.04, "cg_mm": 420 },
+        { "id": "misc_slings_pins", "mass_kg": 0.10, "cg_mm": 500 }
       ]
+    },
+    "system_mass_budget": {
+      "launcher_empty_kg": 4.95,
+      "round_kg": 3.1,
+      "loaded_kg": 8.05,
+      "cg_launcher_empty_stowed_mm_from_grip": 545,
+      "cg_launcher_empty_deployed_mm_from_grip": 540,
+      "cg_launcher_loaded_mm_from_grip": 480,
+      "notes": "Shoulder bar stowed: CG ~5 mm aft vs deployed; loaded round shifts system CG forward ~60 mm from grip."
     },
     "range_m": {
       "effective_goal": 1000,

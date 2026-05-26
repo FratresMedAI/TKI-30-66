@@ -36,6 +36,9 @@ jobs:
             test -f "$f"
           done
 
+      - name: Trajectory model smoke test
+        run: python scripts/radr_trajectory.py --smoke
+
       - name: Check internal doc links resolve
         run: |
           python <<'PY'

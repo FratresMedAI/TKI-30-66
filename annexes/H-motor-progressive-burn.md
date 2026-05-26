@@ -1,7 +1,7 @@
 # Annex H — Motor Progressive Burn Profile
 
 **Document ID:** RADR / ANX-H  
-**Version:** 1.7.0  
+**Version:** 1.8.0  
 **Status:** Conceptual — **final motor baseline locked** (notional ballistics until live-fire)
 
 *Thrust-time table supports design trades; impulse and velocity bands are analytic targets — not demonstrated test data.*
@@ -40,6 +40,34 @@ Traceability: [06 — System Description](../docs/06-system-description.md) · [
 | **Tail** | **~3.0–3.3 s** | **~1050–1150 N** peak, then burnout | Terminal velocity build; motor tail-off |
 
 **Not selected:** Boost-first grains (excess peak pressure for 10 yd rear SOP); neutral-burn grains (higher initial peak, less backblast margin).
+
+---
+
+## Grain Geometry Approach (Conceptual)
+
+Notional **dual-layer progressive** grain inside the **~260 mm** usable length — no production CAD.
+
+| Layer / feature | Burn surface driver | Thrust effect |
+|-----------------|---------------------|---------------|
+| **Forward low-rate segment** | **Outer cylindrical web** + inhibited aft face | **750–850 N** plateau — limits initial port area → **10 yd backblast** margin |
+| **Mid ramp** | **Tapered inner core** opens as outer web regresses | Port area grows → pressure rises **870 → 1000 N** |
+| **Aft tail / finisher** | **End-burning sliver** or thin **end grain** | Peak **1050–1150 N** without boost-first spike |
+
+**Which surfaces drive the profile:**
+
+- **Low plateau (0–2 s):** Dominated by **restricted port** — small burning perimeter, thick web ahead of the core.  
+- **Ramp (2–3 s):** **Core surface area** increases as outer web thins — mildly progressive, not neutral.  
+- **Tail (3–3.3 s):** **Aft grain face** contributes last impulse before burnout.
+
+### Manufacturing and margin
+
+| Check | Notional | Action if out of band |
+|-------|----------|------------------------|
+| Impulse integration vs table | **~2910–3000 N·s** | Adjust web thickness or propellant load |
+| Peak pressure vs case | Within 60 mm aluminum case rating | Reduce tail segment area |
+| Burn time | **3.3 ± 0.1 s** | Core length / inhibitor tweak |
+
+Script traceability: thrust table in [`radr_trajectory.py`](../scripts/radr_trajectory.py) scaled to **3000 N·s**; burnout band cross-check in [Annex I](I-performance-modeling.md).
 
 ---
 
@@ -113,6 +141,7 @@ Low **750–850 N** initial thrust keeps the **10 yard (30 ft)** rear danger zon
 
 ## Related Documents
 
+- [I — Performance Modeling](I-performance-modeling.md)  
 - [G — Mass and CG](G-mass-and-center-of-gravity.md)  
 - [05 — Key Design Trades](../docs/05-key-design-trades.md)  
 - [07 — Limitations and Risks](../docs/07-limitations-and-risks.md)

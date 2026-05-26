@@ -1,12 +1,30 @@
 # Annex F — Employment Sequence and Breech Mechanism
 
 **Document ID:** RADR / ANX-F  
-**Version:** 1.7.1  
+**Version:** 1.8.0  
 **Status:** Conceptual — locked baseline (notional until prototype)
 
 Traceability: [06 — System Description](../docs/06-system-description.md) · [04 — CONOPS](../docs/04-conops-use-cases.md)
 
 This annex is the **authoritative** reference for breech mechanics, the rocket retention stop, loading/firing sequence, interlocks, and abort rules. README and DOC-06 summarize here.
+
+---
+
+## Gunner’s Quick Reference (One Page)
+
+| Step | You do | You hear / feel |
+|------|--------|-----------------|
+| 1 | **Pull** bolt handle back → **swing** breech open | Spring pressure; detent click |
+| 2 | Prep round off-line; remove pull-tab cap | Cap separates clean |
+| 3 | **Slide** tube into bore until rim seats | Light detent |
+| 4 | **Swing** breech closed → **push** handle forward until **click** | Deadbolt snap; sealing face loaded |
+| 5 | Hold **front** trigger → wait for **steady lock tone** | Tone = retention releases |
+| 6 | **Rear** trigger — fire | Motor ignition; recoil through grips + **shoulder bar** + rear pad |
+| 7 | Clear **10 yd** rear → open breech; spent tube drops | Spring return |
+
+**Never:** hip fire; fire without lock tone; stand in rear arc during load or post-shot.
+
+**Shoulder bar:** Forward **black sleeve** — [stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) flush / [deployed 12→6](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png). Spec: [SHOULDER-BAR-SPEC](../visuals/launcher/SHOULDER-BAR-SPEC.md).
 
 ---
 
@@ -189,6 +207,30 @@ Typical failure modes without a stop: tube creep toward muzzle on sling transiti
 
 When the tube is seated and the breech is closed, the tube rim is clamped between the **breech sealing face** (rear) and the **retention finger** (forward on the shoulder). The finger is the anti-slide element; the breech block is the anti-rearward / gas-seal element.
 
+### Side view (notional)
+
+```
+  muzzle ─────────────────────────────────────────────►
+
+       [==== tube wall ====]
+              │
+    sealing   │   ○ finger (radial, ~2–3 mm into bore)
+    face ◄────┼───┤
+              │   └── bears on tube **aft shoulder** (rim step)
+       [rim]──┘
+```
+
+### Retention vs breech — state timeline
+
+| Event | Breech | Retention finger | Reset note |
+|-------|--------|------------------|------------|
+| Gunner opens breech | `BREECH_OPEN` | **Engaged** | **Reset on breech open** — cam de-energized; finger spring-return |
+| Tube inserted, breech closing | Closing | **Engaged** | — |
+| `LOCKED_SEATED` | Closed + deadbolt | **Engaged** | — |
+| Front + lock tone | Closed | **Retracted** | Cam driven |
+| Fire / front released | Closed or opening | **Engaged** | Immediate re-engage if tone lost |
+| Post-shot open | `BREECH_OPEN` | **Engaged** | Spent tube drops; ready for reload |
+
 ### Baseline mechanism (locked concept)
 
 | Element | Description |
@@ -329,6 +371,16 @@ flowchart LR
 | **Re-lock** | Gunner releases handle | Return spring drives handle forward; deadbolt rolls/slides into notch with **audible snap** |
 
 The gunner **never** rotates a separate safety tab — the **bolt handle is the primary manual safety** for breech opening, similar in muscle memory to a rifle bolt.
+
+### Force and travel (order-of-magnitude — notional)
+
+| Element | Travel / force | Notes |
+|---------|----------------|-------|
+| Bolt handle | **15–25 mm** aft pull | ~25–40 N against return spring |
+| Deadbolt lift | **2–3 mm** | Unlock cam mechanical advantage |
+| Handle return spring | **~30–50 N** at full stroke | Notional; production tune for one-hand close |
+| Retention finger spring | **~8–12 N** at tip | Radial engagement on tube shoulder |
+| Release cam stroke | **~15–25°** rotation | Solenoid or mechanical cam — TBD |
 
 ### How the breech locks when closed
 
@@ -484,6 +536,14 @@ sequenceDiagram
 | Fire → breech open for reload | ≤ 15 s | Post-shot SOP |
 
 *Not validated in trials.*
+
+---
+
+## Open Questions (Mechanical)
+
+- **Retention release:** Solenoid-driven cam vs. purely mechanical linkage from front trigger — down-select for battery-off safe default.  
+- **Materials:** Breech block alloy (steel vs. investment cast) and finger insert hardness vs. tube shoulder wear.  
+- **Tolerance stack:** Rim seat, finger intrusion, and deadbolt notch depth — prototype gauge set TBD.
 
 ---
 

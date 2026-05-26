@@ -4,7 +4,7 @@
 **Version:** 1.7.0  
 **Status:** Conceptual
 
-Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G](../annexes/G-mass-and-center-of-gravity.md) · [Annex H](../annexes/H-motor-progressive-burn.md) · [Annex I](../annexes/I-performance-modeling.md) · [Annex J](../annexes/J-warhead-dispersal.md)
+Engineering detail (authoritative mechanics in annexes): [Annex F — Breech & retention](../annexes/F-employment-and-breech.md) · [G — Mass/CG](../annexes/G-mass-and-center-of-gravity.md) · [H — Motor](../annexes/H-motor-progressive-burn.md) · [I — Performance](../annexes/I-performance-modeling.md) · [J — Warhead](../annexes/J-warhead-dispersal.md) · Trajectory script: [`scripts/radr_trajectory.py`](../scripts/radr_trajectory.py)
 
 ---
 
@@ -72,7 +72,7 @@ flowchart TB
 
 ### Employment Sequence (States)
 
-Time-ordered interaction between gunner, breech, retention stop, seeker, and fire logic. The retention stop stays engaged until lock tone; the rear trigger is inert until then. Full step-by-step narrative: [Annex F § Gunner’s Sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence).
+Time-ordered interaction between gunner, breech, retention stop, seeker, and fire logic. **Retention resets on breech open.** Full sequence: [Annex F — Gunner’s quick reference](../annexes/F-employment-and-breech.md#gunners-quick-reference-one-page) and [§ Gunner’s Sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence).
 
 ```mermaid
 sequenceDiagram

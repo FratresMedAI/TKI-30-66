@@ -1,7 +1,7 @@
 # RADR — Pitch Deck Outline (8–10 Slides)
 
-**Audience:** Squad/SOF stakeholders, engineering partners, concept sponsors  
-**Version:** 1.7.0 · Expand each slide to 1–2 minutes spoken
+**Audience:** Squad/SOF stakeholders, engineering partners, **defense primes**, concept sponsors  
+**Version:** 1.8.0 · Expand each slide to 1–2 minutes spoken
 
 ---
 
@@ -86,10 +86,20 @@
 
 ---
 
-## Slide 10 — Ask / close
+## Slide 10 — IP & prime partnership
+
+- **Open concept:** MIT on repo (transparency, capture, community review)  
+- **Prime path:** [LICENSE-COMMERCIAL](../LICENSE-COMMERCIAL.md) — evaluation → development → production under **PCA**  
+- **Background IP** (concept) · **Foreground IP** (joint prototype) — defined up front  
+- Guide: [Licensing & partnership](licensing-and-partnership.md)  
+- CTA: [Partnership inquiry](https://github.com/FratresMedAI/RADR-mk.60/issues/new?template=partnership_inquiry.yml)  
+
+---
+
+## Slide 11 — Ask / close
 
 - Feedback on **mid-range** role vs. layered stack (DOC-08)  
-- Partners for propellant, fuze, seeker trades  
+- Partners for propellant, fuze, seeker trades · **prime integrators welcome**  
 - Repo: https://github.com/FratresMedAI/RADR-mk.60  
 - **Not** fielded · **not** procurement-ready  
 

@@ -18,6 +18,9 @@ jobs:
       - name: Check required documentation tree
         run: |
           test -f README.md
+          test -f LICENSE
+          test -f LICENSE-COMMERCIAL.md
+          test -f docs/licensing-and-partnership.md
           test -f data/baseline_systems.json
           for f in docs/01-concept-overview.md docs/02-operational-requirements.md \
                    docs/03-design-constraints.md docs/04-conops-use-cases.md \

@@ -38,8 +38,10 @@ Squad and SOF face **Group 1–2 UAS** (FPV, quadcopters, loitering munitions, l
 - **Dual-trigger** — no fire without tone  
 - **Gustav flip breech** — positive deadbolt lock  
 
-## Repo
+## Repo & partnership
 
 https://github.com/FratresMedAI/RADR-mk.60
+
+**Open concept:** MIT · **Prime / Program:** [LICENSE-COMMERCIAL](../LICENSE-COMMERCIAL.md) · [Partnership guide](licensing-and-partnership.md)
 
 **Deep dives:** [Annex F](../annexes/F-employment-and-breech.md) · [Annex I](../annexes/I-performance-modeling.md) · [Annex J](../annexes/J-warhead-dispersal.md) · [Pitch deck outline](pitch-deck-outline.md)

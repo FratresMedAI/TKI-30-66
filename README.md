@@ -140,6 +140,7 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 |-----|---------|
 | [One-pager](docs/RADR-one-pager.md) | Single-page concept summary |
 | [Pitch deck outline](docs/pitch-deck-outline.md) | 8–10 slide structure |
+| [Licensing & partnership](docs/licensing-and-partnership.md) | Prime teaming, IP tiers, inquiry path |
 
 ---
 
@@ -153,6 +154,13 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 
 ---
 
-## License
+## License & prime partnership
 
-MIT — see [LICENSE](LICENSE) (includes RADR program notice). All specs and art are **notional**; not authorization to procure, manufacture, or use any weapon system.
+| Tier | Document |
+|------|----------|
+| **Open concept** | [LICENSE](LICENSE) — MIT (docs, JSON, art) |
+| **Prime / Program** | [LICENSE-COMMERCIAL.md](LICENSE-COMMERCIAL.md) — development & production under PCA |
+
+**Teaming with a prime?** Start here: [Licensing & partnership](docs/licensing-and-partnership.md) · [Partnership inquiry](https://github.com/FratresMedAI/RADR-mk.60/issues/new?template=partnership_inquiry.yml)
+
+All specs and art are **notional**; not authorization to procure, manufacture, export, or field any weapon system.

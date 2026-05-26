@@ -1,4 +1,19 @@
-MIT License
+# RADR licensing (dual structure)
+
+This repository uses a **two-tier** license model so the concept stays open while
+**defense primes** can team under clear commercial terms.
+
+| Tier | Document | Who |
+|------|----------|-----|
+| **Public** | MIT below | Anyone — read, fork, study, improve the open concept |
+| **Prime / Program** | [LICENSE-COMMERCIAL.md](LICENSE-COMMERCIAL.md) | U.S. primes and integrators under a signed Prime Collaboration Agreement |
+
+**Partnership guide:** [docs/licensing-and-partnership.md](docs/licensing-and-partnership.md)  
+**Inquiry:** [Partnership issue template](https://github.com/FratresMedAI/RADR-mk.60/issues/new?template=partnership_inquiry.yml)
+
+---
+
+## MIT License (public tier)
 
 Copyright (c) 2026 FratresMedAI
 
@@ -22,6 +37,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+The MIT license does **not** include trademark rights, patent licenses, production
+authorization for weapon systems, or exclusive Program rights. See
+[LICENSE-COMMERCIAL.md](LICENSE-COMMERCIAL.md).
+
 ---
 
 ## RADR program notice
@@ -39,5 +58,6 @@ concept — documentation, structured data, and notional concept art for a
 - Third-party names (e.g. Evolution Space propellant reference) are cited for
   trade study context only; no endorsement is implied.
 
-For questions about use of this material outside the MIT terms above, contact
-the copyright holder.
+For prime teaming, development, or production licensing, use the partnership
+guide and inquiry links above — not an informal email to the copyright holder
+without a PCA.

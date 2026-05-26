@@ -1,12 +1,12 @@
 # Annex I — Performance Modeling (Notional)
 
 **Document ID:** RADR / ANX-I  
-**Version:** 1.8.0  
-**Status:** Conceptual — point-mass model with runnable script traceability
+**Version:** 1.9.0  
+**Status:** Conceptual — traceable point-mass model v2 (`radr_performance_model.py`)
 
 *All results are engineering estimates from a simplified point-mass model. Not live-fire data.*
 
-Traceability: [H — Motor](H-motor-progressive-burn.md) · [G — Mass/CG](G-mass-and-center-of-gravity.md) · [06 — System Description](../docs/06-system-description.md) · [`scripts/radr_trajectory.py`](../scripts/radr_trajectory.py)
+Traceability: [H — Motor](H-motor-progressive-burn.md) · [G — Mass/CG](G-mass-and-center-of-gravity.md) · [06 — System Description](../docs/06-system-description.md) · [`scripts/radr_performance_model.py`](../scripts/radr_performance_model.py) · [`data/performance_model_output.json`](../data/performance_model_output.json)
 
 ---
 
@@ -19,34 +19,36 @@ Traceability: [H — Motor](H-motor-progressive-burn.md) · [G — Mass/CG](G-ma
 | Burn time \(t_b\) | **3.3 s** |
 | Total impulse \(I\) | **3000 N·s** nominal (**2950–3050** band) |
 | Thrust profile | Mildly progressive — [Annex H table](H-motor-progressive-burn.md#thrust-time-profile-notional--matches-locked-bands) |
-| Drag | Quadratic, \(F_d = \tfrac{1}{2}\rho C_d A v^2\) |
-| Effective \(C_d A\) (reference) | **0.32–0.42 m²** — boost/coast multipliers in script |
+| Drag | Quadratic, \(F_d = \tfrac{1}{2}\rho\, C_d A\, v^2\) |
+| Frontal area \(A\) | \(\pi (0.03)^2 \approx \mathbf{0.00283\ \mathrm{m}^2}\) (60 mm body) |
+| **Boost** \(C_d A\) | **0.0161 m²** (\(C_{d,\mathrm{eq}} \approx 5.7\)) |
+| **Coast** \(C_d A\) | **0.000217 m²** (\(C_{d,\mathrm{eq}} \approx 0.08\)) |
 | Air density \(\rho\) | **1.225 kg/m³** (sea level) |
-| Launch elevation | **~2–5°** loft (rough-aim shoulder fire — notional) |
+| Launch elevation | **3.5°** loft nominal (2–5° field variation — see loft sweep in JSON) |
 
 ---
 
-## Runnable Model (v1.8)
+## Runnable Model (v1.9)
 
 ```bash
-python scripts/radr_trajectory.py --smoke
-python scripts/radr_trajectory.py --json-out data/performance_model_output.json
+python scripts/radr_performance_model.py --verify
+python scripts/radr_performance_model.py --json-out data/performance_model_output.json
+python scripts/mass_cg_calc.py
 ```
 
-See [`scripts/README.md`](../scripts/README.md) for assumptions. CI runs `--smoke` on each push.
+See [`scripts/README.md`](../scripts/README.md). CI runs **verify**, trajectory `--smoke`, and mass/CG checks.
 
-**Script nominal output (2026 baseline):**
+**Nominal output** (`performance_model_output.json` — regenerate after changes):
 
-| Range (m) | TOF (s) | Velocity (m/s) | Notes |
-|-----------|---------|----------------|-------|
-| 500 | ~2.62 | ~314 | Mid-course |
-| 750 | ~3.37 | ~339 | Near burnout corridor |
-| **1000** | **~4.12** | **~335** | **Locked band 330–350** |
-| **1200** | **~4.72** | **~332** | **Max range** (envelope) |
+| Range (m) | TOF (s) | v (m/s) | Mach | q (kPa) | Phase |
+|-----------|---------|---------|------|---------|-------|
+| 200 | 1.57 | 253 | 0.74 | 39 | boost |
+| 500 | 2.62 | 314 | 0.92 | 60 | boost |
+| 800 | 3.52 | 338 | 0.99 | 70 | coast |
+| **1000** | **4.12** | **334.7** | 0.98 | 69 | coast |
+| **1200** | **4.72** | **331.9** | 0.98 | 68 | coast |
 
-Burnout (motor tail-off): **~339 m/s** at **~726 m** downrange, **3000 N·s** impulse integration.
-
-The 2-D path yields a slightly **shorter TOF @ 1000 m** than the earlier 1-D analytic table (~4.5–5.0 s); velocity at 1000 m remains inside the locked band. Treat TOF rows as **notional bounds**, not demonstrated timing.
+Burnout: **338.8 m/s** @ **726 m** downrange · **3000 N·s** impulse · **35%** of ideal \(I/m\) after boost drag (rocket-equation fraction).
 
 ---
 
@@ -82,7 +84,7 @@ After \(t_b\), motor thrust = 0. Drag and gravity along the lofted path decelera
 | 500 | ~2.6–2.8 | ~310–320 |
 | 750 | ~3.3–3.5 | ~335–345 |
 | **1000** | **~4.1–4.5** (script **~4.12**) | **330–350** (locked; script **~335**) |
-| **1200** | **~4.7–5.0** (stretch) | **~325–335** (trade-study — not locked) |
+| **1200** | **~4.72** | **~332** (max envelope) |
 | 1000 (pessimistic drag) | ~4.5–5.0 | ~320 (below band — triggers design review) |
 
 **Time of flight to 1000 m:** **4.0–5.0 s** bracket (boost ~3.3 s + coast ~0.8–1.7 s depending on loft and drag), consistent with `motor_notional` in baseline JSON.
@@ -122,34 +124,67 @@ Full profile: `data/performance_model_output.json` → `acceleration_profile`.
 
 ---
 
-## Drag Considerations
+## Drag (traceable basis)
 
-| Factor | Effect |
-|--------|--------|
-| **Fin deploy at exit** | Step increase in \(A\); brief trim transient; stable \(C_dA\) after ~0.2 s |
-| **Canard trim** | Small added drag; negligible vs. body |
-| **Protective tube separation** | Tube left in launcher; in-flight mass = rocket only |
-| **Transonic pocket** | 60 mm rocket likely subsonic at 1000 m in band; no shock spike assumed |
-| **Script calibration** | Boost/coast multipliers on baseline CdA — see `scripts/README.md` |
+| Quantity | Value | Meaning |
+|----------|-------|---------|
+| \(A_\mathrm{front}\) | **0.00283 m²** | 60 mm circular reference |
+| \(C_d A_\mathrm{boost}\) | **0.0161 m²** | Motor phase + deploy + trim (effective) |
+| \(C_d A_\mathrm{coast}\) | **0.000217 m²** | Post-burnout bleed (fins trimmed / low base) |
+| \(C_{d,\mathrm{eq}}\) | boost **5.7** · coast **0.08** | \(C_d A / A_\mathrm{front}\) — not skin-friction alone |
 
-At \(v = 340\ m/s\), \(m = 3.1\ kg\), a **physical** \(C_d A \approx 0.00035\ \mathrm{m}^2\) gives ~**8 m/s²** coast bleed; the **0.35 m²** entry in JSON is a **design reference area** paired with integrator multipliers, not a literal subsonic drag product at 340 m/s.
+At **334.7 m/s** @ 1000 m: **Mach ~0.98**, **q ~69 kPa** (sea level) — subsonic/transonic band; no shock model.
+
+**Protective tube** separates at launch; in-flight mass = **3.1 kg** rocket only.
 
 ---
 
-## Sensitivity Analysis
+## Warhead fragment mass (calculated)
 
-From `radr_trajectory.py` (`run_sensitivity`) — Δ velocity @ **1000 m** vs nominal:
+\[
+m_\mathrm{cube} = N \cdot s^3 \cdot \rho,\quad N=300,\ s=7\ \mathrm{mm},\ \rho=7800\ \mathrm{kg/m^3}
+\]
 
-| Parameter | Variation | Δv @ 1000 m (m/s) | Δ TOF (s) |
-|-----------|-----------|-------------------|-----------|
-| Mass | +5% | **~−12** | +0.05 |
-| Mass | −5% | **~+11** | −0.05 |
-| Impulse | −3% | **~−9** | +0.03 |
-| Impulse | +3% | **~+9** | −0.03 |
-| \(C_dA\) ref | +10% | **~−16** | +0.08 |
-| \(C_dA\) ref | −10% | **~+14** | −0.07 |
+| Item | Mass |
+|------|------|
+| **Cubes only** | **0.803 kg** |
+| **Warhead section (Annex G)** | **1.05 kg** total |
+| **Burster + casing + liner** | **~0.25 kg** allowance |
 
-**Interpretation:** Mass and drag dominate coast sensitivity; impulse margin is secondary once burnout exceeds ~330 m/s. Staying under **3.5 kg** and validating fin drag in test is critical to holding **330–350 m/s** at 1000 m.
+Verified: `python scripts/mass_cg_calc.py`
+
+---
+
+## Evasion geometry (@ 1000 m vs 1200 m)
+
+Extra TOF **1000 → 1200 m:** **~0.60 s**. Lateral displacement \(\approx v_\mathrm{target} \cdot \Delta t\):
+
+| Drone speed (m/s) | Lateral during 4.12 s @ 1000 m | Extra lateral (+200 m band) |
+|-------------------|--------------------------------|-----------------------------|
+| 15 | 62 m | 9 m |
+| 25 | 103 m | 15 m |
+| 40 | 165 m | 24 m |
+
+Supports **1000 m sweet spot** vs marginal gain at 1200 m — see JSON `evasion_geometry`.
+
+---
+
+## Sensitivity @ 1000 m (script v2)
+
+From `performance_model_output.json` → `sensitivity_1000m`:
+
+| Case | Δv (m/s) | Δ TOF (s) |
+|------|----------|-----------|
+| Mass +5% | **−1.0** | +0.03 |
+| Mass −5% | **+0.9** | −0.04 |
+| Impulse −3% | **−5.6** | +0.05 |
+| Impulse +3% | **+5.5** | −0.06 |
+| Coast \(C_d A\) +10% | **−0.4** | ~0 |
+| Coast \(C_d A\) −10% | **+0.4** | ~0 |
+| Mass **3.35 kg** (cap edge) | **−3.4** | +0.08 |
+| Mass **2.95 kg** | **+2.8** | −0.07 |
+
+**Interpretation:** **Impulse** and **mass at cap** move the band; **coast drag** is second-order once calibrated. Fin/boost drag uncertainty should be bounded in live-fire or 6-DOF before production.
 
 ---
 
@@ -169,7 +204,8 @@ From `radr_trajectory.py` (`run_sensitivity`) — Δ velocity @ **1000 m** vs no
 - Loft angle field variation (2–5°) vs. display-based rough aim — TOF and intercept velocity spread.  
 - Fin deploy transient: step CdA not time-resolved in script.  
 - Sea-level \(\rho\) only — altitude/temperature not modeled.  
-- 1200 m / 275-cube closure requires live-fire or 6-DOF before any KPP change.
+- Fin-deploy transient not time-resolved; boost/coast use effective \(C_d A\) fit.  
+- 275-cube variant archived — see [Annex J](J-warhead-dispersal.md).
 
 ---
 

@@ -36,8 +36,14 @@ jobs:
             test -f "$f"
           done
 
-      - name: Trajectory model smoke test
+      - name: Performance model verify
+        run: python scripts/radr_performance_model.py --verify
+
+      - name: Trajectory CLI smoke test
         run: python scripts/radr_trajectory.py --smoke
+
+      - name: Mass/CG and warhead cube check
+        run: python scripts/mass_cg_calc.py
 
       - name: Check internal doc links resolve
         run: |

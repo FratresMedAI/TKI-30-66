@@ -1,67 +1,196 @@
 {
-  "impulse_ns": 3000.0,
-  "burnout_v_mps": 338.8,
-  "burnout_x_m": 725.9,
+  "model_version": "2.0",
+  "status": "notional_point_mass_effective_cda",
+  "disclaimer": "NOT LIVE-FIRE. Effective CdA from 60 mm geometry + 2-D band fit.",
+  "geometry": {
+    "body_d_m": 0.06,
+    "A_front_m2": 0.002827,
+    "fin_deploy_s": 0.25,
+    "Cd_equiv_boost": 5.69,
+    "Cd_equiv_coast": 0.077
+  },
+  "drag_effective_m2": {
+    "cda_boost": 0.0161,
+    "cda_coast": 0.000217,
+    "interpretation": "Equivalent drag area; not skin-friction Cd alone"
+  },
+  "motor": {
+    "impulse_ns": 3000.0,
+    "thrust_scale": 1.0947,
+    "burn_time_s": 3.3,
+    "average_thrust_n": 909.1,
+    "delta_v_ideal_mps": 967.7,
+    "burnout_v_mps": 338.8,
+    "burnout_x_m": 725.9,
+    "burnout_mach": 0.997,
+    "velocity_fraction_of_ideal": 0.35,
+    "impulse_to_weight_s": 98.68
+  },
   "ranges": {
+    "200": {
+      "tof_s": 1.57,
+      "v_mps": 253.1,
+      "mach": 0.744,
+      "q_kpa": 39.2,
+      "phase": "boost"
+    },
+    "300": {
+      "tof_s": 1.94,
+      "v_mps": 279.5,
+      "mach": 0.822,
+      "q_kpa": 47.9,
+      "phase": "boost"
+    },
     "500": {
       "tof_s": 2.62,
-      "v_mps": 314.0
+      "v_mps": 314.1,
+      "mach": 0.924,
+      "q_kpa": 60.4,
+      "phase": "boost"
     },
-    "750": {
-      "tof_s": 3.37,
-      "v_mps": 338.5
+    "800": {
+      "tof_s": 3.52,
+      "v_mps": 337.7,
+      "mach": 0.993,
+      "q_kpa": 69.8,
+      "phase": "coast"
     },
     "1000": {
       "tof_s": 4.12,
-      "v_mps": 334.7
+      "v_mps": 334.7,
+      "mach": 0.984,
+      "q_kpa": 68.6,
+      "phase": "coast"
     },
     "1200": {
       "tof_s": 4.72,
-      "v_mps": 331.9
+      "v_mps": 331.9,
+      "mach": 0.976,
+      "q_kpa": 67.5,
+      "phase": "coast"
     }
   },
+  "warhead_cubes": {
+    "cube_count": 300,
+    "cube_mm": 7.0,
+    "density_kg_m3": 7800.0,
+    "mass_one_g": 2.68,
+    "fragment_mass_kg": 0.803,
+    "solid_volume_liters": 0.103,
+    "annex_g_warhead_total_kg": 1.05,
+    "non_fragment_allowance_kg": 0.247
+  },
+  "loft_sweep_1000m": [
+    {
+      "loft_deg": 2.0,
+      "v_1000_mps": 183.6,
+      "tof_1000_s": 1.02,
+      "reached_1000m": false
+    },
+    {
+      "loft_deg": 3.5,
+      "v_1000_mps": 334.7,
+      "tof_1000_s": 4.12,
+      "reached_1000m": true
+    },
+    {
+      "loft_deg": 5.0,
+      "v_1000_mps": 334.4,
+      "tof_1000_s": 4.12,
+      "reached_1000m": true
+    }
+  ],
   "sensitivity_1000m": [
     {
       "case": "nominal",
       "v_1000_mps": 334.7,
-      "delta_v_vs_nominal_mps": 0.0,
+      "delta_v_mps": 0.0,
       "tof_1000_s": 4.12
     },
     {
       "case": "mass_plus_5pct",
       "v_1000_mps": 333.7,
-      "delta_v_vs_nominal_mps": -1.0,
+      "delta_v_mps": -1.0,
       "tof_1000_s": 4.15
     },
     {
       "case": "mass_minus_5pct",
-      "v_1000_mps": 335.7,
-      "delta_v_vs_nominal_mps": 0.9,
+      "v_1000_mps": 335.6,
+      "delta_v_mps": 0.9,
       "tof_1000_s": 4.08
     },
     {
       "case": "impulse_minus_3pct",
       "v_1000_mps": 329.1,
-      "delta_v_vs_nominal_mps": -5.6,
+      "delta_v_mps": -5.6,
       "tof_1000_s": 4.17
     },
     {
       "case": "impulse_plus_3pct",
       "v_1000_mps": 340.2,
-      "delta_v_vs_nominal_mps": 5.5,
+      "delta_v_mps": 5.5,
       "tof_1000_s": 4.06
     },
     {
-      "case": "cd_a_plus_10pct",
-      "v_1000_mps": 319.3,
-      "delta_v_vs_nominal_mps": -15.5,
-      "tof_1000_s": 4.23
+      "case": "cda_coast_plus_10pct",
+      "v_1000_mps": 334.3,
+      "delta_v_mps": -0.4,
+      "tof_1000_s": 4.12
     },
     {
-      "case": "cd_a_minus_10pct",
-      "v_1000_mps": 352.4,
-      "delta_v_vs_nominal_mps": 17.7,
-      "tof_1000_s": 4.0
+      "case": "cda_coast_minus_10pct",
+      "v_1000_mps": 335.1,
+      "delta_v_mps": 0.4,
+      "tof_1000_s": 4.12
+    },
+    {
+      "case": "mass_cap_3_35kg",
+      "v_1000_mps": 333.0,
+      "delta_v_mps": -1.7,
+      "tof_1000_s": 4.17
+    },
+    {
+      "case": "mass_light_2_95kg",
+      "v_1000_mps": 335.6,
+      "delta_v_mps": 0.9,
+      "tof_1000_s": 4.08
+    }
+  ],
+  "evasion_geometry": [
+    {
+      "drone_speed_mps": 10,
+      "lateral_m_during_1000m_tof": 41.2,
+      "extra_lateral_m_1000_to_1200m": 6.0
+    },
+    {
+      "drone_speed_mps": 15,
+      "lateral_m_during_1000m_tof": 61.7,
+      "extra_lateral_m_1000_to_1200m": 9.0
+    },
+    {
+      "drone_speed_mps": 20,
+      "lateral_m_during_1000m_tof": 82.3,
+      "extra_lateral_m_1000_to_1200m": 12.0
+    },
+    {
+      "drone_speed_mps": 25,
+      "lateral_m_during_1000m_tof": 102.9,
+      "extra_lateral_m_1000_to_1200m": 15.0
+    },
+    {
+      "drone_speed_mps": 30,
+      "lateral_m_during_1000m_tof": 123.5,
+      "extra_lateral_m_1000_to_1200m": 18.0
+    },
+    {
+      "drone_speed_mps": 40,
+      "lateral_m_during_1000m_tof": 164.7,
+      "extra_lateral_m_1000_to_1200m": 24.0
+    },
+    {
+      "drone_speed_mps": 50,
+      "lateral_m_during_1000m_tof": 205.8,
+      "extra_lateral_m_1000_to_1200m": 30.0
     }
   ],
   "acceleration_profile": [
@@ -69,109 +198,99 @@
       "t_s": 0.0,
       "x_m": 0.0,
       "v_mps": 0.0,
+      "a_mps2": 9.8,
       "phase": "boost"
     },
     {
       "t_s": 0.5,
       "x_m": 11.3,
       "v_mps": 67.0,
+      "a_mps2": 260.7,
       "phase": "boost"
     },
     {
       "t_s": 1.0,
       "x_m": 74.7,
       "v_mps": 179.2,
+      "a_mps2": 179.9,
       "phase": "boost"
     },
     {
       "t_s": 1.5,
       "x_m": 183.1,
       "v_mps": 246.9,
+      "a_mps2": 95.3,
       "phase": "boost"
     },
     {
       "t_s": 2.0,
       "x_m": 316.3,
       "v_mps": 282.7,
+      "a_mps2": 52.6,
       "phase": "boost"
     },
     {
       "t_s": 2.5,
       "x_m": 464.8,
       "v_mps": 308.5,
+      "a_mps2": 50.1,
       "phase": "boost"
     },
     {
       "t_s": 3.0,
       "x_m": 625.0,
       "v_mps": 332.1,
+      "a_mps2": 44.2,
       "phase": "boost"
     },
     {
       "t_s": 3.5,
       "x_m": 793.5,
       "v_mps": 337.8,
+      "a_mps2": 11.1,
       "phase": "coast"
     },
     {
       "t_s": 4.0,
       "x_m": 961.7,
       "v_mps": 335.3,
+      "a_mps2": 11.0,
       "phase": "coast"
     },
     {
       "t_s": 4.5,
       "x_m": 1128.7,
       "v_mps": 332.9,
+      "a_mps2": 10.9,
       "phase": "coast"
     },
     {
       "t_s": 5.0,
       "x_m": 1294.6,
       "v_mps": 330.6,
+      "a_mps2": 10.8,
       "phase": "coast"
     },
     {
       "t_s": 5.5,
       "x_m": 1459.3,
       "v_mps": 328.4,
+      "a_mps2": 10.7,
       "phase": "coast"
     },
     {
       "t_s": 6.0,
       "x_m": 1622.8,
       "v_mps": 326.3,
+      "a_mps2": 10.6,
       "phase": "coast"
     },
     {
       "t_s": 6.5,
       "x_m": 1785.1,
       "v_mps": 324.3,
+      "a_mps2": 10.5,
       "phase": "coast"
-    },
-    {
-      "t_s": 2.62,
-      "x_m": 500.0,
-      "v_mps": 314.0,
-      "phase": "mark_500m"
-    },
-    {
-      "t_s": 3.37,
-      "x_m": 750.0,
-      "v_mps": 338.5,
-      "phase": "mark_750m"
-    },
-    {
-      "t_s": 4.12,
-      "x_m": 1000.0,
-      "v_mps": 334.7,
-      "phase": "mark_1000m"
-    },
-    {
-      "t_s": 4.72,
-      "x_m": 1200.0,
-      "v_mps": 331.9,
-      "phase": "mark_1200m"
     }
   ]
 }

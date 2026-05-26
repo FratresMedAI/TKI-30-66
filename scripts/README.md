@@ -2,43 +2,54 @@
 
 **Notional engineering tools only — not live-fire or certified ballistics.**
 
-## `radr_trajectory.py`
+## `radr_performance_model.py` (primary, v2)
 
-Point-mass **2-D** trajectory: progressive thrust from [Annex H](../annexes/H-motor-progressive-burn.md), quadratic drag, sea-level air density, ~3.5° loft.
+Traceable **2-D point-mass** model:
+
+- **60 mm** frontal area \(A = \pi (d/2)^2 \approx 0.00283\ \mathrm{m}^2\)
+- **Effective drag areas** \(C_d A\) in **m²** (boost vs coast), tied to geometry and locked to **330–350 m/s @ 1000 m**
+- Thrust table → **3000 N·s** nominal impulse; **rocket-equation** check (\(I/m\) vs burnout \(v\))
+- Range table **200–1200 m** with TOF, Mach, dynamic pressure \(q\)
+- **Warhead** cube mass (300 × 7 mm @ 7800 kg/m³)
+- **Evasion geometry** (lateral drift vs drone speed, 1000 vs 1200 m TOF delta)
+- Loft / mass / impulse / coast-drag sensitivity
 
 ### Run
 
 ```bash
-python scripts/radr_trajectory.py
-python scripts/radr_trajectory.py --smoke
-python scripts/radr_trajectory.py --json-out data/performance_model_output.json
+python scripts/radr_performance_model.py --verify
+python scripts/radr_performance_model.py --print
+python scripts/radr_performance_model.py --json-out data/performance_model_output.json
 ```
 
-### Assumptions
+### Locked nominal outputs (regenerate to refresh)
 
-| Input | Nominal | Source |
-|-------|---------|--------|
-| Mass | 3.1 kg | `baseline_systems.json` |
-| CdA reference | 0.35 m² | Baseline JSON (design bookkeeping area) |
-| Boost / coast drag | Multipliers on reference | Calibrated to **330–350 m/s @ 1000 m** |
-| Impulse | 3000 N·s | Thrust table scaled to locked band |
-| Burn | 3.3 s | Motor baseline |
+| Range | TOF (s) | v (m/s) |
+|-------|---------|---------|
+| 200 m | ~1.57 | ~253 (boost) |
+| 1000 m | ~4.12 | ~335 |
+| 1200 m | ~4.72 | ~332 |
 
-The integrator uses **separate boost and coast drag multipliers** on the baseline CdA so the locked velocity band is met in 2-D; this is not a literal \(C_d A = 0.35\ \mathrm{m}^2\) ballistic coefficient at 340 m/s.
+| Drag | Value (m²) |
+|------|------------|
+| Boost \(C_d A\) | **0.0161** (\(C_{d,\mathrm{eq}} \approx 5.7\) × \(A_\mathrm{front}\)) |
+| Coast \(C_d A\) | **0.000217** (\(C_{d,\mathrm{eq}} \approx 0.08\) × \(A_\mathrm{front}\)) |
 
-### Outputs
+**Interpretation:** Equivalent drag areas include fins, trim, and deploy transients — not bare skin friction on the 60 mm disk alone.
 
-- Burnout speed and downrange at motor tail-off  
-- TOF and speed at **500 / 750 / 1000 / 1200 m**  
-- Optional JSON: ranges, sensitivity flags, 0.5 s acceleration profile samples  
+## `radr_trajectory.py` (legacy CLI)
 
-**1200 m** row is a **stretch trade-study** coordinate — not a locked KPP.
+Wraps `radr_performance_model.py` for CI and older doc links (`--smoke`, `--json-out`).
 
-### Sensitivity CLI
+## `mass_cg_calc.py`
 
-Perturbations are implemented in code (`run_sensitivity`): ±5% mass, ±3% impulse, ±10% CdA reference. Re-run with `--json-out` after changing `Config` in the script for ad-hoc cases.
+Weighted CG from `baseline_systems.json` components; validates cube fragment mass vs warhead section.
 
-## Visual / overlay scripts
+```bash
+python scripts/mass_cg_calc.py
+```
+
+## Visual scripts
 
 | Script | Purpose |
 |--------|---------|
@@ -47,4 +58,8 @@ Perturbations are implemented in code (`run_sensitivity`): ±5% mass, ±3% impul
 
 ## CI
 
-`.github/workflows/ci.yml` runs `python scripts/radr_trajectory.py --smoke` on each push/PR.
+`.github/workflows/ci.yml` runs:
+
+- `python scripts/radr_performance_model.py --verify`
+- `python scripts/radr_trajectory.py --smoke`
+- `python scripts/mass_cg_calc.py`

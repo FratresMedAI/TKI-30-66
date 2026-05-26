@@ -19,7 +19,7 @@ Traceability: [06 — System Description](../docs/06-system-description.md) · [
 | Section | Length (mm) | Mass (kg) | CG from nose (mm) | Notes |
 |---------|-------------|-----------|---------------------|-------|
 | IR seeker + dome | 100 | 0.50 | 50 | 100 mm bay locked |
-| Warhead (cubes + burster + casing) | 120 | 1.05 | 160 | Forward cone pack |
+| Warhead (cubes + burster + casing) | 120 | 1.05 | 160 | **0.803 kg** cubes (300×7 mm @ 7800 kg/m³) + **~0.25 kg** burster/casing — see [`mass_cg_calc.py`](../scripts/mass_cg_calc.py) |
 | Avionics / autopilot | 40 | 0.15 | 220 | Wiring, battery share |
 | Motor case + grain | 297 | 1.20 | 380 | ~260 mm grain inside |
 | Fins, nozzle, structure | 50 | 0.20 | 430 | Spring fins at base |

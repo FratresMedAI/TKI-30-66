@@ -126,6 +126,27 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 
 ---
 
+## Engineering models (notional)
+
+| Tool | Purpose |
+|------|---------|
+| [`scripts/radr_performance_model.py`](scripts/radr_performance_model.py) | 2-D ballistics v2 — \(C_d A\) in m², ranges **200–1200 m**, CI `--verify` |
+| [`data/performance_model_output.json`](data/performance_model_output.json) | Regenerated tables (TOF, Mach, \(q\), sensitivity, evasion) |
+| [`scripts/mass_cg_calc.py`](scripts/mass_cg_calc.py) | Mass/CG + **300×7 mm** fragment mass check |
+| [`notebooks/RADR_Performance_Dashboard.ipynb`](notebooks/RADR_Performance_Dashboard.ipynb) | **Jupyter pitch dashboard** (RunPod or local) |
+
+```bash
+pip install -r requirements-modeling.txt
+python scripts/radr_performance_model.py --verify
+jupyter lab notebooks/
+```
+
+**RunPod:** [notebooks/RUNPOD-QUICKSTART.md](notebooks/RUNPOD-QUICKSTART.md) — 4090 pod is fine for preloaded Jupyter; math is CPU. Set `N_MC = 5000+` in the notebook.
+
+Detail: [Annex I — Performance Modeling](annexes/I-performance-modeling.md)
+
+---
+
 ## Document Map
 
 | # | Document |

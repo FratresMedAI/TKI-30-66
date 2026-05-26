@@ -1,0 +1,5 @@
+# RADR modeling + Jupyter (CPU or RunPod 4090 — plots are light; MC scale on pod)
+numpy>=1.24
+matplotlib>=3.7
+jupyterlab>=4.0
+ipykernel>=6.25

@@ -41,6 +41,17 @@
 - Locked [`visuals/rocket/output/radr-container-authoritative.png`](visuals/rocket/output/radr-container-authoritative.png) — **pop top** (PULL) + **breech screw cap** (hand-unscrew).
 - Side view: **left = top**, **right = breech**. Prep sequence in Annex F, JSON `round_packaging`, README gallery.
 
+## Jupyter dashboard + RunPod guide (2026-05-25)
+
+- [`notebooks/RADR_Performance_Dashboard.ipynb`](notebooks/RADR_Performance_Dashboard.ipynb) — range, sensitivity, evasion, Monte Carlo (`N_MC` 200 laptop / 5000+ pod).
+- [`scripts/monte_carlo_envelope.py`](scripts/monte_carlo_envelope.py), [`requirements-modeling.txt`](requirements-modeling.txt), [`notebooks/RUNPOD-QUICKSTART.md`](notebooks/RUNPOD-QUICKSTART.md).
+
+## Performance model v2 — traceable ballistics (2026-05-25)
+
+- New [`scripts/radr_performance_model.py`](scripts/radr_performance_model.py): explicit \(C_d A\) in m², rocket-equation checks, range 200–1200 m, cube mass, evasion table, sensitivity.
+- Regenerated [`data/performance_model_output.json`](data/performance_model_output.json); CI verify + `mass_cg_calc.py` warhead check.
+- [Annex I](annexes/I-performance-modeling.md) v1.9 aligned to v2 outputs.
+
 ## Range envelope: 200 m min, 800–1200 m band, 1000 m sweet spot (2026-05-25)
 
 - **200 m** minimum (not 150 m) — seeker/fuze margin; **800–1200 m** primary; **1000 m** sweet spot; **1200 m** max. JSON + DOC-01/02, Annex A/B/I/H.

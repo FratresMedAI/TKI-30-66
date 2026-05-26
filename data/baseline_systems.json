@@ -434,25 +434,30 @@
       ]
     },
     "performance_model": {
-      "status": "notional_point_mass",
-      "model_script": "scripts/radr_trajectory.py",
+      "status": "notional_point_mass_v2",
+      "model_script": "scripts/radr_performance_model.py",
+      "legacy_cli": "scripts/radr_trajectory.py",
+      "output_json": "data/performance_model_output.json",
       "launch_mass_kg": 3.1,
-      "cd_a_m2": { "nominal": 0.35, "min": 0.32, "max": 0.42 },
-      "burnout_velocity_mps": { "nominal": 339, "min": 360, "max": 430 },
+      "geometry": {
+        "body_d_m": 0.06,
+        "A_front_m2": 0.002827,
+        "Cd_equiv_boost": 5.69,
+        "Cd_equiv_coast": 0.077
+      },
+      "cda_effective_m2": { "boost": 0.0161, "coast": 0.000217 },
+      "impulse_ns": { "nominal": 3000, "min": 2950, "max": 3050 },
+      "impulse_to_weight_s": 98.7,
+      "delta_v_ideal_mps": 967.7,
+      "burnout_velocity_mps": { "nominal": 338.8, "fraction_of_ideal": 0.35 },
       "burnout_downrange_m": 726,
-      "mean_boost_acceleration_mps2": 293,
-      "velocity_at_1000m_mps": { "min": 330, "max": 350, "nominal": 335 },
-      "velocity_at_1200m_mps": { "nominal": 332, "status": "max_range_envelope" },
+      "burnout_mach": 0.997,
+      "velocity_at_1000m_mps": { "min": 330, "max": 350, "nominal": 334.7 },
+      "velocity_at_1200m_mps": { "nominal": 331.9, "status": "max_range_envelope" },
       "time_of_flight_1000m_s": { "min": 4.0, "max": 5.0, "nominal": 4.12 },
       "time_of_flight_1200m_s": { "nominal": 4.72, "status": "max_range_envelope" },
-      "sensitivity": {
-        "mass_plus_5pct_velocity_delta_mps": -1,
-        "mass_minus_5pct_velocity_delta_mps": 1,
-        "impulse_minus_3pct_velocity_delta_mps": -6,
-        "impulse_plus_3pct_velocity_delta_mps": 6,
-        "cd_a_plus_10pct_velocity_delta_mps": -16,
-        "cd_a_minus_10pct_velocity_delta_mps": 18
-      }
+      "time_of_flight_200m_s": { "nominal": 1.57, "phase": "boost" },
+      "warhead_fragment_mass_kg": 0.803
     },
     "rocket_mass_budget": {
       "total_nominal_kg": 3.1,
